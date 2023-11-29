@@ -28,14 +28,15 @@ public class TestEditAccountInfoPage extends BaseClass {
         }
     @Test(priority = 1)
     public void login(){
+
         boolean loopFlag=true;
-        Object object=null;
-        if (object==null){
+
+        if (EditDataHolder.getEmail()==null){
             while (loopFlag){
-                loginPageForFrontEnd.logIn(ApplicationConfig.readFromConfig("config.properties","username_edit"),ApplicationConfig.readFromConfig("config.properties","password_edit"));
+                loginPageForFrontEnd.logIn(EditDataHolder.getUserName(),EditDataHolder.getPassword());
                 //Assert.assertTrue(loginPageForFrontEnd.verifyMengentoFrontEndOpen());
                 loopFlag = false;
-                object  = new Object[1];
+
 
             }
 
@@ -43,7 +44,8 @@ public class TestEditAccountInfoPage extends BaseClass {
 
 
         while (loopFlag){
-            loginPageForFrontEnd.logIn(EditDataHolder.getEmail(),ApplicationConfig.readFromConfig("config.properties","password_edit"));
+            loginPageForFrontEnd.logIn(EditDataHolder.getEmail(),EditDataHolder.getPassword());
+            loopFlag = false;
         }
 
 
@@ -51,12 +53,14 @@ public class TestEditAccountInfoPage extends BaseClass {
 
 
     }
-    @Test(priority = 2,invocationCount = 2)
+    @Test(priority = 2)
     public void editInfo(){
+        EditDataHolder.setEmail(FunctionLibray.generateFakeEmail());
         dashBoardPageForFrontEnd.clickOnAccountInformationLink();
         editAccountInfoPage.editAccountInfo(FunctionLibray.generateFakeName(),FunctionLibray.generateFakeName(),
                 FunctionLibray.generateFakeName(),EditDataHolder.getEmail()
                 ,ApplicationConfig.readFromConfig("config.properties","password_edit"));
+        System.out.println(EditDataHolder.getEmail());
         Assert.assertTrue(editAccountInfoPage.verifyEditSuccessfully());
 
     }
