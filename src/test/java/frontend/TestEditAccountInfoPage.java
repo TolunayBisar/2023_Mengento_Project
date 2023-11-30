@@ -31,9 +31,8 @@ public class TestEditAccountInfoPage extends BaseClass {
 
     @Test(priority = 1)
     public void createAccount(){
-        String email = FunctionLibray.generateFakeEmail();
-        createAccount.creatAccount(FunctionLibray.generateFakeName(),FunctionLibray.generateFakeName(),email,EditDataHolder.getPassword());
-        EditDataHolder.setEmail(email);
+
+        createAccount.creatAccount(FunctionLibray.generateFakeName(),FunctionLibray.generateFakeName(),FunctionLibray.generateFakeEmail(),ApplicationConfig.readFromConfig("config.properties","password_edit"));
         Assert.assertTrue(createAccount.verifyEditSuccessfully());
 
     }
@@ -42,8 +41,7 @@ public class TestEditAccountInfoPage extends BaseClass {
         dashBoardPageForFrontEnd.clickOnAccountInformationLink();
         editAccountInfoPage.editAccountInfo(FunctionLibray.generateFakeName(),FunctionLibray.generateFakeName(),
                 FunctionLibray.generateFakeName(),FunctionLibray.generateFakeEmail()
-                ,EditDataHolder.getPassword());
-        System.out.println(EditDataHolder.getEmail());
+                ,ApplicationConfig.readFromConfig("config.properties","password_edit"));
         Assert.assertTrue(editAccountInfoPage.verifyEditSuccessfully());
 
     }
