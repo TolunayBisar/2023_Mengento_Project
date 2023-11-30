@@ -17,10 +17,14 @@ import java.time.Duration;
 public class FunctionLibray {
 
     WebDriver driver;
+    int timeOut = Integer.parseInt(ApplicationConfig.readFromConfig("config.properties","timeout"));
 
     public FunctionLibray(WebDriver driver) {
         this.driver = driver;
 
+    }
+
+    public FunctionLibray() {
     }
 
     public void sleep(int seconds){
@@ -34,7 +38,7 @@ public class FunctionLibray {
 
 
     public void waitElemantPresent(WebElement element){
-        int timeOut = Integer.parseInt(ApplicationConfig.readFromConfig("config.properties","timeout"));
+
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeOut));
         wait.until(ExpectedConditions.visibilityOf(element));
     }
