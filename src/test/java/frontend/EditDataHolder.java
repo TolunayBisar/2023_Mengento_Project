@@ -5,7 +5,7 @@ import basefunc.FunctionLibray;
 public class EditDataHolder {
     public EditDataHolder() {
     }
-    private static String userName = "agueda.hermiston@yahoo.com";
+    private static String userName = "danna.bergnaum@hotmail.com";
     private static String password = "Omer254182958";
 
     public static String getUserName() {

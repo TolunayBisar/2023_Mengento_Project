@@ -15,6 +15,7 @@ public class TestEditAccountInfoPage extends BaseClass {
     DashBoardPageForFrontEnd dashBoardPageForFrontEnd;
     LoginPageForFrontEnd loginPageForFrontEnd;
     EditAccountInfoPage editAccountInfoPage;
+    CreateAccount createAccount;
     ApplicationConfig applicationConfig;
     @BeforeClass
     public void setup(){
@@ -24,42 +25,24 @@ public class TestEditAccountInfoPage extends BaseClass {
         dashBoardPageForFrontEnd = new DashBoardPageForFrontEnd(driver);
         loginPageForFrontEnd = new LoginPageForFrontEnd(driver);
         editAccountInfoPage = new EditAccountInfoPage(driver);
+        createAccount = new CreateAccount(driver);
 
         }
+
     @Test(priority = 1)
-    public void login(){
-
-        boolean loopFlag=true;
-
-        if (EditDataHolder.getEmail()==null){
-            while (loopFlag){
-                loginPageForFrontEnd.logIn(EditDataHolder.getUserName(),EditDataHolder.getPassword());
-                //Assert.assertTrue(loginPageForFrontEnd.verifyMengentoFrontEndOpen());
-                loopFlag = false;
-
-
-            }
-
-        }
-
-
-        while (loopFlag){
-            loginPageForFrontEnd.logIn(EditDataHolder.getEmail(),EditDataHolder.getPassword());
-            loopFlag = false;
-        }
-
-
-
-
+    public void createAccount(){
+        String email = FunctionLibray.generateFakeEmail();
+        createAccount.creatAccount(FunctionLibray.generateFakeName(),FunctionLibray.generateFakeName(),email,EditDataHolder.getPassword());
+        EditDataHolder.setEmail(email);
+        Assert.assertTrue(createAccount.verifyEditSuccessfully());
 
     }
     @Test(priority = 2)
     public void editInfo(){
-        EditDataHolder.setEmail(FunctionLibray.generateFakeEmail());
         dashBoardPageForFrontEnd.clickOnAccountInformationLink();
         editAccountInfoPage.editAccountInfo(FunctionLibray.generateFakeName(),FunctionLibray.generateFakeName(),
-                FunctionLibray.generateFakeName(),EditDataHolder.getEmail()
-                ,ApplicationConfig.readFromConfig("config.properties","password_edit"));
+                FunctionLibray.generateFakeName(),FunctionLibray.generateFakeEmail()
+                ,EditDataHolder.getPassword());
         System.out.println(EditDataHolder.getEmail());
         Assert.assertTrue(editAccountInfoPage.verifyEditSuccessfully());
 
