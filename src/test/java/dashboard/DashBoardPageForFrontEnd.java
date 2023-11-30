@@ -1,6 +1,7 @@
 package dashboard;
 
 import basefunc.FunctionLibray;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -14,7 +15,7 @@ import org.openqa.selenium.support.PageFactory;
 public class DashBoardPageForFrontEnd {
     public WebDriver driver;
     FunctionLibray functionLibrary;
-    @FindBy(linkText = "My Dashboard")
+    @FindBy(xpath = "//*[text()= \"My Dashboard\"]")
     WebElement myDashboardText;
     @FindBy(xpath = "//span[text()=\"My Account\"]")
     WebElement myAccountLink;
@@ -39,6 +40,8 @@ public class DashBoardPageForFrontEnd {
     WebElement myDownloadableProductLink;
     @FindBy(xpath ="//div[@class=\"block-content\"]//a[text()=\"My Orders\"]" )
     WebElement myOrderLink;
+    @FindBy(xpath ="//*[text()= \"Edit Account Information\"]")
+    WebElement editAccountInformationText;
 
     public DashBoardPageForFrontEnd(WebDriver driver) {
         this.driver = driver;
@@ -60,6 +63,13 @@ public class DashBoardPageForFrontEnd {
 
     public void clickOnAccountDashboarLink(){
         accountDashboardLink.click();
+    }
+    public boolean verifyAccountInfo2() {
+        functionLibrary.waitElemantPresent(editAccountInformationText);
+        if (editAccountInformationText.isDisplayed()) {
+            System.out.println("editAccountInformation page successfully opened");
+        }
+        return true;
     }
 
     public void clickOnAccountInformationLink(){
