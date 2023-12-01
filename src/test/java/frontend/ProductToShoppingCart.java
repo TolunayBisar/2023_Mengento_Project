@@ -1,7 +1,6 @@
 package frontend;
 
 import basefunc.FunctionLibray;
-import dashboard.DashBoardPageForFrontEnd;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -10,7 +9,6 @@ import org.openqa.selenium.support.PageFactory;
 public class ProductToShoppingCart {
     WebDriver driver;
     FunctionLibray functionLibray;
-    DashBoardPageForFrontEnd dashBoardPage;
     @FindBy(xpath = "//*[@id=\"nav\"]/ol/li[1]/a")
     WebElement accessoriesUpdatedMadinaLink;
     @FindBy(xpath = "//*[@class='category-products']/ul/li/a[@title='Retro Chic Eyeglasses']")
@@ -40,6 +38,7 @@ public class ProductToShoppingCart {
     }
     public boolean verifyForShoppingCartPage(){
         functionLibray.waitElemantPresent(addedShoppingCartSuccessMessage);
+        System.out.println("Retro Chic Eyeglasses was added to your shopping cart.");
         return addedShoppingCartSuccessMessage.isDisplayed();
 
     }
