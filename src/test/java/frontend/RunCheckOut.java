@@ -1,16 +1,9 @@
 package frontend;
 
 import basefunc.BaseClass;
-import basefunc.FunctionLibray;
 import basefunc.LoginDataForFrontEnd;
+import dashboard.DashBoardPageForFrontEnd;
 import dashboard.LoginPageForFrontEnd;
-import org.apache.maven.plugin.surefire.runorder.Priority;
-import org.junit.jupiter.api.BeforeAll;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.FindBy;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -24,6 +17,7 @@ public class RunCheckOut extends BaseClass {
     LoginDataForFrontEnd loginDataForFrontEnd ;
     LoginPageForFrontEnd loginPageForFrontEnd;
     CheckOutOrder checkOutOrder;
+    DashBoardPageForFrontEnd dashBoardPageForFrontEnd ;
 
 
     @BeforeClass
@@ -34,34 +28,50 @@ public class RunCheckOut extends BaseClass {
         setUpBrowser(loginDataForFrontEnd.getUrlFrontEnd());
 
         loginPageForFrontEnd = new LoginPageForFrontEnd(driver);
+
+        dashBoardPageForFrontEnd = new DashBoardPageForFrontEnd(driver);
+
         checkOutOrder  = new CheckOutOrder(driver);
 
 
     }
 
+
     @Test(priority = 1)
+    public void checkOutAsGuest(){
+        checkOutOrder.addProductToCartAsGuest();
+        checkOutOrder.proceedCheckOutProduct();
+        checkOutOrder.checkOutAsGuest();
+    }
+
+    @Test(priority = 2)
+    public void verifyCheckOutAsGuest(){
+        checkOutOrder.verifyCheckOut();
+    }
+
+    @Test(priority = 3)
     public void login(){
 
         loginPageForFrontEnd.logIn(loginDataForFrontEnd.getUsernameForLogin(),
                 loginDataForFrontEnd.getRegisterPassword());
     }
-    @Test(priority = 2)
+    @Test(priority = 4)
     public void checkOut(){
-        checkOutOrder.addProductToCart();
+        checkOutOrder.addProductAsRegisteredToCart();
         checkOutOrder.proceedCheckOutProduct();
         checkOutOrder.checkOut();
 
 
     }
 
-    @Test
+    @Test(priority = 5)
     public void verifyCheckOut(){
         checkOutOrder.verifyCheckOut();
     }
 
-    @AfterClass
-    public void tearDown(){
-        closeBrowser();
-    }
-
+//    @AfterClass
+//    public void tearDown(){
+//        closeBrowser();
+//    }
+//
 }
