@@ -2,6 +2,7 @@ package basefunc;
 
 import com.github.javafaker.Faker;
 import org.apache.commons.lang3.RandomStringUtils;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -79,6 +80,18 @@ public class FunctionLibray {
     public String timeStamp() {
         long timeStamp = System.currentTimeMillis();
         return (Long.toString(timeStamp).toString().substring(8));
+    }
+
+    public void javaScripClick(WebElement element){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click()",element);
+
+    }
+
+    public void javaScriptScroll(WebElement webElement){
+        JavascriptExecutor jst = (JavascriptExecutor) driver;
+        jst.executeScript("arguments[0].scrollIntoView(true);",webElement);
+
     }
 
 

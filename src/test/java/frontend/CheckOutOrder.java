@@ -7,6 +7,7 @@ import com.github.javafaker.Faker;
 import dashboard.LoginPageForFrontEnd;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -107,9 +108,9 @@ WebElement guestZipInBill;
     @FindBy(xpath = "//label[text()=\"Use Billing Address\"]")
             WebElement useBillAddCheckbox;
 
-    @FindAll(@FindBy(xpath = "level0 has-children"))
+    @FindAll(@FindBy(xpath = "//a[@class=\"level0 has-children\"]"))
           List<WebElement> tabListInDashboard;
-    @FindBy(xpath = "//li[@class=\"level1 nav-1-1 first\"]")
+    @FindBy(xpath = "//li[@class=\"level1 nav-1-1 first\"]/a")
             WebElement productForAdding;
     @FindBy(xpath = "//div[@class=\"actions\"]/button[@type='button' and @title='Add to Cart']")
             WebElement addToCartButtonForRegistered;
@@ -117,7 +118,7 @@ WebElement guestZipInBill;
     LoginPageForFrontEnd loginForFrontEnd ;
     LoginDataForFrontEnd loginDataForFrontEnd = new LoginDataForFrontEnd();
     FunctionLibray functionLibray ;
-
+    Actions actions;
     Random random = new Random();
 
 
@@ -126,6 +127,7 @@ WebElement guestZipInBill;
         PageFactory.initElements(driver, this);
         loginForFrontEnd= new LoginPageForFrontEnd(driver);
         functionLibray = new FunctionLibray(driver);
+        actions = new Actions(driver);
     }
 
     public void setLoginPageForFrontEnd() {
@@ -152,8 +154,10 @@ WebElement guestZipInBill;
 
     public void addProductAsRegisteredToCart() {
         tabListInDashboard.get(0).click();
-        productForAdding.click();
-        addToCartButtonForRegistered.click();
+        functionLibray.javaScripClick(productForAdding);
+       // productForAdding.click();
+        functionLibray.javaScriptScroll(addToCartButtonForRegistered);
+        //addToCartButtonForRegistered.click();
 
 
 
@@ -162,6 +166,7 @@ WebElement guestZipInBill;
     public void proceedCheckOutProduct() {
         functionLibray.waitElemantPresent(countryDropdown);
         Select selectCountry = new Select(countryDropdown);
+        functionLibray.sleep(5);
         selectCountry.selectByValue("TR");
         stateInput.sendKeys("Istanbul");
         zipInput.sendKeys("34570");
@@ -171,6 +176,7 @@ WebElement guestZipInBill;
     }
 
     public void checkOutAsGuest(){
+
 
         functionLibray.waitElemantPresent(checkOutAsGuestCheckBox);
         checkOutAsGuestCheckBox.click();
@@ -197,15 +203,20 @@ WebElement guestZipInBill;
         functionLibray.waitElemantPresent(listOfShippingAddType.get(0));
         listOfShippingAddType.get(0).click();
         functionLibray.waitElemantPresent(continueButtonForBill);
-        continueButtonForBill.click();
-//        functionLibray.waitElemantPresent(continueForShippingSave);
-//        if (useBillAddCheckbox.isDisplayed()){
-//            functionLibray.waitElemantPresent(useBillAddCheckbox);
-//            useBillAddCheckbox.click();
-//            functionLibray.waitElemantPresent(continueForShippingSave);
-//            continueForShippingSave.click();
-//        }
-        functionLibray.sleep(60);
+        functionLibray.javaScripClick(continueButtonForBill);
+        //actions.moveToElement(continueButtonForBill).build().perform();
+        //continueButtonForBill.click();
+        functionLibray.sleep(80);
+        //functionLibray.waitElemantPresent(useBillAddCheckbox);
+        if (useBillAddCheckbox.isDisplayed()){
+            functionLibray.waitElemantPresent(useBillAddCheckbox);
+actions.moveToElement(useBillAddCheckbox).build().perform();
+            useBillAddCheckbox.click();
+            functionLibray.waitElemantPresent(continueForShippingSave);
+            //continueForShippingSave.click();
+            actions.moveToElement(continueForShippingSave).build().perform();
+        }
+        //functionLibray.sleep(60);
         functionLibray.waitElemantPresent(shipMethodCheckbox.get(0));
         shipMethodCheckbox.get(random.nextInt(shipMethodCheckbox.size())).click();
         functionLibray.waitElemantPresent(continueShipMethod);
@@ -224,15 +235,24 @@ WebElement guestZipInBill;
 
     public void checkOut() {
         functionLibray.waitElemantPresent(listOfBillInfo.get(0));
-        listOfBillInfo.get(random.nextInt(listOfBillInfo.size())).click();
-        continueButtonForBill.click();
+       // listOfBillInfo.get(random.nextInt(listOfBillInfo.size())).click();
+        functionLibray.javaScripClick(listOfBillInfo.get(random.nextInt(listOfBillInfo.size())));
+        functionLibray.waitElemantPresent(continueButtonForBill);
+        functionLibray.javaScripClick(continueButtonForBill);
+        //continueButtonForBill.click();
         if (shipAddDropdown.isDisplayed()) {
-            checkboxForShipAdd.click();
-            continueForShippingSave.click();
+            functionLibray.waitElemantPresent(checkboxForShipAdd);
+            functionLibray.javaScripClick(checkboxForShipAdd);
+            //checkboxForShipAdd.click();
+            functionLibray.javaScripClick(continueForShippingSave);
+            //continueForShippingSave.click();
 
         }
-        shipMethodCheckbox.get(random.nextInt(shipMethodCheckbox.size())).click();
-       continueShipMethod.click();
+
+        //shipMethodCheckbox.get(random.nextInt(shipMethodCheckbox.size())).click();
+        functionLibray.javaScripClick(shipMethodCheckbox.get(random.nextInt(shipMethodCheckbox.size())));
+        functionLibray.javaScripClick(continueShipMethod);
+      // continueShipMethod.click();
        paymentInfoCheckbox.get(2).click();
        continuePaymentMethod.click();
        placeOrderButton.click();

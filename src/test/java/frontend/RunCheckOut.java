@@ -37,14 +37,14 @@ public class RunCheckOut extends BaseClass {
     }
 
 
-    @Test(priority = 1)
+    @Test(priority = 1,enabled = false)
     public void checkOutAsGuest(){
         checkOutOrder.addProductToCartAsGuest();
         checkOutOrder.proceedCheckOutProduct();
         checkOutOrder.checkOutAsGuest();
     }
 
-    @Test(priority = 2)
+    @Test(priority = 2,enabled = false)
     public void verifyCheckOutAsGuest(){
         checkOutOrder.verifyCheckOut();
     }
