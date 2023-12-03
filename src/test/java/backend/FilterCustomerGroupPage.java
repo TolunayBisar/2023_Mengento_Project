@@ -47,6 +47,7 @@ public class FilterCustomerGroupPage {
     public boolean verifyFilterCustomersGroup(){
         functionLibray.waitElemantPresent(infoForCustomersGroupMessage);
         if (infoForCustomersGroupMessage.isDisplayed()){
+            System.out.println(infoForCustomersGroupMessage.getText());
             System.out.println("Filter Customers Group was Successful!");
             return true;
         }else {

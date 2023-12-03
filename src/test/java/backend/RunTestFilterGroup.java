@@ -1,6 +1,6 @@
 package backend;
 
-import backend.FilterCustomerGroupPage;
+
 import basefunc.BaseClass;
 import basefunc.LoginDataForBackEnd;
 import dashboard.DashBoardPageForBackEnd;
@@ -25,10 +25,10 @@ public class RunTestFilterGroup extends BaseClass {
         dashBoardPageForBackEnd = new DashBoardPageForBackEnd(driver);
         filterCustomerGroupPage = new FilterCustomerGroupPage(driver);
     }
-//    @Test
-//    public void verifyDashboardOpened(){
-//        Assert.assertTrue(dashBoardPageForBackEnd.verifyCustomerModuleDashboardOpened());
-//    }
+    @Test
+    public void verifyDashboardOpened(){
+        Assert.assertTrue(dashBoardPageForBackEnd.verifyCustomerModuleDashboardOpenedXa());
+    }
     @Test
     public void filterGroup(){
         filterCustomerGroupPage.filterCustomersGroup();

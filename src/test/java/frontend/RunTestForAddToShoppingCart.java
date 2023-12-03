@@ -28,8 +28,8 @@ public class RunTestForAddToShoppingCart extends BaseClass {
 
     @Test
     public void addToShoppingCart(){
-        productToShoppingCart.addProductToShoppingCart();
-        Assert.assertTrue(productToShoppingCart.verifyForShoppingCartPage());
+        productToShoppingCart.addProductToShoppingCart01();
+        Assert.assertTrue(productToShoppingCart.verifyForShoppingCartPage01());
     }
     @AfterClass
     public void tearDown(){

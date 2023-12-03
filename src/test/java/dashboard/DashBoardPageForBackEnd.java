@@ -18,6 +18,10 @@ public class DashBoardPageForBackEnd {
     //customerModule
     @FindBy(linkText = "Logged in as customermanager")
     WebElement loggedInAsCustomerManagerText;
+    @FindBy(xpath = "//div[@class='header-right']/p")
+    WebElement loggedInAsCustomerManagerTextXa;
+
+
     @FindBy(xpath = "//li[@class=\"parent level0\"]/a[@onClick=\"return false\"]/span[text()=\"Sales\"]")
     WebElement salesTab;
     @FindBy(xpath = "//a[@onClick=\"return false\"]/span[text()=\"Catalog\"]")
@@ -65,6 +69,13 @@ public class DashBoardPageForBackEnd {
     public boolean verifyCustomerModuleDashboardOpened() {
         functionLibrary.waitElemantPresent(loggedInAsCustomerManagerText);
         if (loggedInAsCustomerManagerText.isDisplayed()) {
+            System.out.println("Megento BackEnd succesfully opened");
+        }
+        return true;
+    }
+    public boolean verifyCustomerModuleDashboardOpenedXa() {
+        functionLibrary.waitElemantPresent(loggedInAsCustomerManagerTextXa);
+        if (loggedInAsCustomerManagerTextXa.isDisplayed()) {
             System.out.println("Megento BackEnd succesfully opened");
         }
         return true;
