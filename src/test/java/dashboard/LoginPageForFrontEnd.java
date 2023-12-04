@@ -18,7 +18,7 @@ public class LoginPageForFrontEnd {
 
     WebDriver driver;
     FunctionLibray functionLibrary;
-
+Actions actions;
 
     @FindBy(linkText = "Welcome ")
     WebElement welcomeText;
@@ -33,6 +33,11 @@ public class LoginPageForFrontEnd {
     WebElement passwordField;
     @FindBy(id = "send2")
     WebElement loginButton;
+    @FindBy(xpath = "//a[@class=\"skip-link skip-account\"]/span")
+    WebElement accountLink;
+    @FindBy(linkText = "Log Out")
+    WebElement logOutLink;
+
 
 
 
@@ -41,6 +46,7 @@ public class LoginPageForFrontEnd {
         this.driver = driver;
         PageFactory.initElements(driver, this);
         functionLibrary = new FunctionLibray(driver);
+        actions =  new Actions(driver);
 
     }
 
@@ -56,7 +62,7 @@ public class LoginPageForFrontEnd {
 
     // write login action
     public void enterUserName(String emailAdd) {
-        //functionLibrary.waitElemantPresent(emailField);
+        functionLibrary.waitElemantPresent(emailField);
        emailField.sendKeys(emailAdd);
     }
 
@@ -72,9 +78,12 @@ public class LoginPageForFrontEnd {
     }
 
     public void logIn(String userName, String password) {
-//        actions =  new Actions(driver);
-//        actions.moveToElement(myAccountLink).click().build().perform();
-//       functionLibrary.waitElemantPresent(myAccountLink);
+//
+//
+      functionLibrary.waitElemantPresent(myAccountLink);
+      //functionLibrary.waitElemantPresent(getMyAccountLink);
+      //functionLibrary.javaScripClick(myAccountLink);
+       // actions.moveToElement(myAccountLink).click().build().perform();
  myAccountLink.click();
 //         driver.findElement(By.xpath("//a/span[text()=\"Account\"]")).click();
        // driver.findElement(By.xpath("//div[@class=\"c\"]//li/a[text()=\"My Account\"]")).click();
@@ -83,5 +92,13 @@ public class LoginPageForFrontEnd {
         enterPassword(password);
         clickLoginButton();
 
+    }
+    public void logOut(){
+        functionLibrary.waitElemantPresent(accountLink);
+        functionLibrary.javaScripClick(accountLink);
+       // accountLink.click();
+        functionLibrary.waitElemantPresent(logOutLink);
+        functionLibrary.javaScripClick(logOutLink);
+        //logOutLink.click();
     }
 }

@@ -4,7 +4,6 @@ import basefunc.BaseClass;
 import basefunc.LoginDataForFrontEnd;
 import dashboard.DashBoardPageForFrontEnd;
 import dashboard.LoginPageForFrontEnd;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -37,36 +36,42 @@ public class RunCheckOut extends BaseClass {
     }
 
 
-    @Test(priority = 1,enabled = false)
+    @Test(priority = 4,enabled = true)
     public void checkOutAsGuest(){
+        setUpBrowser(loginDataForFrontEnd.getUrlFrontEnd());
+        checkOutOrder = new CheckOutOrder(driver);
         checkOutOrder.addProductToCartAsGuest();
         checkOutOrder.proceedCheckOutProduct();
         checkOutOrder.checkOutAsGuest();
     }
 
-    @Test(priority = 2,enabled = false)
+    @Test(priority = 6,enabled = true)
     public void verifyCheckOutAsGuest(){
         checkOutOrder.verifyCheckOut();
     }
 
-    @Test(priority = 3)
+    @Test(priority = 1)
     public void login(){
 
         loginPageForFrontEnd.logIn(loginDataForFrontEnd.getUsernameForLogin(),
                 loginDataForFrontEnd.getRegisterPassword());
     }
-    @Test(priority = 4)
+  //  @Test(priority = 4)
+   // public void logout(){
+      //  loginPageForFrontEnd.logOut();
+  //  }
+    @Test(priority = 2)
     public void checkOut(){
-        checkOutOrder.addProductAsRegisteredToCart();
-        checkOutOrder.proceedCheckOutProduct();
-        checkOutOrder.checkOut();
+
+        checkOutOrder.checkOutAsRegister();
 
 
     }
 
-    @Test(priority = 5)
+    @Test(priority = 3)
     public void verifyCheckOut(){
         checkOutOrder.verifyCheckOut();
+        closeBrowser();
     }
 
 //    @AfterClass

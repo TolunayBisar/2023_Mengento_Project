@@ -3,7 +3,6 @@ package frontend;
 import basefunc.BaseClass;
 import basefunc.FunctionLibray;
 import basefunc.LoginDataForFrontEnd;
-import com.github.javafaker.Faker;
 import dashboard.LoginPageForFrontEnd;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -22,7 +21,7 @@ import java.util.Random;
  * @Email :tolunay.bisar@gmail.com
  **/
 public class CheckOutOrder extends BaseClass {
- //WebDriver driver;
+    //WebDriver driver;
 
     @FindBy(xpath = "//a[text()=\"Lafayette Convertible Dress\"]")
     WebElement lafayetteDressLink;
@@ -49,39 +48,56 @@ public class CheckOutOrder extends BaseClass {
 
     @FindAll(@FindBy(xpath = "//input[@type=\"radio\"]"))
     List<WebElement> listOfBillInfo;
+
+    @FindBy(id = "billing:use_for_shipping_yes")
+    WebElement shipToThisAdd;
+
     @FindBy(xpath = "//button[@onclick=\"billing.save()\"]")
     WebElement continueButtonForBill;
+    @FindBy(xpath = "//div[@id=\"billing-buttons-container\"]//button")
+    WebElement continueButtonInBill;
+    ;
+
+    @FindBy(xpath = "//span[text()='Continue']")
+    WebElement gulbaharContinue;
     @FindBy(id = "shipping-address-select")
     WebElement shipAddDropdown;
     @FindBy(id = "shipping:same_as_billing")
     WebElement checkboxForShipAdd;
     @FindBy(xpath = "//button[@onclick=\"shipping.save()\"]")
     WebElement continueForShippingSave;
-   @FindAll(@FindBy(xpath = "//input[@name=\"shipping_method\"]"))
-           List<WebElement> shipMethodCheckbox;
+    @FindAll(@FindBy(xpath = "//input[@name=\"shipping_method\"]"))
+    List<WebElement> shipMethodCheckbox;
 
-   @FindBy(xpath = "//button[@onclick=\"shippingMethod.save()\"]")
-           WebElement continueShipMethod;
+    @FindBy(xpath = "//input[@id=\"s_method_freeshipping_freeshipping\"]")
+    WebElement shipMethodCheckbox1;
 
-   @FindAll(@FindBy(xpath = "//dt/input"))
-           List<WebElement> paymentInfoCheckbox;
+    @FindBy(id = "s_method_freeshipping_freeshipping")
+    WebElement shipMethodCheckboxWithID;
+    @FindBy(xpath = "//button[@onclick=\"shippingMethod.save()\"]")
+    WebElement continueShipMethod;
 
-   @FindBy(xpath = "//button[@onclick=\"payment.save()\"]")
-           WebElement continuePaymentMethod;
-@FindBy(xpath = "//button[@onclick=\"review.save();\"]")
-    WebElement  placeOrderButton;
+    @FindAll(@FindBy(xpath = "//dt/input"))
+    List<WebElement> paymentInfoCheckbox;
+    @FindBy(id = "p_method_cashondelivery")
+    WebElement cashOnDeliveryCheckbox;
 
-@FindAll(@FindBy(xpath = "//h1[text()=\"Your order has been received.\"]"))
-        List<WebElement> checkoutSuccessfulMsgList;
-@FindBy(id = "login:guest")
-        WebElement checkOutAsGuestCheckBox;
+    @FindBy(xpath = "//button[@onclick=\"payment.save()\"]")
+    WebElement continueInPaymentMethod;
+    @FindBy(xpath = "//button[@onclick=\"review.save();\"]")
+    WebElement placeOrderButton;
+
+    @FindAll(@FindBy(xpath = "//h1[text()=\"Your order has been received.\"]"))
+    List<WebElement> checkoutSuccessfulMsgList;
+    @FindBy(id = "login:guest")
+    WebElement checkOutAsGuestCheckBox;
     @FindBy(id = "login:register")
     WebElement checkOutAsRegisteredCheckBox;
 
-    @FindBy(id="onepage-guest-register-button")
-            WebElement continueButtonCheckOut;
+    @FindBy(id = "onepage-guest-register-button")
+    WebElement continueButtonCheckOut;
     @FindBy(id = "billing:firstname")
-            WebElement guestFirstNameInBill;
+    WebElement guestFirstNameInBill;
 
     @FindBy(id = "billing:lastname")
     WebElement guestLastNameInBill;
@@ -92,40 +108,47 @@ public class CheckOutOrder extends BaseClass {
 
     @FindBy(id = "billing:city")
     WebElement guestCityInBill;
-@FindBy(id = "billing:postcode")
-WebElement guestZipInBill;
+    @FindBy(id = "billing:postcode")
+    WebElement guestZipInBill;
     @FindBy(id = "billing:country_id")
     WebElement guestCountryInBill;
     @FindBy(id = "billing:telephone")
     WebElement guestTelNoInBill;
-@FindBy(id = "billing:use_for_shipping_yes")
-        WebElement checkboxShipToThisAdd;
+    @FindBy(id = "billing:use_for_shipping_yes")
+    WebElement checkboxShipToThisAdd;
 
     @FindBy(id = "billing:use_for_shipping_no")
     WebElement checkboxShipToDiffAdd;
     @FindAll(@FindBy(xpath = "//input[@name=\"billing[use_for_shipping]\"]"))
     List<WebElement> listOfShippingAddType;
+    @FindBy(id = "billing:use_for_shipping_yes")
+    WebElement shipToThisAdd1;
     @FindBy(xpath = "//label[text()=\"Use Billing Address\"]")
-            WebElement useBillAddCheckbox;
+    WebElement useBillAddCheckbox;
 
     @FindAll(@FindBy(xpath = "//a[@class=\"level0 has-children\"]"))
-          List<WebElement> tabListInDashboard;
+    List<WebElement> tabListInDashboard;
     @FindBy(xpath = "//li[@class=\"level1 nav-1-1 first\"]/a")
-            WebElement productForAdding;
+    WebElement productForAdding;
     @FindBy(xpath = "//div[@class=\"actions\"]/button[@type='button' and @title='Add to Cart']")
-            WebElement addToCartButtonForRegistered;
+    WebElement addToCartButtonForRegistered;
+    @FindBy(xpath = "//span[contains(text(),\"Cart\")][1]")
+    WebElement cartButton;
 
-    LoginPageForFrontEnd loginForFrontEnd ;
+    @FindBy(xpath = "//a[contains(text(),\"Checkout\")][1]")
+    WebElement checkOutLink;
+
+    LoginPageForFrontEnd loginForFrontEnd;
     LoginDataForFrontEnd loginDataForFrontEnd = new LoginDataForFrontEnd();
-    FunctionLibray functionLibray ;
+    FunctionLibray functionLibray;
     Actions actions;
     Random random = new Random();
 
 
     public CheckOutOrder(WebDriver driver) {
-//this.driver= driver;
+
         PageFactory.initElements(driver, this);
-        loginForFrontEnd= new LoginPageForFrontEnd(driver);
+        loginForFrontEnd = new LoginPageForFrontEnd(driver);
         functionLibray = new FunctionLibray(driver);
         actions = new Actions(driver);
     }
@@ -141,6 +164,7 @@ WebElement guestZipInBill;
 
     public void addProductToCartAsGuest() {
         functionLibray.waitElemantPresent(lafayetteDressLink);
+        //functionLibray.javaScripClick(lafayetteDressLink);
         lafayetteDressLink.click();
         Select selectColor = new Select(colorDropDown);
         selectColor.selectByValue("27");
@@ -153,12 +177,12 @@ WebElement guestZipInBill;
     }
 
     public void addProductAsRegisteredToCart() {
+        functionLibray.waitElemantPresent(tabListInDashboard.get(0));
         tabListInDashboard.get(0).click();
         functionLibray.javaScripClick(productForAdding);
-       // productForAdding.click();
+        // productForAdding.click();
         functionLibray.javaScriptScroll(addToCartButtonForRegistered);
         //addToCartButtonForRegistered.click();
-
 
 
     }
@@ -175,96 +199,81 @@ WebElement guestZipInBill;
 
     }
 
-    public void checkOutAsGuest(){
+    public void checkOutAsGuest() {
 
 
         functionLibray.waitElemantPresent(checkOutAsGuestCheckBox);
         checkOutAsGuestCheckBox.click();
         functionLibray.waitElemantPresent(continueButtonCheckOut);
         continueButtonCheckOut.click();
+
         functionLibray.waitElemantPresent(guestFirstNameInBill);
         guestFirstNameInBill.sendKeys(FunctionLibray.generateFakeName());
         functionLibray.waitElemantPresent(guestLastNameInBill);
         guestLastNameInBill.sendKeys(FunctionLibray.generateFakeName());
         functionLibray.waitElemantPresent(guestEmailInBill);
-        guestEmailInBill.sendKeys("Guest"+functionLibray.timeStamp()+"@gmail.com");
+        guestEmailInBill.sendKeys("Guest" + functionLibray.timeStamp() + "@gmail.com");
         functionLibray.waitElemantPresent(guestAddInBill);
         guestAddInBill.sendKeys("silivri");
-        functionLibray.waitElemantPresent(guestCityInBill);
-        guestCityInBill.sendKeys("Istanbul");
-        functionLibray.waitElemantPresent(guestZipInBill);
-        guestZipInBill.sendKeys("345000");
+
         functionLibray.waitElemantPresent(guestCountryInBill);
         Select select = new Select(guestCountryInBill);
         guestCountryInBill.click();
         select.selectByValue("TR");
+
+        functionLibray.waitElemantPresent(guestCityInBill);
+        guestCityInBill.sendKeys("Istanbul");
+        functionLibray.waitElemantPresent(guestZipInBill);
+        guestZipInBill.sendKeys("345000");
+
         functionLibray.waitElemantPresent(guestTelNoInBill);
-        guestTelNoInBill.sendKeys("0090"+functionLibray.timeStamp());
-        functionLibray.waitElemantPresent(listOfShippingAddType.get(0));
-        listOfShippingAddType.get(0).click();
-        functionLibray.waitElemantPresent(continueButtonForBill);
-        functionLibray.javaScripClick(continueButtonForBill);
-        //actions.moveToElement(continueButtonForBill).build().perform();
-        //continueButtonForBill.click();
-        functionLibray.sleep(80);
-        //functionLibray.waitElemantPresent(useBillAddCheckbox);
-        if (useBillAddCheckbox.isDisplayed()){
-            functionLibray.waitElemantPresent(useBillAddCheckbox);
-actions.moveToElement(useBillAddCheckbox).build().perform();
-            useBillAddCheckbox.click();
-            functionLibray.waitElemantPresent(continueForShippingSave);
-            //continueForShippingSave.click();
-            actions.moveToElement(continueForShippingSave).build().perform();
-        }
-        //functionLibray.sleep(60);
-        functionLibray.waitElemantPresent(shipMethodCheckbox.get(0));
-        shipMethodCheckbox.get(random.nextInt(shipMethodCheckbox.size())).click();
+        guestTelNoInBill.sendKeys("0090" + functionLibray.timeStamp());
+        functionLibray.waitElemantPresent(shipToThisAdd);
+        functionLibray.javaScripClick(shipToThisAdd);
+        functionLibray.waitElemantPresent(continueButtonInBill);
+        functionLibray.javaScripClick(continueButtonInBill);
+
+        functionLibray.waitElemantPresent(shipMethodCheckbox1);
+        shipMethodCheckbox1.click();
         functionLibray.waitElemantPresent(continueShipMethod);
         continueShipMethod.click();
-        functionLibray.waitElemantPresent(paymentInfoCheckbox.get(2));
-        paymentInfoCheckbox.get(2).click();
-        functionLibray.waitElemantPresent(continuePaymentMethod);
-        continuePaymentMethod.click();
+        functionLibray.waitElemantPresent(cashOnDeliveryCheckbox);
+        cashOnDeliveryCheckbox.click();
+        functionLibray.waitElemantPresent(continueInPaymentMethod);
+        continueInPaymentMethod.click();
         functionLibray.waitElemantPresent(placeOrderButton);
         placeOrderButton.click();
 
     }
 
 
+    public void checkOutAsRegister() {
+        functionLibray.waitElemantPresent(cartButton);
+        functionLibray.javaScripClick(cartButton);
+        functionLibray.waitElemantPresent(checkOutLink);
 
-
-    public void checkOut() {
-        functionLibray.waitElemantPresent(listOfBillInfo.get(0));
-       // listOfBillInfo.get(random.nextInt(listOfBillInfo.size())).click();
-        functionLibray.javaScripClick(listOfBillInfo.get(random.nextInt(listOfBillInfo.size())));
-        functionLibray.waitElemantPresent(continueButtonForBill);
-        functionLibray.javaScripClick(continueButtonForBill);
-        //continueButtonForBill.click();
-        if (shipAddDropdown.isDisplayed()) {
-            functionLibray.waitElemantPresent(checkboxForShipAdd);
-            functionLibray.javaScripClick(checkboxForShipAdd);
-            //checkboxForShipAdd.click();
-            functionLibray.javaScripClick(continueForShippingSave);
-            //continueForShippingSave.click();
-
-        }
-
-        //shipMethodCheckbox.get(random.nextInt(shipMethodCheckbox.size())).click();
-        functionLibray.javaScripClick(shipMethodCheckbox.get(random.nextInt(shipMethodCheckbox.size())));
+        checkOutLink.click();
+        functionLibray.waitElemantPresent(shipToThisAdd1);
+        functionLibray.javaScripClick(shipToThisAdd1);
+        functionLibray.waitElemantPresent(continueButtonInBill);
+        //functionLibray.javaScripClick(continueButtonInBill);
+        continueButtonInBill.click();
+        functionLibray.waitElemantPresent(shipMethodCheckboxWithID);
+        functionLibray.javaScripClick(shipMethodCheckboxWithID);
         functionLibray.javaScripClick(continueShipMethod);
-      // continueShipMethod.click();
-       paymentInfoCheckbox.get(2).click();
-       continuePaymentMethod.click();
-       placeOrderButton.click();
+        // continueShipMethod.click();
+        functionLibray.waitElemantPresent(cashOnDeliveryCheckbox);
+        cashOnDeliveryCheckbox.click();
+        functionLibray.waitElemantPresent(continueInPaymentMethod);
+        continueInPaymentMethod.click();
+        functionLibray.waitElemantPresent(placeOrderButton);
+        placeOrderButton.click();
 
     }
 
-    public boolean verifyCheckOut(){
-        Boolean checkOutStatus = false;
-        if (checkoutSuccessfulMsgList.size()>0)
-            checkOutStatus=true;
+    public boolean verifyCheckOut() {
 
-      return checkOutStatus;
+        return checkoutSuccessfulMsgList.size() > 0;
     }
 
 }
