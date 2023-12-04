@@ -58,8 +58,6 @@ public class ProductToShoppingCart {
     WebElement productName04;
     @FindBy(name = "links[]")
     WebElement checkBox;
-    @FindBy()
-    WebElement addToCartLink04;
     @FindBy(xpath = "//*[@class=\"messages\"]")
     WebElement addToShoppingCartSuccessMessage04;
 
