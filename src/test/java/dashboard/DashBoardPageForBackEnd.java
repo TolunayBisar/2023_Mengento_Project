@@ -70,6 +70,7 @@ public class DashBoardPageForBackEnd {
         return true;
     }
 
+
     public boolean verifyCatalogModuleDashboardOpened() {
         functionLibrary.waitElemantPresent(loggedInAsCatalogManagerText);
         if (loggedInAsCatalogManagerText.isDisplayed()) {
