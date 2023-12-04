@@ -17,7 +17,7 @@ public class CreateAccount {
         PageFactory.initElements(driver,this);
         functionLibray = new FunctionLibray(driver);
     }
-    @FindBy(xpath = "//*[@id=\"top\"]/body/div/div[2]/div[3]/div/div[5]/ul/li[1]/a")
+    @FindBy(xpath = "//div[@class=\"block-title\"]/following-sibling::ul//a[@title=\"My Account\"]")
     WebElement myAccount;
     @FindBy(xpath = "//*[@title='Create an Account']")
     WebElement createAccountButton;
