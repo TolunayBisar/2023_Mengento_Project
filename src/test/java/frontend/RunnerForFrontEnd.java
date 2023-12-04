@@ -8,6 +8,7 @@ import dashboard.DashBoardPageForFrontEnd;
 import dashboard.LoginPageForFrontEnd;
 import org.junit.jupiter.api.TestInstance;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -23,30 +24,32 @@ import org.testng.annotations.Test;
 public class RunnerForFrontEnd extends BaseClass {
     LoginDataForFrontEnd loginDataForFrontEnd;
     LoginPageForFrontEnd loginPageForFrontEnd;
-    DashBoardPageForFrontEnd dashBoardPageForFrontEnd ;
+    DashBoardPageForFrontEnd dashBoardPageForFrontEnd;
     ViewOrderAsRegistredUser viewOrderAsRegistredUser;
     ViewOrderAsGuest viewOrderAsGuest;
 
     @BeforeClass
-    public void setUp(){
+    public void setUp() {
         loginDataForFrontEnd = new LoginDataForFrontEnd();
         setUpBrowser(loginDataForFrontEnd.getUrlFrontEnd());
         loginPageForFrontEnd = new LoginPageForFrontEnd(driver);
         loginPageForFrontEnd = new LoginPageForFrontEnd(driver);
         dashBoardPageForFrontEnd = new DashBoardPageForFrontEnd(driver);
-
     }
+
     @Test(priority = 1)
-    public void login(){
+    public void login() {
         loginPageForFrontEnd.logIn(loginDataForFrontEnd.getUsernameForLogin(),
                 loginDataForFrontEnd.getRegisterPassword());
     }
+
     @Test(priority = 2)
     public void RegisterUserViewOrder() {
         viewOrderAsRegistredUser = new ViewOrderAsRegistredUser(driver);
         Assert.assertTrue(viewOrderAsRegistredUser.registredUserViewOrder());
-     closeBrowser();
+        closeBrowser();
     }
+
     @Test(priority = 3)
     public void AddProduct() {
         setUpBrowser(loginDataForFrontEnd.getUrlFrontEnd());
@@ -57,13 +60,17 @@ public class RunnerForFrontEnd extends BaseClass {
         viewOrderAsGuest.enterQuantity();
         viewOrderAsGuest.clickOnAddToCart();
     }
+
     @Test(priority = 4)
     public void GuestViewOrder() {
         viewOrderAsGuest = new ViewOrderAsGuest(driver);
         viewOrderAsGuest.userViewOrder();
         Assert.assertTrue(viewOrderAsGuest.verifyRecentlyAddedItems());
-
     }
 
+    @AfterClass()
+    public void tearDown() {
+        closeBrowser();
+    }
 
 }
