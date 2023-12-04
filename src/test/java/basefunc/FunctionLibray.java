@@ -43,8 +43,8 @@ public class FunctionLibray {
         String fakeName = Faker.instance().name().firstName();
         return fakeName;
     }
-    public static String generateFakeEmail(){
-        String mail = Faker.instance().internet().emailAddress();
+    public static String  generateFakeEmail(){
+        String  mail =  Faker.instance().internet().emailAddress();
         return mail;
     }
 

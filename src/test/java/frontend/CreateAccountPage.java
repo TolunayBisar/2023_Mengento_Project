@@ -6,5 +6,4 @@ package frontend;
  * @Email :tolunay.bisar@gmail.com
  **/
 public class CreateAccountPage {
-    int i = 5;
 }

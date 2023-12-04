@@ -14,7 +14,7 @@ import org.openqa.selenium.support.PageFactory;
 public class DashBoardPageForFrontEnd {
     public WebDriver driver;
     FunctionLibray functionLibrary;
-    @FindBy(linkText = "My Dashboard")
+    @FindBy(xpath = "//*[text()= \"My Dashboard\"]")
     WebElement myDashboardText;
     @FindBy(xpath = "//span[text()=\"My Account\"]")
     WebElement myAccountLink;
