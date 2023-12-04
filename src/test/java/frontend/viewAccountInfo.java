@@ -17,8 +17,7 @@ public class viewAccountInfo extends BaseClass {
     DashBoardPageForFrontEnd dashBoardPageForFrontEnd;
     LoginDataForFrontEnd loginDataForFrontEnd;
     String fileName = "config.properties";
-    String userName = ApplicationConfig.readFromConfig(fileName,"username_frontend2");
-    String password = ApplicationConfig.readFromConfig(fileName,"password_frontend2");
+
     @BeforeClass
     public void setUp(){
         loginDataForFrontEnd=new LoginDataForFrontEnd();
@@ -29,7 +28,7 @@ public class viewAccountInfo extends BaseClass {
 
     @Test(priority = 1)
     public void setLoginPageForFrontEnd(){
-        loginPageForFrontEnd.logIn(userName,password);
+        loginPageForFrontEnd.logIn(loginDataForFrontEnd.getUsernameForLogin(),loginDataForFrontEnd.getRegisterPassword());
         Assert.assertTrue(dashBoardPageForFrontEnd.verifyDashboardOpened());
     }
 
