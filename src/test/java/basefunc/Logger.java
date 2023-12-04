@@ -1,4 +1,4 @@
-package frontend;
+package basefunc;
 
 import org.apache.log4j.xml.DOMConfigurator;
 
@@ -8,10 +8,10 @@ import org.apache.log4j.xml.DOMConfigurator;
  * @Email : abdanna369@gmail.com
  **/
 public class Logger {
-    private  static org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(Logger.class.getName());
+      static org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(Logger.class.getName());
 
     public Logger() {
-        DOMConfigurator.configure("C:\\Users\\abdan\\IdeaProjects\\SDET2023Magento_Team3\\log4j2.xml");
+        DOMConfigurator.configure("resources/log4j2.xml");
     }
 
     public static void info(String massage) {

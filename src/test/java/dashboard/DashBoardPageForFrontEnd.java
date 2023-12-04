@@ -16,7 +16,7 @@ public class DashBoardPageForFrontEnd {
     FunctionLibray functionLibrary;
     @FindBy(xpath = "//*[text()= \"My Dashboard\"]")
     WebElement myDashboardText;
-    @FindBy(linkText = "My Account")
+    @FindBy(xpath = "//span[text()=\"My Account\"]")
     WebElement myAccountLink;
     @FindBy(xpath ="//strong[text()=\"Account Dashboard\"]" )
     WebElement accountDashboardLink;

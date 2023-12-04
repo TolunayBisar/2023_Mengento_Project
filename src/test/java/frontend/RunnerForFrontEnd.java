@@ -1,7 +1,11 @@
 package frontend;
 
+import basefunc.ApplicationConfig;
 import basefunc.BaseClass;
 
+import basefunc.LoginDataForFrontEnd;
+import dashboard.DashBoardPageForFrontEnd;
+import dashboard.LoginPageForFrontEnd;
 import org.junit.jupiter.api.TestInstance;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
@@ -14,19 +18,38 @@ import org.testng.annotations.Test;
  * @Email : abdanna369@gmail.com
  **/
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-@Listeners(TestResultListener.class)
+@Listeners(ApplicationConfig.TestResultListener.class)
 
 public class RunnerForFrontEnd extends BaseClass {
-    ViewOrderAsGuest viewOrderAsGuest ;
+    LoginDataForFrontEnd loginDataForFrontEnd;
+    LoginPageForFrontEnd loginPageForFrontEnd;
+    DashBoardPageForFrontEnd dashBoardPageForFrontEnd ;
     ViewOrderAsRegistredUser viewOrderAsRegistredUser;
+    ViewOrderAsGuest viewOrderAsGuest;
 
     @BeforeClass
     public void setUp(){
-        setUpBrowser("https://ecommerce.unitedcoderapp.com");
+        loginDataForFrontEnd = new LoginDataForFrontEnd();
+        setUpBrowser(loginDataForFrontEnd.getUrlFrontEnd());
+        loginPageForFrontEnd = new LoginPageForFrontEnd(driver);
+        loginPageForFrontEnd = new LoginPageForFrontEnd(driver);
+        dashBoardPageForFrontEnd = new DashBoardPageForFrontEnd(driver);
 
     }
     @Test(priority = 1)
+    public void login(){
+        loginPageForFrontEnd.logIn(loginDataForFrontEnd.getUsernameForLogin(),
+                loginDataForFrontEnd.getRegisterPassword());
+    }
+    @Test(priority = 2)
+    public void RegisterUserViewOrder() {
+        viewOrderAsRegistredUser = new ViewOrderAsRegistredUser(driver);
+        Assert.assertTrue(viewOrderAsRegistredUser.registredUserViewOrder());
+     closeBrowser();
+    }
+    @Test(priority = 3)
     public void AddProduct() {
+        setUpBrowser(loginDataForFrontEnd.getUrlFrontEnd());
         viewOrderAsGuest = new ViewOrderAsGuest(driver);
         viewOrderAsGuest.selectProduct();
         viewOrderAsGuest.selectAColor();
@@ -34,22 +57,13 @@ public class RunnerForFrontEnd extends BaseClass {
         viewOrderAsGuest.enterQuantity();
         viewOrderAsGuest.clickOnAddToCart();
     }
-
-    @Test(priority = 2)
-    public void GusetViewOrder() {
+    @Test(priority = 4)
+    public void GuestViewOrder() {
         viewOrderAsGuest = new ViewOrderAsGuest(driver);
         viewOrderAsGuest.userViewOrder();
         Assert.assertTrue(viewOrderAsGuest.verifyRecentlyAddedItems());
 
     }
-    @Test(priority = 3)
-    public void RegisterUserViewOrder(){
-        viewOrderAsRegistredUser = new ViewOrderAsRegistredUser(driver);
-        viewOrderAsRegistredUser.clickMyAccount();
-        viewOrderAsRegistredUser.enterEmail();
-        viewOrderAsRegistredUser.enterPass();
-        viewOrderAsRegistredUser.clickLogin();
-        Assert.assertTrue(viewOrderAsRegistredUser.registredUserViewOrder());
-    }
+
 
 }

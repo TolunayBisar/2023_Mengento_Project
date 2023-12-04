@@ -17,19 +17,8 @@ import org.openqa.selenium.support.PageFactory;
  **/
 public class ViewOrderAsRegistredUser extends BaseClass {
     WebDriver driver ;
-    Faker faker = new Faker();
     FunctionLibray functionLibrary;
-@FindBy(css= "a[class='skip-link skip-account'] span[class='label']")
-    WebElement AccountLink;
-    @FindBy(linkText = "My Account")
-    WebElement myAccountLink;
-    @FindBy(id = "//input[@id='email']")
-    WebElement Email;
-    @FindBy(id="//input[@id='pass']")
-    WebElement Password;
-    @FindBy(id = "//button[@id=\"send2\"]")
-    WebElement LoginButton;
-    @FindBy(linkText= "View Order")
+    @FindBy(xpath= "//div[@class=\"box-head\"]/h2[text()=\"Recent Orders\"]")
     WebElement ViewOrderLink;
 
     public ViewOrderAsRegistredUser(WebDriver driver) {
@@ -38,36 +27,15 @@ public class ViewOrderAsRegistredUser extends BaseClass {
         functionLibrary = new FunctionLibray(driver);
     }
 
-    public void clickMyAccount(){
-        functionLibrary.waitElemantPresent(AccountLink);
-        AccountLink.click();
-        functionLibrary.waitElemantPresent(myAccountLink);
-        myAccountLink.click();
-
-    }
-    public  void enterEmail(){
-        functionLibrary.waitElemantPresent(Email);
-        Email.sendKeys(("Simruh2021@gmail.com"));
-
-    }
-    public  void enterPass(){
-        functionLibrary.waitElemantPresent(Password);
-        Email.sendKeys("Iloveme520");
-    }
-
-    public void clickLogin(){
-
-
-        LoginButton.click();
-    }
     public boolean registredUserViewOrder() {
         Boolean viewOrder = false;
         if (ViewOrderLink.isDisplayed()){
             System.out.println("Orders successfully Added.");
         viewOrder = true;
-    }else if (!ViewOrderLink.isDisplayed())
-                System.out.println("Orders successfully Added.");
-        return false;
+        }
+     if (!ViewOrderLink.isDisplayed()){
+                System.out.println("Please add product again");
+}
+        return viewOrder;
     }
 }
-

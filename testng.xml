@@ -6,12 +6,12 @@
     </listeners>
     <test name="ui-tests">
         <classes>
-            <class name=""></class>
+            <class name="frontend.RunnerForFrontEnd"></class>
         </classes>
     </test>
-    <test name="api-tests">
-        <classes>
-            <class name=""></class>
-        </classes>
-    </test>
+<!--    <test name="api-tests">-->
+<!--        <classes>-->
+<!--            <class name=""></class>-->
+<!--        </classes>-->
+<!--    </test>-->
 </suite>
