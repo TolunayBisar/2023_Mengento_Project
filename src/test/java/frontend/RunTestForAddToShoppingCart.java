@@ -2,7 +2,6 @@ package frontend;
 
 import basefunc.BaseClass;
 import basefunc.LoginDataForFrontEnd;
-import dashboard.DashBoardPageForFrontEnd;
 import dashboard.LoginPageForFrontEnd;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -16,6 +15,7 @@ public class RunTestForAddToShoppingCart extends BaseClass {
     LoginDataForFrontEnd loginDataForFrontEnd;
     ProductToShoppingCart productToShoppingCart;
 
+
     @BeforeClass
     public void setUp(){
         loginDataForFrontEnd = new LoginDataForFrontEnd();
@@ -26,18 +26,20 @@ public class RunTestForAddToShoppingCart extends BaseClass {
         productToShoppingCart = new ProductToShoppingCart(driver);
     }
 
-    @Test
-    public void addToShoppingCart(){
+    @Test()
+    public void addToShoppingCart01(){
         productToShoppingCart.addProductToShoppingCart01();
         Assert.assertTrue(productToShoppingCart.verifyForShoppingCartPage01());
     }
-    @AfterClass
+    @Test()
+    public void addToShoppingCart02(){
+        productToShoppingCart.addProductsToShoppingCart02();
+        Assert.assertTrue(productToShoppingCart.verifyForShoppingCartPage02());
+    }
+
+    @AfterClass()
     public void tearDown(){
         productToShoppingCart.logOut();
         closeBrowser();
     }
-
-
-
-
 }

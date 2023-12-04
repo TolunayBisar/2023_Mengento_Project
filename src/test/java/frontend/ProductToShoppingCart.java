@@ -5,27 +5,26 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
 
 public class ProductToShoppingCart {
     WebDriver driver;
     FunctionLibray functionLibray;
     @FindBy(xpath = "//*[@id=\"nav\"]/ol/li[1]/a")
     WebElement accessoriesUpdatedMadinaLink;
-    @FindBy(xpath = "//*[@class='category-products']/ul/li/a[@title='Retro Chic Eyeglasses']")
+    @FindBy(id = "product-collection-image-553")
     WebElement productName;
+
+    // (xpath = "//*[@class='category-products']/ul/li/a[@title='Retro Chic Eyeglasses']")
     @FindBy(css = "#product-collection-image-433")
     WebElement choseProductLink ;
 
     @FindBy(css="#attribute92")
     WebElement colorLink;
-    @FindBy(xpath="//*[@id=\"attribute92\"]/option[2]")
-    WebElement colorOptionLink;
 
     @FindBy(css="#attribute186")
     WebElement shoeSizeLink;
 
-    @FindBy(xpath = "//*[@id=\"attribute186\"]/option[4]")
-    WebElement shoeSizeOptionLink;
     @FindBy(xpath = "//div/button[@title='Add to Cart']")
     WebElement addToCartLink;
     @FindBy(xpath = "//*[@class=\"success-msg\"]")
@@ -53,7 +52,7 @@ public class ProductToShoppingCart {
     }
     public boolean verifyForShoppingCartPage01(){
         functionLibray.waitElemantPresent(addedShoppingCartSuccessMessage01);
-        System.out.println("Retro Chic Eyeglasses was added to your shopping cart.");
+        System.out.println(" 1. "+addedShoppingCartSuccessMessage01.getText());
         return addedShoppingCartSuccessMessage01.isDisplayed();
 
     }
@@ -62,18 +61,16 @@ public class ProductToShoppingCart {
         accessoriesUpdatedMadinaLink.click();
         functionLibray.waitElemantPresent(choseProductLink);
         choseProductLink.click();
-        functionLibray.waitElemantPresent(colorLink);
-        colorLink.click();
-        functionLibray.waitElemantPresent(colorOptionLink);
-        colorOptionLink.click();
-        functionLibray.waitElemantPresent(shoeSizeLink);
-        shoeSizeLink.click();
+        Select select1 = new Select(colorLink);
+        select1.selectByVisibleText("Black");
+        Select select2 = new Select(shoeSizeLink);
+        select2.selectByVisibleText("10");
         functionLibray.waitElemantPresent(addToCartLink);
         addToCartLink.click();
     }
     public boolean verifyForShoppingCartPage02(){
         functionLibray.waitElemantPresent(addedToShoppingCartSuccessMessage02);
-        System.out.println("Dorian Perforated Oxford was added to your shopping cart.");
+        System.out.println(" 2. "+addedToShoppingCartSuccessMessage02.getText());
         return addedToShoppingCartSuccessMessage02.isDisplayed();
 
     }
