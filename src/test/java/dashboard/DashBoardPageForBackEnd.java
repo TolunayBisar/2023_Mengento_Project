@@ -1,6 +1,6 @@
 package dashboard;
 
-import basefunc.FunctionLibray;
+import basefunc.FunctionLibrary;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -13,7 +13,7 @@ import org.openqa.selenium.support.PageFactory;
  **/
 public class DashBoardPageForBackEnd {
     public WebDriver driver;
-    FunctionLibray functionLibrary;
+    FunctionLibrary functionLibrary;
 
     //customerModule
     @FindBy(linkText = "Logged in as customermanager")
@@ -59,7 +59,7 @@ public class DashBoardPageForBackEnd {
     public DashBoardPageForBackEnd(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
-        functionLibrary = new FunctionLibray(driver);
+        functionLibrary = new FunctionLibrary(driver);
     }
 
     public boolean verifyCustomerModuleDashboardOpened() {
