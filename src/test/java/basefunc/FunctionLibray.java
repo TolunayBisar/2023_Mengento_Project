@@ -58,6 +58,18 @@ public class FunctionLibray {
         String fakeManufactureURL = Faker.instance().company().url();
         return fakeManufactureURL;
     }
+    public String generateFakerStreet(){
+        String fakerStreet=Faker.instance().address().streetName();
+        return fakerStreet;
+    }
+    public String generateFakerCity(){
+        String fakerCity=Faker.instance().address().city();
+        return fakerCity;
+    }
+    public String generateFakerZipcode(){
+        String fakerZipCode=Faker.instance().address().zipCode();
+        return fakerZipCode;
+    }
 
 
 
