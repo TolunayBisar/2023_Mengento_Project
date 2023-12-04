@@ -30,22 +30,15 @@ public class RunTestForAddToShoppingCart extends BaseClass {
     public void addToShoppingCart01(){
         productToShoppingCart.addProductToShoppingCart01();
         Assert.assertTrue(productToShoppingCart.verifyForShoppingCartPage01());
-    }
-    @Test()
-    public void addToShoppingCart02(){
         productToShoppingCart.addProductsToShoppingCart02();
         Assert.assertTrue(productToShoppingCart.verifyForShoppingCartPage02());
-    }
-    @Test()
-    public void addToShoppingCart03(){
         productToShoppingCart.addProductsToShoppingCart03();
         Assert.assertTrue(productToShoppingCart.verifyForShoppingCartPage03());
-    }
-    @Test()
-    public void addToShoppingCart04(){
         productToShoppingCart.addProductsToShoppingCart04();
         Assert.assertTrue(productToShoppingCart.verifyForShoppingCartPage04());
+
     }
+
 
     @AfterClass()
     public void tearDown(){
