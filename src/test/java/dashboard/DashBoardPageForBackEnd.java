@@ -16,7 +16,7 @@ public class DashBoardPageForBackEnd {
     FunctionLibray functionLibrary;
 
     //customerModule
-    @FindBy(linkText = "Logged in as customermanager")
+    @FindBy(xpath = "//p[contains(text(),'customermanager')]")
     WebElement loggedInAsCustomerManagerText;
     @FindBy(xpath = "//li[@class=\"parent level0\"]/a[@onClick=\"return false\"]/span[text()=\"Sales\"]")
     WebElement salesTab;
@@ -32,16 +32,16 @@ public class DashBoardPageForBackEnd {
     WebElement reportsTab;
 
     //catalog Module
-    @FindBy(linkText = "Logged in as catalogmanager")
+    @FindBy(xpath= "//p[contains(text(),'catalogmanager')]")
     WebElement loggedInAsCatalogManagerText;
 
 
     //Marketing Module
-    @FindBy(linkText = "Logged in as marketingmanager")
+    @FindBy(xpath = "//p[contains(text(),'marketingmanager')]")
     WebElement loggedInAsMarketingManagerText;
 
     //sales Module
-    @FindBy(linkText = "Logged in as salesmanager")
+    @FindBy(xpath = "//p[contains(text(),'salesmanager')]")
     WebElement loggedInAsSalesManagerText;
 
 
@@ -49,11 +49,11 @@ public class DashBoardPageForBackEnd {
     WebElement systemTab;
 
     //store module
-    @FindBy(linkText = "Logged in as storemanager")
+    @FindBy(xpath = "//p[contains(text(),'storemanager')]")
     WebElement loggedInAsStoreManagerText;
 
     // reporting module
-    @FindBy(linkText = "Logged in as reportingmanager")
+    @FindBy(xpath ="//p[contains(text(),'reportingmanager')]")
     WebElement loggedInAsReportingManagerText;
 
     public DashBoardPageForBackEnd(WebDriver driver) {
@@ -69,6 +69,7 @@ public class DashBoardPageForBackEnd {
         }
         return true;
     }
+
 
     public boolean verifyCatalogModuleDashboardOpened() {
         functionLibrary.waitElemantPresent(loggedInAsCatalogManagerText);
