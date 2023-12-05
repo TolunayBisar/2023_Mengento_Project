@@ -12,8 +12,8 @@ import org.testng.annotations.*;
 
 @Listeners(TestResultListener.class)
 
-public class FETRunnerEditCart  {
-    BaseClass baseClass;
+public class FETRunnerEditCart extends BaseClass {
+    //BaseClass baseClass;
     DashBoardPageForFrontEnd dashBoardPage;
     LoginPageForFrontEnd loginPage;
     LoginDataForFrontEnd loginDataForFrontEnd ;
@@ -21,35 +21,35 @@ public class FETRunnerEditCart  {
 
     @BeforeClass
     public void openBrowser(ITestContext context) {
-        baseClass=new BaseClass();
+        //baseClass=new BaseClass();
         loginDataForFrontEnd = new LoginDataForFrontEnd();
-        baseClass.setUpBrowser(loginDataForFrontEnd.getUrlFrontEnd());
-        dashBoardPage = new DashBoardPageForFrontEnd(baseClass.driver);
-        loginPage = new LoginPageForFrontEnd(baseClass.driver);
-        customerInfoPage=new CustomerInfoPage(baseClass.driver);
-        context.setAttribute("driver",baseClass.driver);
+        setUpBrowser(loginDataForFrontEnd.getUrlFrontEnd());
+        loginPage = new LoginPageForFrontEnd(driver);
+        dashBoardPage = new DashBoardPageForFrontEnd(driver);
+        customerInfoPage=new CustomerInfoPage(driver);
+        context.setAttribute("driver",driver);
 
     }
-    @BeforeMethod
+    @Test(priority = 1)
     public void Login(){
         loginPage.logIn(loginDataForFrontEnd.getUsernameForLogin(),
                 loginDataForFrontEnd.getRegisterPassword());
 
     }
-    @Test
+    @Test(priority = 2)
     public void updateShoppingCart(){
 
         customerInfoPage.setViewShoppingCart();
         customerInfoPage.verifyUpdate();
     }
-    @AfterMethod
+    @Test(priority = 3)
     public void logUit(){
         customerInfoPage.logUit();
 
     }
     @AfterClass
     public void closeBrowser(){
-        baseClass.tearDown();
+        tearDown();
     }
 }
 
