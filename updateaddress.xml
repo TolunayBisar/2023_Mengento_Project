@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Regression Test" verbose="1">
+    <listeners>
+        <listener class-name="org.testng.reporters.EmailableReporter"></listener>
+    </listeners>
+    <test  name="Update And View AddressBook">
+        <classes>
+            <class name="frontend.Runner">
+                <methods>
+                    <include name="login"/>
+                    <include name="viewAddressBookTest"/>
+                    <include name="updateBillingAddressTest"/>
+                    <include name="updateShippingAddressTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

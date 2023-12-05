@@ -1,6 +1,7 @@
 package dashboard;
 
 import basefunc.FunctionLibray;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -17,6 +18,8 @@ public class DashBoardPageForFrontEnd {
 
     @FindBy(xpath = "//*[text()= \"My Dashboard\"]")
     WebElement myDashboardText;
+    @FindBy(xpath = "//*[text()=\"My Dashboard\"]")
+    WebElement myDashboardTextS;
     @FindBy(xpath = "//span[text()=\"My Account\"]")
     WebElement myAccountLink;
     @FindBy(xpath ="//strong[text()=\"Account Dashboard\"]" )
@@ -41,6 +44,15 @@ public class DashBoardPageForFrontEnd {
     @FindBy(xpath ="//div[@class=\"block-content\"]//a[text()=\"My Orders\"]" )
     WebElement myOrderLink;
 
+    @FindBy(xpath ="//*[text()= \"Edit Account Information\"]")
+    WebElement editAccountInformationText;
+    @FindBy(xpath = "//a[text()=\"Address Book\"]")
+    WebElement addressBookLink;
+
+   
+
+
+
     public DashBoardPageForFrontEnd(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
@@ -54,6 +66,21 @@ public class DashBoardPageForFrontEnd {
         }
         return true;
     }
+    public boolean verifyMyDashboardPageOpened(){
+        functionLibrary.waitElemantPresent(myDashboardTextS);
+        if (myDashboardTextS.isDisplayed()){
+            System.out.println("Magento FrontEnd My Dashboard page successfully opened ");
+            System.out.println(myDashboardTextS.getText());
+            return true;
+        }else {
+            System.out.println("Magento Frontend login is failed ");
+            return  false;
+        }
+    }
+    public void clickAddressBookLink(){
+        functionLibrary.waitElemantPresent(addressBookLink);
+        addressBookLink.click();
+    }
 
     public void clickOnMyAccountLink(){
         myAccountLink.click();
@@ -61,6 +88,13 @@ public class DashBoardPageForFrontEnd {
 
     public void clickOnAccountDashboarLink(){
         accountDashboardLink.click();
+    }
+    public boolean verifyAccountInfo2() {
+        functionLibrary.waitElemantPresent(editAccountInformationText);
+        if (editAccountInformationText.isDisplayed()) {
+            System.out.println("editAccountInformation page successfully opened");
+        }
+        return true;
     }
 
     public void clickOnAccountInformationLink(){
