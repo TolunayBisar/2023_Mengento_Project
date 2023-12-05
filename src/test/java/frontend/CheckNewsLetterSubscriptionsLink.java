@@ -22,30 +22,26 @@ import org.testng.annotations.Test;
 
      @BeforeClass
     public void setUp(){
-        /*setUpBrowser(readFromConfig("config.properties","FrontEnd_url"));
-         loginPageForFrontEnd=new LoginPageForFrontEnd(driver);
-         loginPageForFrontEnd.logIn(readFromConfig("config.properties","username_frontend2"),
-                 readFromConfig("config.properties","password_frontend2"));
-         dashBoardPageForFrontEnd=new DashBoardPageForFrontEnd(driver);
-         newsLink=new NewsLetterSubLink(driver);*/
-
-
          loginDataForFrontEnd = new LoginDataForFrontEnd();
          setUpBrowser(loginDataForFrontEnd.getUrlFrontEnd());
          loginPageForFrontEnd=new LoginPageForFrontEnd(driver);
-         loginPageForFrontEnd.logIn(loginDataForFrontEnd.getUsernameForLogin(),
-                 loginDataForFrontEnd.getRegisterPassword());
+
 
          dashBoardPageForFrontEnd=new DashBoardPageForFrontEnd(driver);
          newsLink=new NewsLetterSubLink(driver);
 
      }
      @Test(priority = 1)
+     public void login(){
+         loginPageForFrontEnd.logIn(loginDataForFrontEnd.getUsernameForLogin(),
+                 loginDataForFrontEnd.getRegisterPassword());
+     }
+     @Test(priority = 2)
      public void verifyDashboardOpened(){
         //Assert.assertTrue(newsLink.verifyLoginSuccess());
           Assert.assertTrue(dashBoardPageForFrontEnd.verifyDashboardOpened());
      }
-     @Test(priority = 2)
+     @Test(priority = 3)
     public void setNewsLetterSubLink(){
          dashBoardPageForFrontEnd.clickOnNewsletterLink();
          Assert.assertTrue(newsLink.verifyGeneralSubscription());
