@@ -164,7 +164,6 @@ public class CheckOutOrder extends BaseClass {
 
     public void addProductToCartAsGuest() {
         functionLibray.waitElemantPresent(lafayetteDressLink);
-        //functionLibray.javaScripClick(lafayetteDressLink);
         lafayetteDressLink.click();
         Select selectColor = new Select(colorDropDown);
         selectColor.selectByValue("27");
@@ -256,12 +255,10 @@ public class CheckOutOrder extends BaseClass {
         functionLibray.waitElemantPresent(shipToThisAdd1);
         functionLibray.javaScripClick(shipToThisAdd1);
         functionLibray.waitElemantPresent(continueButtonInBill);
-        //functionLibray.javaScripClick(continueButtonInBill);
         continueButtonInBill.click();
         functionLibray.waitElemantPresent(shipMethodCheckboxWithID);
         functionLibray.javaScripClick(shipMethodCheckboxWithID);
         functionLibray.javaScripClick(continueShipMethod);
-        // continueShipMethod.click();
         functionLibray.waitElemantPresent(cashOnDeliveryCheckbox);
         cashOnDeliveryCheckbox.click();
         functionLibray.waitElemantPresent(continueInPaymentMethod);
@@ -273,7 +270,7 @@ public class CheckOutOrder extends BaseClass {
 
     public boolean verifyCheckOut() {
 
-        return checkoutSuccessfulMsgList.size() > 0;
+        return checkoutSuccessfulMsgList.size() == 0;
     }
 
 }
