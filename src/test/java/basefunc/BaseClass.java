@@ -31,7 +31,6 @@ public class BaseClass {
         options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
         driver= new ChromeDriver(options);
         if (SystemUtils.IS_OS_MAC_OSX||SystemUtils.IS_OS_WINDOWS) {
-            driver = new ChromeDriver(options);
             driver.manage().window().maximize();
         }
 
@@ -48,7 +47,7 @@ public class BaseClass {
 
     }
 
-    public  void closeBrowser(){
+    public void closeBrowser(){
         driver.close();
         driver.quit();
 

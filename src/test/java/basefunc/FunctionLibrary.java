@@ -59,9 +59,17 @@ FunctionLibrary {
         wait.until(ExpectedConditions.visibilityOf(element));
     }
 
-    public String generateFakeName(){
+    public static String generateFakeName(){
         String fakeName = Faker.instance().name().firstName();
         return fakeName;
+    }
+    public String generateFakeName1(){
+        String fakeName = Faker.instance().name().firstName();
+        return fakeName;
+    }
+    public String generateFakeEmail1(){
+        String mail = Faker.instance().internet().emailAddress();
+        return mail;
     }
     public static String generateFakeEmail(){
         String mail = Faker.instance().internet().emailAddress();
