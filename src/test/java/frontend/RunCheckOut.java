@@ -57,10 +57,7 @@ public class RunCheckOut extends BaseClass {
         loginPageForFrontEnd.logIn(loginDataForFrontEnd.getUsernameForLogin(),
                 loginDataForFrontEnd.getRegisterPassword());
     }
-  //  @Test(priority = 4)
-   // public void logout(){
-      //  loginPageForFrontEnd.logOut();
-  //  }
+
     @Test(priority = 2)
     public void checkOut(){
 
