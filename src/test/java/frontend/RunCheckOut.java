@@ -4,6 +4,7 @@ import basefunc.BaseClass;
 import basefunc.LoginDataForFrontEnd;
 import dashboard.DashBoardPageForFrontEnd;
 import dashboard.LoginPageForFrontEnd;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -74,9 +75,9 @@ public class RunCheckOut extends BaseClass {
         closeBrowser();
     }
 
-//    @AfterClass
-//    public void tearDown(){
-//        closeBrowser();
-//    }
-//
+    @AfterClass
+    public void tearDown(){
+        closeBrowser();
+    }
+
 }
