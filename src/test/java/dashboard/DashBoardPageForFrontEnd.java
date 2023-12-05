@@ -43,6 +43,10 @@ public class DashBoardPageForFrontEnd {
     WebElement myOrderLink;
     @FindBy(xpath = "//a[text()=\"Address Book\"]")
     WebElement addressBookLink;
+    @FindBy(xpath = "//span[text()='Account' and @class='label']")
+    WebElement accountLink;
+    @FindBy(xpath = "//div[@id=\"header-account\"]/div/ul/li/a[text()=\"My Account\"]")
+    WebElement myAccountLink1;
 
 
     public DashBoardPageForFrontEnd(WebDriver driver) {
@@ -70,6 +74,10 @@ public class DashBoardPageForFrontEnd {
         }
     }
     public void clickAddressBookLink(){
+        functionLibrary.waitElemantPresent(accountLink);
+        accountLink.click();
+        functionLibrary.waitElemantPresent(myAccountLink1);
+        myAccountLink1.click();
         functionLibrary.waitElemantPresent(addressBookLink);
         addressBookLink.click();
     }

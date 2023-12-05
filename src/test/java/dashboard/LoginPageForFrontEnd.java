@@ -27,6 +27,16 @@ public class LoginPageForFrontEnd {
     WebElement passwordField;
     @FindBy(id = "send2")
     WebElement loginButton;
+    @FindBy(xpath = "//span[text()='Account' and @class='label']")
+    WebElement accountLink;
+    @FindBy(css = "a[title='Log In']")
+    WebElement loginLink;
+//    @FindBy(css = "#email")
+//    WebElement emailAddressField;
+//    @FindBy(name = "login[password]")
+//    WebElement passwordField;
+//    @FindBy(xpath = "//button[@title='Login']")
+//    WebElement loginButton;
 
 
 
@@ -36,6 +46,7 @@ public class LoginPageForFrontEnd {
         PageFactory.initElements(driver, this);
         functionLibrary = new FunctionLibray(driver);
     }
+
 
     public boolean verifyMengentoFrontEndOpen() {
         functionLibrary.waitElemantPresent(welcomeText);
@@ -70,5 +81,17 @@ public class LoginPageForFrontEnd {
         enterPassword(password);
         clickLoginButton();
 
+    }
+    public void userLogin(String userEmail,String password){
+        functionLibrary.waitElemantPresent(accountLink);
+        accountLink.click();
+        functionLibrary.waitElemantPresent(loginLink);
+        loginLink.click();
+        functionLibrary.waitElemantPresent(emailField);
+        emailField.sendKeys(userEmail);
+        functionLibrary.waitElemantPresent(passwordField);
+        passwordField.sendKeys(password);
+        functionLibrary.waitElemantPresent(loginButton);
+        loginButton.click();
     }
 }

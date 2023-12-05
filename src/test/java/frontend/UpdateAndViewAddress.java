@@ -54,18 +54,18 @@ public class UpdateAndViewAddress {
 
     }
 
-    public void editBillingAddressMethod(String street, String city, String zipCode) {
+    public void editBillingAddressMethod() {
         functionLibray.waitElemantPresent(changeBillingAddressLink);
         changeBillingAddressLink.click();
         functionLibray.waitElemantPresent(streetAddressField);
         streetAddressField.clear();
-        streetAddressField.sendKeys(street);
+        streetAddressField.sendKeys(functionLibray.generateFakerStreet());
         functionLibray.waitElemantPresent(cityField);
         cityField.clear();
-        cityField.sendKeys(city);
+        cityField.sendKeys(functionLibray.generateFakerCity());
         functionLibray.waitElemantPresent(zipCodeField);
         zipCodeField.clear();
-        zipCodeField.sendKeys(zipCode);
+        zipCodeField.sendKeys(functionLibray.generateFakerZipcode());
         functionLibray.waitElemantPresent(countrySelectField);
         Select selectCountry = new Select(countrySelectField);
         selectCountry.selectByValue("AU");
@@ -78,6 +78,7 @@ public class UpdateAndViewAddress {
         functionLibray.waitElemantPresent(changedBillingAddressText);
         if (changedBillingAddressText.isDisplayed()) {
             System.out.println(String.format("Updated Billing Address : %s ", changedBillingAddressText.getText()));
+            System.out.println(String.format("Updated billing address is : %s",functionLibray.generateFakerStreet(),functionLibray.generateFakerCity(),functionLibray.generateFakerZipcode()));
             return true;
         } else {
             System.out.println("Update is failed");
@@ -87,18 +88,18 @@ public class UpdateAndViewAddress {
 
     }
 
-    public void editShippingAddressMethod(String street, String city, String zipCode) {
+    public void editShippingAddressMethod() {
         functionLibray.waitElemantPresent(changeShippingAddressLink);
         changeShippingAddressLink.click();
         functionLibray.waitElemantPresent(streetAddressField);
         streetAddressField.clear();
-        streetAddressField.sendKeys(street);
+        streetAddressField.sendKeys(functionLibray.generateFakerStreet());
         functionLibray.waitElemantPresent(cityField);
         cityField.clear();
-        cityField.sendKeys(city);
+        cityField.sendKeys(functionLibray.generateFakerCity());
         functionLibray.waitElemantPresent(zipCodeField);
         zipCodeField.clear();
-        zipCodeField.sendKeys(zipCode);
+        zipCodeField.sendKeys(functionLibray.generateFakerZipcode());
         functionLibray.waitElemantPresent(countrySelectField);
         Select selectCountry = new Select(countrySelectField);
         selectCountry.selectByValue("NL");
@@ -110,7 +111,7 @@ public class UpdateAndViewAddress {
     public boolean verifyEditedShippingAddress() {
         functionLibray.waitElemantPresent(changedShippingAddressText);
         if (changeShippingAddressLink.isDisplayed()) {
-            System.out.println(String.format("Updated shipping Address : %s ", changedShippingAddressText.getText()));
+            System.out.println(String.format("Updated shipping  address is : %s",functionLibray.generateFakerStreet(),functionLibray.generateFakerCity(),functionLibray.generateFakerZipcode()));
             return true;
         } else {
             System.out.println("Update is failed");
