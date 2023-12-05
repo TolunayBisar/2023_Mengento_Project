@@ -39,8 +39,8 @@ public class CreateAccountTest extends BaseClass{
     }
     @AfterClass
     public void tearDown(){
-        BaseClass baseClass = new BaseClass();
-        baseClass.closeBrowser();
+        driver.close();
+        driver.quit();
     }
 
 }
