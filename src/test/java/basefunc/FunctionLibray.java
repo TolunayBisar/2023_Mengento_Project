@@ -43,8 +43,8 @@ public class FunctionLibray {
         String fakeName = Faker.instance().name().firstName();
         return fakeName;
     }
-    public static String generateFakeEmail(){
-        String mail = Faker.instance().internet().emailAddress();
+    public static String  generateFakeEmail(){
+        String  mail =  Faker.instance().internet().emailAddress();
         return mail;
     }
 
@@ -57,6 +57,18 @@ public class FunctionLibray {
     public String generateFakeManufactureURL() {
         String fakeManufactureURL = Faker.instance().company().url();
         return fakeManufactureURL;
+    }
+    public String generateFakerStreet(){
+        String fakerStreet=Faker.instance().address().streetName();
+        return fakerStreet;
+    }
+    public String generateFakerCity(){
+        String fakerCity=Faker.instance().address().city();
+        return fakerCity;
+    }
+    public String generateFakerZipcode(){
+        String fakerZipCode=Faker.instance().address().zipCode();
+        return fakerZipCode;
     }
 
 
