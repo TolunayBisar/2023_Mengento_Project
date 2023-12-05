@@ -40,6 +40,7 @@ public class DashBoardPageForFrontEnd {
     @FindBy(xpath ="//div[@class=\"block-content\"]//a[text()=\"My Orders\"]" )
     WebElement myOrderLink;
 
+
     public DashBoardPageForFrontEnd(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
@@ -88,5 +89,8 @@ public class DashBoardPageForFrontEnd {
     public void clickOnMyDownloadableProductLink(){
         myDownloadableProductLink.click();
     }
+
+
+
 
 }

@@ -244,7 +244,7 @@
                 </executions>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
+                       <suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
                 <dependencies>
