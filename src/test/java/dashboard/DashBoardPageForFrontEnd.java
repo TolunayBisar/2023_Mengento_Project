@@ -44,12 +44,15 @@ public class DashBoardPageForFrontEnd {
     @FindBy(xpath ="//div[@class=\"block-content\"]//a[text()=\"My Orders\"]" )
     WebElement myOrderLink;
 
+
+=======
     @FindBy(xpath ="//*[text()= \"Edit Account Information\"]")
     WebElement editAccountInformationText;
     @FindBy(xpath = "//a[text()=\"Address Book\"]")
     WebElement addressBookLink;
 
    
+
 
 
 
@@ -123,5 +126,8 @@ public class DashBoardPageForFrontEnd {
     public void clickOnMyDownloadableProductLink(){
         myDownloadableProductLink.click();
     }
+
+
+
 
 }
