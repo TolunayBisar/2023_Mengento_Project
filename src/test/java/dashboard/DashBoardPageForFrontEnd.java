@@ -45,6 +45,8 @@ public class DashBoardPageForFrontEnd {
 
     @FindBy(xpath ="//*[text()= \"Edit Account Information\"]")
     WebElement editAccountInformationText;
+    @FindBy(xpath = "//a[text()=\"Address Book\"]")
+    WebElement addressBookLink;
 
    
 
