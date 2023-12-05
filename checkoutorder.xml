@@ -1,9 +1,9 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 
 <suite name="Suite1" verbose="1">
-    <!--    <listeners>-->
-    <!--        <listener class-name="org.testng.reporters.EmailableReporter"></listener>-->
-    <!--    </listeners>-->
+        <listeners>
+            <listener class-name="org.testng.reporters.EmailableReporter"></listener>
+        </listeners>
     <test name="MengentoFrontEndCheckOutOrder">
         <classes>
             <class name="frontend.RunCheckOut"/>
