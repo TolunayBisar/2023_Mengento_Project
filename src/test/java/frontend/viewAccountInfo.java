@@ -8,6 +8,7 @@ import dashboard.LoginPageForFrontEnd;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.testng.asserts.Assertion;
@@ -52,6 +53,10 @@ public class viewAccountInfo extends BaseClass {
         boolean isAccountInfoPageOpened2= dashBoardPageForFrontEnd.verifyAccountInfo2();
         Assert.assertTrue(isAccountInfoPageOpened2,"editAccountInformation page");
 
+    }
+    @AfterClass
+    public void tearDown(){
+        closeBrowser();
     }
 
 
