@@ -1,5 +1,5 @@
 @CatalogModule   @UiTest
-Feature: Catalog manager can manage customers
+Feature: Catalog manager can manage catalog
   Background:
     Given Catalog manager on the dashboard page
 

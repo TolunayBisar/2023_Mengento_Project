@@ -15,7 +15,8 @@ public class CatalogModuleStepdefs extends BaseClassForBackend {
     SearchTermsPage searchTermsPage = new SearchTermsPage(driver);
     @Given("Catalog manager on the dashboard page")
     public void catalogManagerOnTheDashboardPage() {
-        loginPageForBackEnd.logIn(loginDataForBackEnd.getUsernameCatalogManager(),loginDataForBackEnd.getPassword());
+        loginPageForBackEnd.logIn(loginDataForBackEnd.getUsernameCatalogManager()
+                ,loginDataForBackEnd.getPassword());
         dashBoardPageForBackEnd.verifyCatologModuleDashboardPage();
     }
 
