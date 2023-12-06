@@ -63,6 +63,11 @@ public class BigRunnerFrontEnd extends BaseClass {
         Assert.assertTrue(viewMyProductReviewsPage.verifyReviewDetails());
 
     }
+    @AfterClass
+    public void tearDown(){
+        dashBoardPageForFrontEnd.logOut();
+        closeBrowser();
+    }
 
 
 

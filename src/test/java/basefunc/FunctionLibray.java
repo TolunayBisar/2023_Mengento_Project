@@ -70,6 +70,12 @@ public class FunctionLibray {
         String fakerZipCode=Faker.instance().address().zipCode();
         return fakerZipCode;
     }
+    public String generateFakerDepartment(){
+        String faketDepartment=Faker.instance().commerce().department();
+        return faketDepartment;
+
+
+    }
 
 
 

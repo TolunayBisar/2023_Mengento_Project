@@ -47,6 +47,8 @@ public class DashBoardPageForFrontEnd {
     WebElement accountLink;
     @FindBy(xpath = "//div[@id=\"header-account\"]/div/ul/li/a[text()=\"My Account\"]")
     WebElement myAccountLink1;
+    @FindBy(xpath = "//a[@title='Log Out']")
+    WebElement logoutLink;
 
 
     public DashBoardPageForFrontEnd(WebDriver driver) {
@@ -80,6 +82,13 @@ public class DashBoardPageForFrontEnd {
         myAccountLink1.click();
         functionLibrary.waitElemantPresent(addressBookLink);
         addressBookLink.click();
+    }
+    public void logOut(){
+        functionLibrary.waitElemantPresent(accountLink);
+        accountLink.click();
+        functionLibrary.waitElemantPresent(logoutLink);
+        logoutLink.click();
+
     }
 
     public void clickOnMyAccountLink(){
