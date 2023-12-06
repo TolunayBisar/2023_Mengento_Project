@@ -1,6 +1,11 @@
 package dashboard;
 
+<<<<<<< HEAD
 import basefunc.FunctionLibrary;
+=======
+import basefunc.FunctionLibray;
+import org.openqa.selenium.By;
+>>>>>>> master
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -13,8 +18,17 @@ import org.openqa.selenium.support.PageFactory;
  **/
 public class DashBoardPageForFrontEnd {
     public WebDriver driver;
+<<<<<<< HEAD
     FunctionLibrary functionLibrary;
 
+=======
+    FunctionLibray functionLibrary;
+
+    @FindBy(xpath = "//*[text()= \"My Dashboard\"]")
+    WebElement myDashboardText;
+    @FindBy(xpath = "//*[text()=\"My Dashboard\"]")
+    WebElement myDashboardTextS;
+>>>>>>> master
     @FindBy(xpath = "//span[text()=\"My Account\"]")
     WebElement myAccountLink;
 
@@ -43,7 +57,18 @@ public class DashBoardPageForFrontEnd {
     @FindBy(xpath ="//div[@class=\"block-content\"]//a[text()=\"My Orders\"]" )
     WebElement myOrderLink;
 
+<<<<<<< HEAD
 
+=======
+
+=======
+    @FindBy(xpath ="//*[text()= \"Edit Account Information\"]")
+    WebElement editAccountInformationText;
+    @FindBy(xpath = "//a[text()=\"Address Book\"]")
+    WebElement addressBookLink;
+
+   
+>>>>>>> master
 
 
 
@@ -61,6 +86,21 @@ public class DashBoardPageForFrontEnd {
         }
         return true;
     }
+    public boolean verifyMyDashboardPageOpened(){
+        functionLibrary.waitElemantPresent(myDashboardTextS);
+        if (myDashboardTextS.isDisplayed()){
+            System.out.println("Magento FrontEnd My Dashboard page successfully opened ");
+            System.out.println(myDashboardTextS.getText());
+            return true;
+        }else {
+            System.out.println("Magento Frontend login is failed ");
+            return  false;
+        }
+    }
+    public void clickAddressBookLink(){
+        functionLibrary.waitElemantPresent(addressBookLink);
+        addressBookLink.click();
+    }
 
     public void clickOnMyAccountLink(){
         myAccountLink.click();
@@ -68,6 +108,13 @@ public class DashBoardPageForFrontEnd {
 
     public void clickOnAccountDashboarLink(){
         accountDashboardLink.click();
+    }
+    public boolean verifyAccountInfo2() {
+        functionLibrary.waitElemantPresent(editAccountInformationText);
+        if (editAccountInformationText.isDisplayed()) {
+            System.out.println("editAccountInformation page successfully opened");
+        }
+        return true;
     }
 
     public void clickOnAccountInformationLink(){
@@ -96,5 +143,8 @@ public class DashBoardPageForFrontEnd {
     public void clickOnMyDownloadableProductLink(){
         myDownloadableProductLink.click();
     }
+
+
+
 
 }

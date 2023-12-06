@@ -1,7 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<<<<<<< HEAD
 <suite name="All Test Suite">
     <test verbose="2" preserve-order="true" name="/Users/mac/IdeaProjects/SDET2023Magento_Team3/target">
         <classes/>
     </test>
+=======
+<suite name="Regression Test Suite" >
+    <listeners>
+        <listener class-name="org.testng.reporters.EmailableReporter"></listener>
+    </listeners>
+    <test name="ui-tests">
+        <classes>
+            <class name="frontend.RunnerForFrontEnd"></class>
+        </classes>
+    </test>
+<!--    <test name="api-tests">-->
+<!--        <classes>-->
+<!--            <class name=""></class>-->
+<!--        </classes>-->
+<!--    </test>-->
+>>>>>>> master
 </suite>
