@@ -1,14 +1,15 @@
 package backend.customersmodule;
 
-import backend.BaseClassForBackend;
-import basefunc.LoginDataForBackEnd;
-import dashboard.DashBoardPageForBackEnd;
-import dashboard.LoginPageForBackEnd;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import basefunc.BaseClassForBackend;
+import basefunc.LoginDataForBackEnd;
+import dashboard.DashBoardPageForBackEnd;
+import dashboard.LoginPageForBackEnd;
 
-public class CustomerModuleStepDefinition extends BaseClassForBackend {
+
+public class CustomersModuleStepdefs extends BaseClassForBackend {
     LoginDataForBackEnd loginDataForBackEnd=new LoginDataForBackEnd();
     LoginPageForBackEnd loginPageForBackEnd=new LoginPageForBackEnd(driver);
     DashBoardPageForBackEnd dashBoardPageForBackEnd=new DashBoardPageForBackEnd(driver);

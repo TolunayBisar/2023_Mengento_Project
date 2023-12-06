@@ -10,8 +10,6 @@ import org.openqa.selenium.support.ui.Select;
 public class UpdateAndViewAddress {
     WebDriver driver;
     FunctionLibray functionLibray;
-    @FindBy(xpath = "//div[@class=\"dashboard\"]/div[5]/div[2]/div[1]/div/div/a")
-    WebElement editBillingAddressLink;
     @FindBy(id = "street_1")
     WebElement streetAddressField;
     @FindBy(id = "city")
@@ -26,8 +24,6 @@ public class UpdateAndViewAddress {
     WebElement changedBillingAddressText;
     @FindBy(xpath = "//div[@class=\"col-1 addresses-primary\"]/ol/li[2]/address")
     WebElement changedShippingAddressText;
-    @FindBy(xpath = "//*[text()=\"The address has been saved.\"]")
-    WebElement successMassageBillingAddress;
     @FindBy(xpath = "//*[text()=\"Change Shipping Address\"]")
     WebElement changeShippingAddressLink;
     @FindBy(xpath = "//*[text()=\"Change Billing Address\"]")

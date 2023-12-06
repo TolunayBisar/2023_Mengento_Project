@@ -9,12 +9,6 @@ import org.openqa.selenium.support.PageFactory;
 public class FilterCustomersByState {
     WebDriver driver;
     FunctionLibray functionLibray;
-    //Actions actions;
-//    @FindBy(xpath = "//ul[@id=\"nav\"]/li[4]/a/span")
-//    WebElement customersLink;
-//    @FindBy(xpath = "//*[text()=\"Manage Customers\"]")
-//    WebElement manageCustomersLink;
-
     @FindBy(id = "customerGrid_filter_billing_region")
     WebElement stateBox;
     @FindBy(xpath = "//*[text()=\"Search\"]")
@@ -27,13 +21,8 @@ public class FilterCustomersByState {
         this.driver = driver;
         PageFactory.initElements(driver,this);
         functionLibray=new FunctionLibray(driver);
-        //actions=new Actions(driver);
     }
     public void filterCustomersByStateMethod(String stateName){
-//        functionLibray.waitElemantPresent(customersLink);
-//        actions.clickAndHold(customersLink).build().perform();
-//        functionLibray.waitElemantPresent(manageCustomersLink);
-//        manageCustomersLink.click();
         functionLibray.waitElemantPresent(stateBox);
         stateBox.sendKeys(stateName);
         functionLibray.waitElemantPresent(searchButton);
