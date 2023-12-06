@@ -49,12 +49,13 @@ public class RunnerForFrontEnd extends BaseClass {
 
         viewOrderAsRegistredUser = new ViewOrderAsRegistredUser(driver);
         Assert.assertTrue(viewOrderAsRegistredUser.registredUserViewOrder());
-       // closeBrowser();
+
     }
     @Test(priority = 3)
     public void RegisterUserViewDownloadOrder(){
         registredUserViewDownloadbleOrder = new RegistredUserViewDownloadbleOrder(driver);
         Assert.assertTrue(registredUserViewDownloadbleOrder.veriFayeDownloadOrder());
+         closeBrowser();
     }
 
     @Test(priority = 4)
