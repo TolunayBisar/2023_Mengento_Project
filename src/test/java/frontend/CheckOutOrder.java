@@ -3,6 +3,7 @@ package frontend;
 import basefunc.BaseClass;
 import basefunc.FunctionLibray;
 import basefunc.LoginDataForFrontEnd;
+import com.github.javafaker.Faker;
 import dashboard.LoginPageForFrontEnd;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -36,11 +37,16 @@ public class CheckOutOrder extends BaseClass {
     WebElement addToCartButton;
     @FindBy(xpath = "//select[@id=\"country\"]")
     WebElement countryDropdown;
+
     @FindAll(@FindBy(xpath = "//select[@id=\"country\"]/option"))
     List<WebElement> countriesList;
 
     @FindBy(id = "region")
     WebElement stateInput;
+    @FindBy(id = "region_id")
+    WebElement stateSelectDropdown;
+    @FindAll(@FindBy(xpath = "//select[@id=\"region_id\"]/option"))
+    List<WebElement> statesListInBill;
     @FindBy(id = "postcode")
     WebElement zipInput;
     @FindBy(xpath = "//span[text()=\"Proceed to Checkout\"]")
@@ -87,8 +93,8 @@ public class CheckOutOrder extends BaseClass {
     @FindBy(xpath = "//button[@onclick=\"review.save();\"]")
     WebElement placeOrderButton;
 
-    @FindAll(@FindBy(xpath = "//h1[text()=\"Your order has been received.\"]"))
-    List<WebElement> checkoutSuccessfulMsgList;
+    @FindBy(xpath = "//h1[text()=\"Your order has been received.\"]")
+    WebElement checkoutSuccessfulMsgList;
     @FindBy(id = "login:guest")
     WebElement checkOutAsGuestCheckBox;
     @FindBy(id = "login:register")
@@ -104,7 +110,7 @@ public class CheckOutOrder extends BaseClass {
     @FindBy(id = "billing:email")
     WebElement guestEmailInBill;
     @FindBy(id = "billing:street1")
-    WebElement guestAddInBill;
+    WebElement guestAddressInBill;
 
     @FindBy(id = "billing:city")
     WebElement guestCityInBill;
@@ -112,6 +118,18 @@ public class CheckOutOrder extends BaseClass {
     WebElement guestZipInBill;
     @FindBy(id = "billing:country_id")
     WebElement guestCountryInBill;
+
+    @FindAll(@FindBy(xpath = "//select[@id=\"billing:country_id\"]/option"))
+    List<WebElement> guestCountryInBillList;
+    @FindBy(id = "billing:region")
+    WebElement guestStateInputInBill;
+
+    @FindBy(id = "billing:region_id")
+    WebElement guestStateDropdown;
+
+    @FindAll(@FindBy(xpath = "//select[@id=\"billing:region_id\"]/option"))
+    List<WebElement> guestStateList;
+
     @FindBy(id = "billing:telephone")
     WebElement guestTelNoInBill;
     @FindBy(id = "billing:use_for_shipping_yes")
@@ -153,14 +171,7 @@ public class CheckOutOrder extends BaseClass {
         actions = new Actions(driver);
     }
 
-    public void setLoginPageForFrontEnd() {
 
-
-        loginForFrontEnd.logIn(loginDataForFrontEnd.getUsernameForLogin(),
-                loginDataForFrontEnd.getRegisterPassword());
-
-
-    }
 
     public void addProductToCartAsGuest() {
         functionLibray.waitElemantPresent(lafayetteDressLink);
@@ -179,9 +190,8 @@ public class CheckOutOrder extends BaseClass {
         functionLibray.waitElemantPresent(tabListInDashboard.get(0));
         tabListInDashboard.get(0).click();
         functionLibray.javaScripClick(productForAdding);
-        // productForAdding.click();
         functionLibray.javaScriptScroll(addToCartButtonForRegistered);
-        //addToCartButtonForRegistered.click();
+
 
 
     }
@@ -190,9 +200,17 @@ public class CheckOutOrder extends BaseClass {
         functionLibray.waitElemantPresent(countryDropdown);
         Select selectCountry = new Select(countryDropdown);
         functionLibray.sleep(5);
-        selectCountry.selectByValue("TR");
-        stateInput.sendKeys("Istanbul");
-        zipInput.sendKeys("34570");
+
+        selectCountry.selectByIndex(random.nextInt(countriesList.size()));
+        Select selectState = new Select(stateSelectDropdown);
+        if (stateInput.isDisplayed()){
+        stateInput.sendKeys(Faker.instance().address().cityName());}
+
+        else if(stateSelectDropdown.isDisplayed()){
+            selectState.selectByIndex(random.nextInt(statesListInBill.size()));
+
+        }
+        zipInput.sendKeys(random.nextInt()+"");
         proceedToCheckOutButton.click();
 
 
@@ -204,7 +222,9 @@ public class CheckOutOrder extends BaseClass {
         functionLibray.waitElemantPresent(checkOutAsGuestCheckBox);
         checkOutAsGuestCheckBox.click();
         functionLibray.waitElemantPresent(continueButtonCheckOut);
-        continueButtonCheckOut.click();
+        continueButtonCheckOut.click();}
+
+    public void fillBillInfo(){
 
         functionLibray.waitElemantPresent(guestFirstNameInBill);
         guestFirstNameInBill.sendKeys(FunctionLibray.generateFakeName());
@@ -212,25 +232,35 @@ public class CheckOutOrder extends BaseClass {
         guestLastNameInBill.sendKeys(FunctionLibray.generateFakeName());
         functionLibray.waitElemantPresent(guestEmailInBill);
         guestEmailInBill.sendKeys("Guest" + functionLibray.timeStamp() + "@gmail.com");
-        functionLibray.waitElemantPresent(guestAddInBill);
-        guestAddInBill.sendKeys("silivri");
+        functionLibray.waitElemantPresent(guestAddressInBill);
+        guestAddressInBill.sendKeys(Faker.instance().address().fullAddress());
 
         functionLibray.waitElemantPresent(guestCountryInBill);
         Select select = new Select(guestCountryInBill);
         guestCountryInBill.click();
-        select.selectByValue("TR");
+        select.selectByIndex(random.nextInt(guestCountryInBillList.size()));
+        Select select1 = new Select(guestStateDropdown);
+        if (guestStateInputInBill.isDisplayed()){
+            guestStateInputInBill.sendKeys(Faker.instance().address().cityName());
+        }
+        else if (guestStateDropdown.isDisplayed()) {
+            select1.selectByIndex(random.nextInt(guestStateList.size()));
+
+        }
 
         functionLibray.waitElemantPresent(guestCityInBill);
-        guestCityInBill.sendKeys("Istanbul");
+        guestCityInBill.sendKeys(Faker.instance().address().cityName());
         functionLibray.waitElemantPresent(guestZipInBill);
-        guestZipInBill.sendKeys("345000");
+        guestZipInBill.sendKeys(random.nextInt(100000)+"");
 
         functionLibray.waitElemantPresent(guestTelNoInBill);
-        guestTelNoInBill.sendKeys("0090" + functionLibray.timeStamp());
+        guestTelNoInBill.sendKeys(Faker.instance().phoneNumber() + functionLibray.timeStamp());
         functionLibray.waitElemantPresent(shipToThisAdd);
         functionLibray.javaScripClick(shipToThisAdd);
         functionLibray.waitElemantPresent(continueButtonInBill);
-        functionLibray.javaScripClick(continueButtonInBill);
+        functionLibray.javaScripClick(continueButtonInBill); }
+
+    public void continueCheckoutAsGuest(){
 
         functionLibray.waitElemantPresent(shipMethodCheckbox1);
         shipMethodCheckbox1.click();
@@ -250,12 +280,12 @@ public class CheckOutOrder extends BaseClass {
         functionLibray.waitElemantPresent(cartButton);
         functionLibray.javaScripClick(cartButton);
         functionLibray.waitElemantPresent(checkOutLink);
-
         checkOutLink.click();
         functionLibray.waitElemantPresent(shipToThisAdd1);
         functionLibray.javaScripClick(shipToThisAdd1);
         functionLibray.waitElemantPresent(continueButtonInBill);
         continueButtonInBill.click();
+
         functionLibray.waitElemantPresent(shipMethodCheckboxWithID);
         functionLibray.javaScripClick(shipMethodCheckboxWithID);
         functionLibray.javaScripClick(continueShipMethod);
@@ -269,8 +299,13 @@ public class CheckOutOrder extends BaseClass {
     }
 
     public boolean verifyCheckOut() {
+        functionLibray.waitElemantPresent(checkoutSuccessfulMsgList);
 
-        return checkoutSuccessfulMsgList.size() == 0;
+        if (checkoutSuccessfulMsgList.isDisplayed()){
+            System.out.println("Checkout Successful");
+            return true;
+        }
+        else return false;
     }
 
 }

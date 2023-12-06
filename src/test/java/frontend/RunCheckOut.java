@@ -4,6 +4,7 @@ import basefunc.BaseClass;
 import basefunc.LoginDataForFrontEnd;
 import dashboard.DashBoardPageForFrontEnd;
 import dashboard.LoginPageForFrontEnd;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -44,6 +45,8 @@ public class RunCheckOut extends BaseClass {
         checkOutOrder.addProductToCartAsGuest();
         checkOutOrder.proceedCheckOutProduct();
         checkOutOrder.checkOutAsGuest();
+        checkOutOrder.fillBillInfo();
+        checkOutOrder.continueCheckoutAsGuest();
     }
 
     @Test(priority = 6,enabled = true)
@@ -56,6 +59,7 @@ public class RunCheckOut extends BaseClass {
 
         loginPageForFrontEnd.logIn(loginDataForFrontEnd.getUsernameForLogin(),
                 loginDataForFrontEnd.getRegisterPassword());
+        Assert.assertTrue(dashBoardPageForFrontEnd.verifyDashboardOpened());
     }
 
     @Test(priority = 2)
@@ -68,8 +72,9 @@ public class RunCheckOut extends BaseClass {
 
     @Test(priority = 3)
     public void verifyCheckOut(){
-        checkOutOrder.verifyCheckOut();
-        closeBrowser();
+
+        Assert.assertTrue(checkOutOrder.verifyCheckOut());
+       driver.close();
     }
 
     @AfterClass
