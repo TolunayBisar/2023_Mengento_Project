@@ -1,6 +1,5 @@
 package dashboard;
-
-import basefunc.FunctionLibray;
+import basefunc.FunctionLibrary;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -14,13 +13,18 @@ import org.openqa.selenium.support.PageFactory;
 public class LoginPageForFrontEnd {
 
     public WebDriver driver;
-    FunctionLibray functionLibrary;
+    FunctionLibrary functionLibrary;
 
 
     @FindBy(linkText = "Welcome ")
     WebElement welcomeText;
     @FindBy(xpath = "//div[@class=\"block-title\"]/following-sibling::ul//a[@title=\"My Account\"]")
     WebElement myAccountLink;
+
+
+
+    @FindBy(xpath = "//span[text()='Account' and @class='label']")
+    WebElement accountLink;
     @FindBy(xpath = "//input[@id=\"email\"]")
     WebElement emailField;
     @FindBy(id = "pass")
@@ -34,13 +38,13 @@ public class LoginPageForFrontEnd {
     public LoginPageForFrontEnd(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
-        functionLibrary = new FunctionLibray(driver);
+        functionLibrary = new FunctionLibrary(driver);
     }
 
     public boolean verifyMengentoFrontEndOpen() {
         functionLibrary.waitElemantPresent(welcomeText);
         if (welcomeText.isDisplayed()) {
-            System.out.println("Megento FrontEnd succesfully opened");
+            System.out.println("Magento FrontEnd successfully opened");
         }
         return true;
     }
@@ -71,4 +75,6 @@ public class LoginPageForFrontEnd {
         clickLoginButton();
 
     }
+
+
 }

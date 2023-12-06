@@ -2,7 +2,7 @@ package frontend;
 
 import basefunc.ApplicationConfig;
 import basefunc.BaseClass;
-import basefunc.FunctionLibray;
+import basefunc.FunctionLibrary;
 import basefunc.LoginDataForFrontEnd;
 import dashboard.DashBoardPageForFrontEnd;
 import dashboard.LoginPageForFrontEnd;
@@ -36,15 +36,15 @@ public class TestEditAccountInfoPage extends BaseClass {
     @Test(priority = 1)
     public void createAccount(){
 
-        createAccount.creatAccount(FunctionLibray.generateFakeName(),FunctionLibray.generateFakeName(),FunctionLibray.generateFakeEmail(),ApplicationConfig.readFromConfig("config.properties","password_edit"));
+        createAccount.creatAccount(FunctionLibrary.generateFakeName(),FunctionLibrary.generateFakeName(),FunctionLibrary.generateFakeEmail(),ApplicationConfig.readFromConfig("config.properties","password_edit"));
         Assert.assertTrue(createAccount.verifyEditSuccessfully());
 
     }
     @Test(priority = 2)
     public void editInfo(){
         dashBoardPageForFrontEnd.clickOnAccountInformationLink();
-        editAccountInfoPage.editAccountInfo(FunctionLibray.generateFakeName(),FunctionLibray.generateFakeName(),
-                FunctionLibray.generateFakeName(),FunctionLibray.generateFakeEmail()
+        editAccountInfoPage.editAccountInfo(FunctionLibrary.generateFakeName(),FunctionLibrary.generateFakeName(),
+                FunctionLibrary.generateFakeName(),FunctionLibrary.generateFakeEmail()
                 ,ApplicationConfig.readFromConfig("config.properties","password_edit"));
         Assert.assertTrue(editAccountInfoPage.verifyEditSuccessfully());
 
