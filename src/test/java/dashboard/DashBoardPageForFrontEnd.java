@@ -13,6 +13,8 @@ import org.openqa.selenium.support.PageFactory;
 public class DashBoardPageForFrontEnd {
     public WebDriver driver;
     FunctionLibrary functionLibrary;
+    @FindBy(xpath = "//span[text()='Account' and @class='label']")
+    WebElement accountLink;
     @FindBy(xpath = "//*[text()= \"My Dashboard\"]")
     WebElement myDashboardText;
     @FindBy(xpath = "//*[text()=\"My Dashboard\"]")
@@ -21,6 +23,8 @@ public class DashBoardPageForFrontEnd {
     WebElement myAccountLink;
     @FindBy(xpath ="//strong[text()=\"Account Dashboard\"]" )
     WebElement accountDashboardLink;
+    @FindBy(xpath = "//a[@title='Log Out']")
+    WebElement logoutLink;
 
     @FindBy(xpath ="//a[text()=\"Account Information\"]" )
     WebElement accountInformationLink;
@@ -115,5 +119,13 @@ public class DashBoardPageForFrontEnd {
     public void clickOnMyDownloadableProductLink(){
         myDownloadableProductLink.click();
     }
+    public void logOut(){
+        functionLibrary.waitElemantPresent(accountLink);
+        accountLink.click();
+        functionLibrary.waitElemantPresent(logoutLink);
+        logoutLink.click();
+
+    }
+
 
 }

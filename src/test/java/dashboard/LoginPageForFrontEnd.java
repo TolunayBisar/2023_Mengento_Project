@@ -25,6 +25,8 @@ public class LoginPageForFrontEnd {
 
     @FindBy(xpath = "//span[text()='Account' and @class='label']")
     WebElement accountLink;
+    @FindBy(css = "a[title='Log In']")
+    WebElement loginLink;
     @FindBy(xpath = "//input[@id=\"email\"]")
     WebElement emailField;
     @FindBy(id = "pass")
@@ -75,6 +77,19 @@ public class LoginPageForFrontEnd {
         clickLoginButton();
 
     }
+    public void userLogin(String userEmail,String password){
+        functionLibrary.waitElemantPresent(accountLink);
+        accountLink.click();
+        functionLibrary.waitElemantPresent(loginLink);
+        loginLink.click();
+        functionLibrary.waitElemantPresent(emailField);
+        emailField.sendKeys(userEmail);
+        functionLibrary.waitElemantPresent(passwordField);
+        passwordField.sendKeys(password);
+        functionLibrary.waitElemantPresent(loginButton);
+        loginButton.click();
+    }
+
 
 
 }
