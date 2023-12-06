@@ -34,9 +34,9 @@ public class FilterCustomerGroupPage {
     }
 
     public void filterCustomersGroup(){
-        functionLibray.waitElemantPresent(customersLink);
-        actions.moveToElement(customersLink).build().perform();
-        manageCustomersLik.click();
+//        functionLibray.waitElemantPresent(customersLink);
+//        actions.moveToElement(customersLink).build().perform();
+//        manageCustomersLik.click();
         Select select = new Select(groupDropDown);
         select.selectByVisibleText("SDT2023Magento-Team3");
         String groupName = groupDropDown.getAttribute("value");

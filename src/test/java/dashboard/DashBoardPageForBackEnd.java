@@ -3,6 +3,7 @@ package dashboard;
 import basefunc.FunctionLibray;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -14,6 +15,7 @@ import org.openqa.selenium.support.PageFactory;
 public class DashBoardPageForBackEnd {
     public WebDriver driver;
     FunctionLibray functionLibrary;
+    Actions actions;
 
     //customerModule
     @FindBy(xpath = "//p[contains(text(),'customermanager')]")
@@ -30,6 +32,7 @@ public class DashBoardPageForBackEnd {
     WebElement newsletterTab;
     @FindBy(xpath = "//a[@onClick=\"return false\"]/span[text()=\"Reports\"]")
     WebElement reportsTab;
+
 
     //catalog Module
     @FindBy(xpath= "//p[contains(text(),'catalogmanager')]")
@@ -55,11 +58,16 @@ public class DashBoardPageForBackEnd {
     // reporting module
     @FindBy(xpath ="//p[contains(text(),'reportingmanager')]")
     WebElement loggedInAsReportingManagerText;
+    @FindBy(xpath = "//ul[@id=\"nav\"]/li[4]/a/span")
+    WebElement customersLink;
+    @FindBy(xpath = "//*[text()=\"Manage Customers\"]")
+    WebElement manageCustomersLink;
 
     public DashBoardPageForBackEnd(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
         functionLibrary = new FunctionLibray(driver);
+        actions = new Actions(driver);
     }
 
     public boolean verifyCustomerModuleDashboardOpened() {
@@ -68,6 +76,22 @@ public class DashBoardPageForBackEnd {
             System.out.println("Megento BackEnd succesfully opened");
         }
         return true;
+    }
+    public boolean verifyCustomerModuleDashboardPage(){
+        functionLibrary.waitElemantPresent(loggedInAsCustomerManagerText);
+        if (loggedInAsCustomerManagerText.isDisplayed()){
+            System.out.println(loggedInAsCustomerManagerText.getText());
+            return true;
+        }else{
+            System.out.println("Customer module dashboard page does not opened !!");
+            return false;
+        }
+    }
+    public void goToManageCustomersPage(){
+        functionLibrary.waitElemantPresent(customersLink);
+        actions.clickAndHold(customersLink).build().perform();
+        functionLibrary.waitElemantPresent(manageCustomersLink);
+        manageCustomersLink.click();
     }
 
 
@@ -119,8 +143,7 @@ public class DashBoardPageForBackEnd {
         catalogTab.click();
     }
 
-    public void clickOnCustomerTab() {
-        customerTab.click();
+    public void clickOnCustomerTab() {customerTab.click();
     }
 
     public void clickOnPromotionTab() {

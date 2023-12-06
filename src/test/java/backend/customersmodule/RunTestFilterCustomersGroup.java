@@ -26,10 +26,11 @@ public class RunTestFilterCustomersGroup extends BaseClass {
     }
     @Test
     public void verifyDashboardOpened(){
-        Assert.assertTrue(dashBoardPageForBackEnd.verifyCustomerModuleDashboardOpened());
+        Assert.assertTrue(dashBoardPageForBackEnd.verifyCustomerModuleDashboardPage());
     }
     @Test
     public void filterGroup(){
+        dashBoardPageForBackEnd.goToManageCustomersPage();
         filterCustomerGroupPage.filterCustomersGroup();
         Assert.assertTrue(filterCustomerGroupPage.verifyFilterCustomersGroup());
     }
