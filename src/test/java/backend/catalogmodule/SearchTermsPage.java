@@ -24,13 +24,13 @@ public class SearchTermsPage {
     @FindBy(xpath = "//input[@name='query_text']")
     WebElement searchQueryField;
     @FindBy(xpath = "//select[@id='store_id']")
-    WebElement storeField;
+    WebElement storeDropDown;
     @FindBy(xpath = "//input[@id='synonym_for']")
     WebElement synonymForField;
     @FindBy(css = "#redirect")
-    WebElement redirectURLFile;
+    WebElement redirectURLField;
     @FindBy(xpath = "//select[@id='display_in_terms']")
-    WebElement displayInSuggestedTerms;
+    WebElement displayDropDown;
     @FindBy(xpath = "(//span[text()=\"Save Search\"])[1]")
     WebElement saveSearchButton;
     @FindBy(xpath = "//li/span[text()='You saved the search term.']")
@@ -53,13 +53,13 @@ public class SearchTermsPage {
         DateTimeFormatter dateFormat = DateTimeFormat.forPattern("yyyy-MM-dd hh-mm-ss-SS");
         functionLibray.waitElemantPresent(searchQueryField);
         searchQueryField.sendKeys(functionLibray.generateFakeManufacture() +time.toString(dateFormat));
-        Select select01 = new Select(storeField);
+        Select select01 = new Select(storeDropDown);
         select01.selectByValue("8");
         functionLibray.waitElemantPresent(synonymForField);
         synonymForField.sendKeys(functionLibray.generateFakeManufacture());
-        functionLibray.waitElemantPresent(redirectURLFile);
-        redirectURLFile.sendKeys(functionLibray.storeURL);
-        Select select02 = new Select(displayInSuggestedTerms);
+        functionLibray.waitElemantPresent(redirectURLField);
+        redirectURLField.sendKeys(functionLibray.storeURL);
+        Select select02 = new Select(displayDropDown);
         select02.selectByVisibleText("Yes");
         functionLibray.waitElemantPresent(saveSearchButton);
         saveSearchButton.click();

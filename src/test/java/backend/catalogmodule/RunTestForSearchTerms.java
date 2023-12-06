@@ -10,7 +10,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 
-public class RunTest extends BaseClass {
+public class RunTestForSearchTerms extends BaseClass {
     LoginPageForBackEnd loginPageForBackEnd;
     LoginDataForBackEnd loginDataForBackEnd;
     DashBoardPageForBackEnd dashBoardPageForBackEnd;
