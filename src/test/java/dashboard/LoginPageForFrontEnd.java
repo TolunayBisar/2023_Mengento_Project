@@ -1,17 +1,9 @@
 package dashboard;
-
-<<<<<<< HEAD
 import basefunc.FunctionLibrary;
-=======
-import basefunc.FunctionLibray;
-import org.openqa.selenium.By;
->>>>>>> master
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
-import static basefunc.ApplicationConfig.readFromConfig;
 
 /**
  * @author : tolunaybisar

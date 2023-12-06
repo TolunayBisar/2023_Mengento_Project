@@ -63,7 +63,6 @@ FunctionLibrary {
         String fakeName = Faker.instance().name().firstName();
         return fakeName;
     }
-<<<<<<< HEAD:src/test/java/basefunc/FunctionLibrary.java
     public String generateFakeName1(){
         String fakeName = Faker.instance().name().firstName();
         return fakeName;
@@ -72,12 +71,8 @@ FunctionLibrary {
         String mail = Faker.instance().internet().emailAddress();
         return mail;
     }
-    public static String generateFakeEmail(){
-        String mail = Faker.instance().internet().emailAddress();
-=======
     public static String  generateFakeEmail(){
         String  mail =  Faker.instance().internet().emailAddress();
->>>>>>> master:src/test/java/basefunc/FunctionLibray.java
         return mail;
     }
 

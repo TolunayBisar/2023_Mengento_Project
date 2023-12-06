@@ -1,7 +1,7 @@
 package frontend;
 
 import basefunc.BaseClass;
-import basefunc.FunctionLibray;
+import basefunc.FunctionLibrary;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -13,13 +13,13 @@ import java.util.Random;
 
 public class CustomerInfoPage extends BaseClass {
 
-    FunctionLibray functionPage;
+    FunctionLibrary functionPage;
 
     public CustomerInfoPage(WebDriver driver) {
 
         this.driver = driver;
         PageFactory.initElements(driver,this);
-        functionPage=new FunctionLibray(driver);
+        functionPage=new FunctionLibrary(driver);
 
     }
 

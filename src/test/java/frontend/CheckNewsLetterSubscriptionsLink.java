@@ -1,7 +1,7 @@
 package frontend;
 
 import basefunc.BaseClass;
-import basefunc.FunctionLibray;
+import basefunc.FunctionLibrary;
 import basefunc.LoginDataForFrontEnd;
 import dashboard.DashBoardPageForFrontEnd;
 import dashboard.LoginPageForFrontEnd;
@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
 
  public class CheckNewsLetterSubscriptionsLink extends BaseClass {
      LoginPageForFrontEnd loginPageForFrontEnd;
-     FunctionLibray functionLibray;
+     FunctionLibrary functionLibrary;
      LoginDataForFrontEnd loginDataForFrontEnd;
 
      DashBoardPageForFrontEnd dashBoardPageForFrontEnd;

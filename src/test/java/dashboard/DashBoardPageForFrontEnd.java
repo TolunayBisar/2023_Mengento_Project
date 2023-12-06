@@ -1,11 +1,5 @@
 package dashboard;
-
-<<<<<<< HEAD
 import basefunc.FunctionLibrary;
-=======
-import basefunc.FunctionLibray;
-import org.openqa.selenium.By;
->>>>>>> master
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -18,23 +12,13 @@ import org.openqa.selenium.support.PageFactory;
  **/
 public class DashBoardPageForFrontEnd {
     public WebDriver driver;
-<<<<<<< HEAD
     FunctionLibrary functionLibrary;
-
-=======
-    FunctionLibray functionLibrary;
-
     @FindBy(xpath = "//*[text()= \"My Dashboard\"]")
     WebElement myDashboardText;
     @FindBy(xpath = "//*[text()=\"My Dashboard\"]")
     WebElement myDashboardTextS;
->>>>>>> master
     @FindBy(xpath = "//span[text()=\"My Account\"]")
     WebElement myAccountLink;
-
-    @FindBy(linkText = "My Dashboard")
-    WebElement myDashboardText;
-
     @FindBy(xpath ="//strong[text()=\"Account Dashboard\"]" )
     WebElement accountDashboardLink;
 
@@ -56,22 +40,10 @@ public class DashBoardPageForFrontEnd {
     WebElement myDownloadableProductLink;
     @FindBy(xpath ="//div[@class=\"block-content\"]//a[text()=\"My Orders\"]" )
     WebElement myOrderLink;
-
-<<<<<<< HEAD
-
-=======
-
-=======
     @FindBy(xpath ="//*[text()= \"Edit Account Information\"]")
     WebElement editAccountInformationText;
     @FindBy(xpath = "//a[text()=\"Address Book\"]")
     WebElement addressBookLink;
-
-   
->>>>>>> master
-
-
-
 
     public DashBoardPageForFrontEnd(WebDriver driver) {
         this.driver = driver;
@@ -143,8 +115,5 @@ public class DashBoardPageForFrontEnd {
     public void clickOnMyDownloadableProductLink(){
         myDownloadableProductLink.click();
     }
-
-
-
 
 }
