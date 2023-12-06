@@ -1,6 +1,7 @@
 package backend.customersmodule;
 
-import basefunc.FunctionLibray;
+import basefunc.FunctionLibrary;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -10,7 +11,7 @@ import org.openqa.selenium.support.ui.Select;
 
 public class FilterCustomerGroupPage {
     WebDriver driver;
-    FunctionLibray functionLibray;
+   FunctionLibrary functionLibrary;
     Actions actions;
     @FindBy(css="#customerGrid_filter_group")
     WebElement groupDropDown;
@@ -25,7 +26,7 @@ public class FilterCustomerGroupPage {
     public FilterCustomerGroupPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
-        functionLibray = new FunctionLibray(driver);
+       functionLibrary = new FunctionLibrary(driver);
         actions = new Actions(driver);
     }
 
@@ -34,11 +35,11 @@ public class FilterCustomerGroupPage {
         select.selectByVisibleText("SDT2023Magento-Team3");
         String groupName = groupDropDown.getAttribute("value");
         System.out.println(" Group Name is: "+groupName);
-        functionLibray.waitElemantPresent(searchButton);
+        functionLibrary.waitElemantPresent(searchButton);
         searchButton.click();
     }
     public boolean verifyFilterCustomersGroup(){
-        functionLibray.waitElemantPresent(infoForCustomersGroupMessage);
+        functionLibrary.waitElemantPresent(infoForCustomersGroupMessage);
         if (infoForCustomersGroupMessage.isDisplayed()){
             System.out.println(infoForCustomersGroupMessage.getText());
             System.out.println("Filter Customers Group was Successful!");
@@ -49,7 +50,7 @@ public class FilterCustomerGroupPage {
         }
     }
     public void logOut(){
-        functionLibray.waitElemantPresent(logOutLink);
+       functionLibrary.waitElemantPresent(logOutLink);
         logOutLink.click();
 
     }

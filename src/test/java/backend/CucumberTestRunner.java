@@ -14,7 +14,7 @@ import org.junit.runner.RunWith;
                 "json:target/cucumber-json-report.json",
                 "junit:target/cucumber-xml-report.xml "
         },
-        tags = "@CatalogModule")
+        tags = "")
 
 public class CucumberTestRunner extends BaseClassForBackend {
 //    @BeforeClass

@@ -1,6 +1,7 @@
 package backend.catalogmodule;
 
-import basefunc.FunctionLibray;
+
+import basefunc.FunctionLibrary;
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
@@ -13,7 +14,7 @@ import org.openqa.selenium.support.ui.Select;
 
 public class SearchTermsPage {
     WebDriver driver;
-    FunctionLibray functionLibray;
+   FunctionLibrary functionLibrary;
     Actions actions;
 
     @FindBy(xpath = "(//span[text()=\"Add New Search Term\"])[1]")
@@ -36,31 +37,31 @@ public class SearchTermsPage {
     public SearchTermsPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver,this);
-        functionLibray = new FunctionLibray(driver);
+       functionLibrary = new FunctionLibrary(driver);
         actions = new Actions(driver);
     }
 
     public void addNewSearchTerm(){
-        functionLibray.waitElemantPresent(addNewSearchTermLink);
+       functionLibrary.waitElemantPresent(addNewSearchTermLink);
         addNewSearchTermLink.click();
         DateTime time = new DateTime();
         DateTimeFormatter dateFormat = DateTimeFormat.forPattern("yyyy-MM-dd hh-mm-ss-SS");
-        functionLibray.waitElemantPresent(searchQueryField);
-        searchQueryField.sendKeys(functionLibray.generateFakeManufacture() +time.toString(dateFormat));
+       functionLibrary.waitElemantPresent(searchQueryField);
+        searchQueryField.sendKeys(functionLibrary.generateFakeManufacture() +time.toString(dateFormat));
         Select select01 = new Select(storeDropDown);
         select01.selectByValue("8");
-        functionLibray.waitElemantPresent(synonymForField);
-        synonymForField.sendKeys(functionLibray.generateFakeManufacture());
-        functionLibray.waitElemantPresent(redirectURLField);
-        redirectURLField.sendKeys(functionLibray.storeURL);
+        functionLibrary.waitElemantPresent(synonymForField);
+        synonymForField.sendKeys(functionLibrary.generateFakeManufacture());
+       functionLibrary.waitElemantPresent(redirectURLField);
+        redirectURLField.sendKeys(functionLibrary.storeURL);
         Select select02 = new Select(displayDropDown);
         select02.selectByVisibleText("Yes");
-        functionLibray.waitElemantPresent(saveSearchButton);
+        functionLibrary.waitElemantPresent(saveSearchButton);
         saveSearchButton.click();
 
     }
     public boolean verifyAddNewSearchTem(){
-        functionLibray.waitElemantPresent(successMessageForAddNewSearchTerm);
+        functionLibrary.waitElemantPresent(successMessageForAddNewSearchTerm);
         if (successMessageForAddNewSearchTerm.isDisplayed()){
             System.out.println(successMessageForAddNewSearchTerm.getText());
             System.out.println("Filter Customers Group was Successful!");
