@@ -1,6 +1,6 @@
 package dashboard;
 
-import basefunc.FunctionLibray;
+import basefunc.FunctionLibrary;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -13,7 +13,7 @@ import org.openqa.selenium.support.PageFactory;
  **/
 public class LoginPageForBackEnd {
     public WebDriver driver;
-    FunctionLibray functionLibrary;
+    FunctionLibrary functionLibrary;
    @FindBy(linkText = "Log in to Admin Panel")
    WebElement panelText;
     @FindBy(id = "username")
@@ -27,7 +27,7 @@ public class LoginPageForBackEnd {
     public LoginPageForBackEnd(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
-        functionLibrary = new FunctionLibray(driver);
+        functionLibrary = new FunctionLibrary(driver);
     }
 
     public boolean verifyBackEndOpen() {

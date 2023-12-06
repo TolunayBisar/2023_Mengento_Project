@@ -42,4 +42,8 @@ build/
 ### Mac OS ###
 .DS_Store
 /.idea/
+<<<<<<< HEAD
+/target/
+=======
 
+>>>>>>> master

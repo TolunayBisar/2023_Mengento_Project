@@ -1,6 +1,6 @@
 package frontend;
 
-import basefunc.FunctionLibray;
+import basefunc.FunctionLibrary;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.Select;
 
 public class ProductToShoppingCart {
     WebDriver driver;
-    FunctionLibray functionLibray;
+    FunctionLibrary functionLibrary;
     Actions actions;
     @FindBy(xpath = "//*[@id=\"nav\"]/ol/li[1]/a")
     WebElement accessoriesUpdatedMadinaLink;
@@ -65,81 +65,81 @@ public class ProductToShoppingCart {
     public ProductToShoppingCart(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver,this);
-        functionLibray = new FunctionLibray(driver);
+        functionLibrary = new FunctionLibrary(driver);
         actions = new Actions(driver);
     }
     public void addProductToShoppingCart01(){
-        functionLibray.waitElemantPresent(accessoriesUpdatedMadinaLink);
+        functionLibrary.waitElemantPresent(accessoriesUpdatedMadinaLink);
         accessoriesUpdatedMadinaLink.click();
-        functionLibray.waitElemantPresent(productName01);
+        functionLibrary.waitElemantPresent(productName01);
         productName01.click();
-        functionLibray.waitElemantPresent(addToCartLink);
+        functionLibrary.waitElemantPresent(addToCartLink);
         addToCartLink.click();
 
     }
     public boolean verifyForShoppingCartPage01(){
-        functionLibray.waitElemantPresent(addToShoppingCartSuccessMessage01);
+        functionLibrary.waitElemantPresent(addToShoppingCartSuccessMessage01);
         System.out.println(" 1. "+addToShoppingCartSuccessMessage01.getText());
         return addToShoppingCartSuccessMessage01.isDisplayed();
 
     }
     public void addProductsToShoppingCart02() {
-        functionLibray.waitElemantPresent(accessoriesUpdatedMadinaLink);
+        functionLibrary.waitElemantPresent(accessoriesUpdatedMadinaLink);
         actions.moveToElement(accessoriesUpdatedMadinaLink).build().perform();
         shoesLink.click();
-        functionLibray.waitElemantPresent(productName02);
+        functionLibrary.waitElemantPresent(productName02);
         productName02.click();
         Select select1 = new Select(colorLink);
         select1.selectByVisibleText("Black");
         Select select2 = new Select(shoeSizeLink);
         select2.selectByVisibleText("10");
-        functionLibray.waitElemantPresent(addToCartLink);
+        functionLibrary.waitElemantPresent(addToCartLink);
         addToCartLink.click();
     }
     public boolean verifyForShoppingCartPage02(){
-        functionLibray.waitElemantPresent(addedToShoppingCartSuccessMessage02);
+        functionLibrary.waitElemantPresent(addedToShoppingCartSuccessMessage02);
         System.out.println(" 2. "+addedToShoppingCartSuccessMessage02.getText());
         return addedToShoppingCartSuccessMessage02.isDisplayed();
 
     }
     public void addProductsToShoppingCart03(){
-        functionLibray.waitElemantPresent(accessoriesUpdatedMadinaLink);
+        functionLibrary.waitElemantPresent(accessoriesUpdatedMadinaLink);
         actions.moveToElement(accessoriesUpdatedMadinaLink).build().perform();
         bagsAndLuggageLink.click();
-        functionLibray.waitElemantPresent(productName03);
+        functionLibrary.waitElemantPresent(productName03);
         productName03.click();
-        functionLibray.waitElemantPresent(monogramming);
-        monogramming.sendKeys(functionLibray.generateFakeManufacture());
-        functionLibray.waitElemantPresent(addToCartLink);
+        functionLibrary.waitElemantPresent(monogramming);
+        monogramming.sendKeys(functionLibrary.generateFakeManufacture());
+        functionLibrary.waitElemantPresent(addToCartLink);
         addToCartLink.click();
     }
     public boolean verifyForShoppingCartPage03(){
-        functionLibray.waitElemantPresent(addToShoppingCartSuccessMessage03);
+        functionLibrary.waitElemantPresent(addToShoppingCartSuccessMessage03);
         System.out.println(" 3. "+addToShoppingCartSuccessMessage03.getText());
         return addToShoppingCartSuccessMessage03.isDisplayed();
 
     }
     public void addProductsToShoppingCart04() {
-        functionLibray.waitElemantPresent(excellentHomeAndDecorLink);
+        functionLibrary.waitElemantPresent(excellentHomeAndDecorLink);
         actions.moveToElement(excellentHomeAndDecorLink).build().perform();
         booksAndMusicLink.click();
-        functionLibray.waitElemantPresent(productName04);
+        functionLibrary.waitElemantPresent(productName04);
         productName04.click();
-        functionLibray.waitElemantPresent(checkBox);
+        functionLibrary.waitElemantPresent(checkBox);
         checkBox.click();
-        functionLibray.waitElemantPresent(addToCartLink);
+        functionLibrary.waitElemantPresent(addToCartLink);
         addToCartLink.click();
     }
     public boolean verifyForShoppingCartPage04(){
-        functionLibray.waitElemantPresent(addToShoppingCartSuccessMessage04);
+        functionLibrary.waitElemantPresent(addToShoppingCartSuccessMessage04);
         System.out.println(" 4. "+addToShoppingCartSuccessMessage04.getText());
         return addToShoppingCartSuccessMessage04.isDisplayed();
 
     }
     public void logOut(){
-        functionLibray.waitElemantPresent(accountLink);
+        functionLibrary.waitElemantPresent(accountLink);
         accountLink.click();
-        functionLibray.waitElemantPresent(logoutLink);
+        functionLibrary.waitElemantPresent(logoutLink);
         logoutLink.click();
 
     }

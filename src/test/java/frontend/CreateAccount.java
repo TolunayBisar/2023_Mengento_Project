@@ -1,6 +1,6 @@
 package frontend;
 
-import basefunc.FunctionLibray;
+import basefunc.FunctionLibrary;
 import dashboard.DashBoardPageForFrontEnd;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,13 +9,13 @@ import org.openqa.selenium.support.PageFactory;
 
 public class CreateAccount {
     WebDriver driver;
-    FunctionLibray functionLibray;
+    FunctionLibrary functionLibrary;
     DashBoardPageForFrontEnd dashBoardPageForFrontEnd;
 
     public CreateAccount(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver,this);
-        functionLibray = new FunctionLibray(driver);
+        functionLibrary = new FunctionLibrary(driver);
     }
     @FindBy(xpath = "//div[@class=\"block-title\"]/following-sibling::ul//a[@title=\"My Account\"]")
     WebElement myAccount;
@@ -36,21 +36,21 @@ public class CreateAccount {
     @FindBy(xpath = "//li[@class='success-msg']")
     WebElement successMessageRegister;
     public void creatAccount(String FirstName,String LastName,String Email,String Password){
-        functionLibray.waitElemantPresent(myAccount);
+        functionLibrary.waitElemantPresent(myAccount);
         myAccount.click();
-        functionLibray.waitElemantPresent(createAccountButton);
+        functionLibrary.waitElemantPresent(createAccountButton);
         createAccountButton.click();
-        functionLibray.waitElemantPresent(firstName);
+        functionLibrary.waitElemantPresent(firstName);
         firstName.sendKeys(FirstName);
-        functionLibray.waitElemantPresent(lastName);
+        functionLibrary.waitElemantPresent(lastName);
         lastName.sendKeys(LastName);
-        functionLibray.waitElemantPresent(email);
+        functionLibrary.waitElemantPresent(email);
         email.sendKeys(Email);
-        functionLibray.waitElemantPresent(password);
+        functionLibrary.waitElemantPresent(password);
         password.sendKeys(Password);
-        functionLibray.waitElemantPresent(confirmPassword);
+        functionLibrary.waitElemantPresent(confirmPassword);
         confirmPassword.sendKeys(Password);
-        functionLibray.waitElemantPresent(registerButton);
+        functionLibrary.waitElemantPresent(registerButton);
         registerButton.click();
 
     }

@@ -1,6 +1,6 @@
 package frontend;
 
-import basefunc.FunctionLibray;
+import basefunc.FunctionLibrary;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -11,7 +11,7 @@ import org.openqa.selenium.support.PageFactory;
 
     public class ViewMyProductReviewsPage {
         WebDriver driver;
-        FunctionLibray functionLibray;
+        FunctionLibrary functionLibray;
 
         @FindBy(xpath ="//a[text()=\"My Product Reviews\"]")
         WebElement myProductReviewsLink;
@@ -25,7 +25,7 @@ import org.openqa.selenium.support.PageFactory;
         public ViewMyProductReviewsPage(WebDriver driver) {
             this.driver = driver;
             PageFactory.initElements(driver,this);
-            functionLibray = new FunctionLibray(driver);
+            functionLibray = new FunctionLibrary(driver);
 
         }
 

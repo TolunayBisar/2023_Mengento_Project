@@ -1,7 +1,5 @@
 package dashboard;
-
-import basefunc.FunctionLibray;
-import org.openqa.selenium.By;
+import basefunc.FunctionLibrary;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -14,8 +12,7 @@ import org.openqa.selenium.support.PageFactory;
  **/
 public class DashBoardPageForFrontEnd {
     public WebDriver driver;
-    FunctionLibray functionLibrary;
-
+    FunctionLibrary functionLibrary;
     @FindBy(xpath = "//*[text()= \"My Dashboard\"]")
     WebElement myDashboardText;
     @FindBy(xpath = "//*[text()=\"My Dashboard\"]")
@@ -43,23 +40,15 @@ public class DashBoardPageForFrontEnd {
     WebElement myDownloadableProductLink;
     @FindBy(xpath ="//div[@class=\"block-content\"]//a[text()=\"My Orders\"]" )
     WebElement myOrderLink;
-
-
-=======
     @FindBy(xpath ="//*[text()= \"Edit Account Information\"]")
     WebElement editAccountInformationText;
     @FindBy(xpath = "//a[text()=\"Address Book\"]")
     WebElement addressBookLink;
 
-   
-
-
-
-
     public DashBoardPageForFrontEnd(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
-        functionLibrary = new FunctionLibray(driver);
+        functionLibrary = new FunctionLibrary(driver);
     }
 
     public boolean verifyDashboardOpened() {
@@ -126,8 +115,5 @@ public class DashBoardPageForFrontEnd {
     public void clickOnMyDownloadableProductLink(){
         myDownloadableProductLink.click();
     }
-
-
-
 
 }

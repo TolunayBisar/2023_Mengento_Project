@@ -1,6 +1,6 @@
 package frontend;
 
-import basefunc.FunctionLibray;
+import basefunc.FunctionLibrary;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.Select;
 
 public class UpdateAndViewAddress {
     WebDriver driver;
-    FunctionLibray functionLibray;
+    FunctionLibrary functionLibray;
     @FindBy(xpath = "//div[@class=\"dashboard\"]/div[5]/div[2]/div[1]/div/div/a")
     WebElement editBillingAddressLink;
     @FindBy(id = "street_1")
@@ -38,7 +38,7 @@ public class UpdateAndViewAddress {
     public UpdateAndViewAddress(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
-        functionLibray = new FunctionLibray(driver);
+        functionLibray = new FunctionLibrary(driver);
     }
 
     public boolean viewAddressBookMethod(){

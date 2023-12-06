@@ -1,13 +1,9 @@
 package dashboard;
-
-import basefunc.FunctionLibray;
-import org.openqa.selenium.By;
+import basefunc.FunctionLibrary;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
-import static basefunc.ApplicationConfig.readFromConfig;
 
 /**
  * @author : tolunaybisar
@@ -17,7 +13,7 @@ import static basefunc.ApplicationConfig.readFromConfig;
 public class LoginPageForFrontEnd {
 
     public WebDriver driver;
-    FunctionLibray functionLibrary;
+    FunctionLibrary functionLibrary;
 
 
     @FindBy(linkText = "Welcome ")
@@ -42,7 +38,7 @@ public class LoginPageForFrontEnd {
     public LoginPageForFrontEnd(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
-        functionLibrary = new FunctionLibray(driver);
+        functionLibrary = new FunctionLibrary(driver);
     }
 
     public boolean verifyMengentoFrontEndOpen() {

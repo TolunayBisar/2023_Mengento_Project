@@ -2,7 +2,7 @@ package frontend;
 
 import basefunc.ApplicationConfig;
 import basefunc.BaseClass;
-import basefunc.FunctionLibray;
+import basefunc.FunctionLibrary;
 import basefunc.LoginDataForFrontEnd;
 import dashboard.DashBoardPageForFrontEnd;
 import dashboard.LoginPageForFrontEnd;
@@ -19,7 +19,7 @@ public class Runner extends BaseClass {
     LoginPageForFrontEnd loginPageForFrontEnd;
     LoginDataForFrontEnd loginDataForFrontEnd;
     UpdateAndViewAddress updateAndViewAddress;
-    FunctionLibray functionLibray;
+    FunctionLibrary functionLibrary;
     DashBoardPageForFrontEnd dashBoardPageForFrontEnd;
     @BeforeClass
     public void setUp(){
@@ -27,7 +27,7 @@ public class Runner extends BaseClass {
         setUpBrowser(loginDataForFrontEnd.getUrlFrontEnd());
         loginPageForFrontEnd=new LoginPageForFrontEnd(driver);
         updateAndViewAddress=new UpdateAndViewAddress(driver);
-        functionLibray=new FunctionLibray(driver);
+        functionLibrary=new FunctionLibrary(driver);
         dashBoardPageForFrontEnd=new DashBoardPageForFrontEnd(driver);
 
 
@@ -47,15 +47,15 @@ public class Runner extends BaseClass {
     @Test(priority = 3)
     public void updateBillingAddressTest(){
         System.out.println(String.format("Update Billing Address Data : Street -  %s ,city - %s ,zipCode - %s  ",
-                functionLibray.generateFakerStreet(), functionLibray.generateFakerCity(), functionLibray.generateFakerZipcode()));
-        updateAndViewAddress.editBillingAddressMethod(functionLibray.generateFakerStreet(), functionLibray.generateFakerCity(), functionLibray.generateFakerZipcode());
+                functionLibrary.generateFakerStreet(), functionLibrary.generateFakerCity(), functionLibrary.generateFakerZipcode()));
+        updateAndViewAddress.editBillingAddressMethod(functionLibrary.generateFakerStreet(), functionLibrary.generateFakerCity(), functionLibrary.generateFakerZipcode());
         Assert.assertTrue(updateAndViewAddress.verifyEditedBillingAddress());
     }
     @Test(priority = 4)
     public void updateShippingAddressTest(){
         System.out.println(String.format("Update Shipping Address Data : Street -  %s ,city - %s ,zipCode - %s  ",
-                functionLibray.generateFakerStreet(), functionLibray.generateFakerCity(), functionLibray.generateFakerZipcode()));
-        updateAndViewAddress.editShippingAddressMethod(functionLibray.generateFakerStreet(), functionLibray.generateFakerCity(), functionLibray.generateFakerZipcode());
+                functionLibrary.generateFakerStreet(), functionLibrary.generateFakerCity(), functionLibrary.generateFakerZipcode()));
+        updateAndViewAddress.editShippingAddressMethod(functionLibrary.generateFakerStreet(), functionLibrary.generateFakerCity(), functionLibrary.generateFakerZipcode());
         Assert.assertTrue(updateAndViewAddress.verifyEditedShippingAddress());
     }
     @AfterClass
