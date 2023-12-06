@@ -36,16 +36,6 @@ public class BaseClass {
 
         driver.get(url);
     }
-    public static void openBrowser(){
-        ChromeDriverManager.chromedriver().setup();
-        ChromeOptions options = new ChromeOptions();
-        options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
-        //options.addArguments("--headless");
-        ChromeDriver driver = new ChromeDriver(options);
-        driver.get("https://ecommerce.unitedcoderapp.com/");
-        driver.manage().window().maximize();
-
-    }
 
     public void closeBrowser(){
         driver.close();
