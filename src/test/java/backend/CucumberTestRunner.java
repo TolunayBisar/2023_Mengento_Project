@@ -16,7 +16,7 @@ import org.junit.runner.RunWith;
         },
         tags = "@CatalogModule")
 
-public class CucumberRunner extends BaseClassForBackend {
+public class CucumberTestRunner extends BaseClassForBackend {
 //    @BeforeClass
 //        public static void setup(){
 //                setUpBrowser();
