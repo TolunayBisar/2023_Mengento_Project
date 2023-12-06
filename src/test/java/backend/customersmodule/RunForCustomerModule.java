@@ -32,7 +32,7 @@ public class RunForCustomerModule extends BaseClass {
     }
     @Test(priority = 2)
     public void FilterCustomerEmail(){
-        customerFilterByEmail= new CustomerFilterByEmail(driver);
+        customerFilterByEmail = new CustomerFilterByEmail(driver);
         customerFilterByEmail.filterCustomerByEmail();
         Assert.assertTrue(customerFilterByEmail.verifyNoFoundEmail());
     }
