@@ -14,10 +14,6 @@ public class FilterCustomerGroupPage {
     Actions actions;
     @FindBy(css="#customerGrid_filter_group")
     WebElement groupDropDown;
-    @FindBy(xpath = "//ul[@id='nav']//span[text()='Customers']")
-    WebElement customersLink;
-    @FindBy(xpath = "//span[text()='Manage Customers']")
-    WebElement manageCustomersLik;
     @FindBy(css = "button[title='Search']")
     WebElement searchButton;
     @FindBy(css = "tr[class='even pointer']")
@@ -34,9 +30,6 @@ public class FilterCustomerGroupPage {
     }
 
     public void filterCustomersGroup(){
-//        functionLibray.waitElemantPresent(customersLink);
-//        actions.moveToElement(customersLink).build().perform();
-//        manageCustomersLik.click();
         Select select = new Select(groupDropDown);
         select.selectByVisibleText("SDT2023Magento-Team3");
         String groupName = groupDropDown.getAttribute("value");

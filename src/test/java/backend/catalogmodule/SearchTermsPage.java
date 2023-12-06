@@ -15,10 +15,7 @@ public class SearchTermsPage {
     WebDriver driver;
     FunctionLibray functionLibray;
     Actions actions;
-    @FindBy(xpath = "//ul[@id='nav']/li/a/span[text()='Catalog']")
-    WebElement catalogLink;
-    @FindBy(xpath = "//ul[@id=\"nav\"]/li/ul//span[text()='Search Terms']")
-    WebElement searchTermsLink;
+
     @FindBy(xpath = "(//span[text()=\"Add New Search Term\"])[1]")
     WebElement addNewSearchTermLink;
     @FindBy(xpath = "//input[@name='query_text']")
@@ -44,9 +41,6 @@ public class SearchTermsPage {
     }
 
     public void addNewSearchTerm(){
-        functionLibray.waitElemantPresent(catalogLink);
-        actions.moveToElement(catalogLink).build().perform();
-        searchTermsLink.click();
         functionLibray.waitElemantPresent(addNewSearchTermLink);
         addNewSearchTermLink.click();
         DateTime time = new DateTime();

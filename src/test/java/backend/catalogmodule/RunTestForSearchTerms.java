@@ -27,7 +27,7 @@ public class RunTestForSearchTerms extends BaseClass {
     }
     @Test(enabled = false)
     public void verifyDashboardOpened(){
-        Assert.assertTrue(dashBoardPageForBackEnd.verifyCatalogModuleDashboardOpened());
+        Assert.assertTrue(dashBoardPageForBackEnd.verifyCatologModuleDashboardPage());
     }
     @Test
     public void addNewSearchTerm(){

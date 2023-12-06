@@ -37,6 +37,10 @@ public class DashBoardPageForBackEnd {
     //catalog Module
     @FindBy(xpath= "//p[contains(text(),'catalogmanager')]")
     WebElement loggedInAsCatalogManagerText;
+    @FindBy(xpath = "//ul[@id='nav']/li/a/span[text()='Catalog']")
+    WebElement catalogLink;
+    @FindBy(xpath = "//ul[@id=\"nav\"]/li/ul//span[text()='Search Terms']")
+    WebElement searchTermsLink;
 
 
     //Marketing Module
@@ -101,6 +105,21 @@ public class DashBoardPageForBackEnd {
             System.out.println("Megento BackEnd succesfully opened");
         }
         return true;
+    }
+    public boolean verifyCatologModuleDashboardPage(){
+        functionLibrary.waitElemantPresent(loggedInAsCatalogManagerText);
+        if (loggedInAsCatalogManagerText.isDisplayed()){
+            System.out.println(loggedInAsCatalogManagerText.getText());
+            return true;
+        }else{
+            System.out.println("Customer module dashboard page does not opened !!");
+            return false;
+        }
+    }
+    public void goToSearchTermsPage(){
+        functionLibrary.waitElemantPresent(catalogLink);
+        actions.moveToElement(catalogLink).build().perform();
+        searchTermsLink.click();
     }
 
     public boolean verifyMarketingModuleDashboardOpened() {

@@ -3,7 +3,7 @@ package backend.customersmodule;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import backend.BaseClassForBackend;
+import basefunc.BaseClassForBackend;
 import basefunc.LoginDataForBackEnd;
 import dashboard.DashBoardPageForBackEnd;
 import dashboard.LoginPageForBackEnd;
@@ -43,7 +43,6 @@ public class CustomersModuleStepdefs extends BaseClassForBackend{
 
     @When("customer manager filter customers by group")
     public void customerManagerFilterCustomersByGroup() {
-        //dashBoardPageForBackEnd.clickOnResetFilterTab();
         filterCustomerGroupPage.filterCustomersGroup();
 
     }

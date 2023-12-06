@@ -1,10 +1,11 @@
 package backend;
 
+import basefunc.BaseClassForBackend;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 
-public class Hooks extends BaseClassForBackend{
+public class Hooks extends BaseClassForBackend {
     @Before
     public void setup(Scenario scenario) {
         if(scenario.getSourceTagNames().contains("@UiTest")) {

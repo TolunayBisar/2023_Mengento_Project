@@ -1,4 +1,4 @@
-package backend;
+package basefunc;
 import org.apache.commons.lang3.SystemUtils;
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;

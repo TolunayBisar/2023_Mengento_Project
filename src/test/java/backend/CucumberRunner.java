@@ -1,9 +1,8 @@
 package backend;
 
+import basefunc.BaseClassForBackend;
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
@@ -15,9 +14,9 @@ import org.junit.runner.RunWith;
                 "json:target/cucumber-json-report.json",
                 "junit:target/cucumber-xml-report.xml "
         },
-        tags = "@CustomerModule")
+        tags = "@CatalogModule")
 
-public class CucumberRunner extends BaseClassForBackend{
+public class CucumberRunner extends BaseClassForBackend {
 //    @BeforeClass
 //        public static void setup(){
 //                setUpBrowser();
