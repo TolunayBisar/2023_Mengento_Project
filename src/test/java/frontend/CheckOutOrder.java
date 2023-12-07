@@ -1,7 +1,7 @@
 package frontend;
 
 import basefunc.BaseClass;
-import basefunc.FunctionLibray;
+import basefunc.FunctionLibrary;
 import basefunc.LoginDataForFrontEnd;
 import com.github.javafaker.Faker;
 import dashboard.LoginPageForFrontEnd;
@@ -158,7 +158,7 @@ public class CheckOutOrder extends BaseClass {
 
     LoginPageForFrontEnd loginForFrontEnd;
     LoginDataForFrontEnd loginDataForFrontEnd = new LoginDataForFrontEnd();
-    FunctionLibray functionLibray;
+    FunctionLibrary functionLibray;
     Actions actions;
     Random random = new Random();
 
@@ -167,7 +167,7 @@ public class CheckOutOrder extends BaseClass {
 
         PageFactory.initElements(driver, this);
         loginForFrontEnd = new LoginPageForFrontEnd(driver);
-        functionLibray = new FunctionLibray(driver);
+        functionLibray = new FunctionLibrary(driver);
         actions = new Actions(driver);
     }
 
@@ -228,9 +228,9 @@ public class CheckOutOrder extends BaseClass {
     public void fillBillInfo(){
 
         functionLibray.waitForPresent(guestFirstNameInBill);
-        guestFirstNameInBill.sendKeys(FunctionLibray.generateFakeName());
+        guestFirstNameInBill.sendKeys(FunctionLibrary.generateFakeName());
         functionLibray.waitForPresent(guestLastNameInBill);
-        guestLastNameInBill.sendKeys(FunctionLibray.generateFakeName());
+        guestLastNameInBill.sendKeys(FunctionLibrary.generateFakeName());
         functionLibray.waitForPresent(guestEmailInBill);
         guestEmailInBill.sendKeys("Guest" + functionLibray.timeStamp() + "@gmail.com");
         functionLibray.waitForPresent(guestAddressInBill);
