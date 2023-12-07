@@ -1,7 +1,5 @@
 package dashboard;
-
-import basefunc.FunctionLibray;
-import org.openqa.selenium.By;
+import basefunc.FunctionLibrary;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -14,7 +12,14 @@ import org.openqa.selenium.support.PageFactory;
  **/
 public class DashBoardPageForFrontEnd {
     public WebDriver driver;
-    FunctionLibray functionLibrary;
+
+
+
+
+    FunctionLibrary functionLibrary;
+    @FindBy(xpath = "//span[text()='Account' and @class='label']")
+    WebElement accountLink;
+
     @FindBy(xpath = "//*[text()= \"My Dashboard\"]")
     WebElement myDashboardText;
     @FindBy(xpath = "//*[text()=\"My Dashboard\"]")
@@ -23,6 +28,8 @@ public class DashBoardPageForFrontEnd {
     WebElement myAccountLink;
     @FindBy(xpath ="//strong[text()=\"Account Dashboard\"]" )
     WebElement accountDashboardLink;
+    @FindBy(xpath = "//a[@title='Log Out']")
+    WebElement logoutLink;
 
     @FindBy(xpath ="//a[text()=\"Account Information\"]" )
     WebElement accountInformationLink;
@@ -42,20 +49,27 @@ public class DashBoardPageForFrontEnd {
     WebElement myDownloadableProductLink;
     @FindBy(xpath ="//div[@class=\"block-content\"]//a[text()=\"My Orders\"]" )
     WebElement myOrderLink;
-
     @FindBy(xpath ="//*[text()= \"Edit Account Information\"]")
     WebElement editAccountInformationText;
     @FindBy(xpath = "//a[text()=\"Address Book\"]")
     WebElement addressBookLink;
+    @FindBy(xpath = "//div[@id=\"header-account\"]/div/ul/li/a[text()=\"My Account\"]")
+    WebElement myAccountLink1;
+
+
+
+
+
 
    
+
 
 
 
     public DashBoardPageForFrontEnd(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
-        functionLibrary = new FunctionLibray(driver);
+        functionLibrary = new FunctionLibrary(driver);
     }
 
     public boolean verifyDashboardOpened() {
@@ -77,9 +91,24 @@ public class DashBoardPageForFrontEnd {
         }
     }
     public void clickAddressBookLink(){
+
+
+
+        functionLibrary.waitElemantPresent(accountLink);
+        accountLink.click();
+        functionLibrary.waitElemantPresent(myAccountLink1);
+        myAccountLink1.click();
         functionLibrary.waitElemantPresent(addressBookLink);
         addressBookLink.click();
     }
+    public void logOut(){
+        functionLibrary.waitElemantPresent(accountLink);
+        accountLink.click();
+        functionLibrary.waitElemantPresent(logoutLink);
+        logoutLink.click();
+
+    }
+
 
     public void clickOnMyAccountLink(){
         myAccountLink.click();
@@ -122,5 +151,8 @@ public class DashBoardPageForFrontEnd {
     public void clickOnMyDownloadableProductLink(){
         myDownloadableProductLink.click();
     }
+
+
+
 
 }

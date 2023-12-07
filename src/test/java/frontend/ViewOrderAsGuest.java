@@ -1,7 +1,7 @@
 package frontend;
 
 import basefunc.BaseClass;
-import basefunc.FunctionLibray;
+import basefunc.FunctionLibrary;
 import com.github.javafaker.Faker;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -20,7 +20,7 @@ public class ViewOrderAsGuest extends BaseClass {
 
     WebDriver driver ;
     Faker faker = new Faker();
-    FunctionLibray functionLibrary;
+    FunctionLibrary functionLibrary;
     @FindBy(xpath = "//a[text()=\"Lafayette Convertible Dress\"]")
     WebElement DressLink;
     @FindBy(css = "select#attribute92")
@@ -43,7 +43,7 @@ public class ViewOrderAsGuest extends BaseClass {
     public ViewOrderAsGuest(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
-        functionLibrary = new FunctionLibray(driver);
+        functionLibrary = new FunctionLibrary(driver);
     }
     public void selectProduct(){
         functionLibrary.waitElemantPresent(DressLink);

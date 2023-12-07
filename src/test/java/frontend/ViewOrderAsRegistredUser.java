@@ -1,7 +1,7 @@
 package frontend;
 
 import basefunc.BaseClass;
-import basefunc.FunctionLibray;
+import basefunc.FunctionLibrary;
 import com.github.javafaker.Faker;
 import io.cucumber.java.an.E;
 import org.openqa.selenium.WebDriver;
@@ -17,14 +17,14 @@ import org.openqa.selenium.support.PageFactory;
  **/
 public class ViewOrderAsRegistredUser extends BaseClass {
     WebDriver driver ;
-    FunctionLibray functionLibrary;
+    FunctionLibrary functionLibrary;
     @FindBy(xpath= "//div[@class=\"box-head\"]/h2[text()=\"Recent Orders\"]")
     WebElement ViewOrderLink;
 
     public ViewOrderAsRegistredUser(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
-        functionLibrary = new FunctionLibray(driver);
+        functionLibrary = new FunctionLibrary(driver);
     }
 
     public boolean registredUserViewOrder() {
