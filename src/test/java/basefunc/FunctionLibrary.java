@@ -95,9 +95,16 @@ FunctionLibrary {
         String fakerCity=Faker.instance().address().city();
         return fakerCity;
     }
+    public  String department=Faker.instance().commerce().department();
     public String generateFakerZipcode(){
         String fakerZipCode=Faker.instance().address().zipCode();
         return fakerZipCode;
+    }
+    public String generateFakerDepartment(){
+        String faketDepartment=Faker.instance().commerce().department();
+        return faketDepartment;
+
+
     }
 
 
