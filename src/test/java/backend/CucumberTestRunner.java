@@ -3,6 +3,8 @@ package backend;
 import basefunc.BaseClassForBackend;
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
@@ -17,12 +19,12 @@ import org.junit.runner.RunWith;
         tags = "")
 
 public class CucumberTestRunner extends BaseClassForBackend {
-//    @BeforeClass
-//        public static void setup(){
-//                setUpBrowser();
-//        }
-//        @AfterClass
-//        public static void teardown(){
-//                closeBrowser();
-//        }
+   @Before
+        public static void setup(){
+                setUpBrowser();
+        }
+       @After
+       public static void teardown(){
+              closeBrowser();
+        }
 }
