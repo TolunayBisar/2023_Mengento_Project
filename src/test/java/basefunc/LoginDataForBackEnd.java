@@ -6,14 +6,14 @@ package basefunc;
  * @Email :tolunay.bisar@gmail.com
  **/
 public class LoginDataForBackEnd {
-    private final String url_backend = FunctionLibray.readFromConfig("BackEnd_url");
-    private final String username_customer_manager = FunctionLibray.readFromConfig("username_customermanager");
-    private final String username_catalog_manager = FunctionLibray.readFromConfig("username_catalogmanager");
-    private final String username_marketing_manager = FunctionLibray.readFromConfig("username_marketingmanager");
-    private final String username_sales_manager = FunctionLibray.readFromConfig("username_salesmanager");
-    private final String username_store_manager = FunctionLibray.readFromConfig("username_storemanager");
-    private final String username_reporting_manager = FunctionLibray.readFromConfig("username_reportingmanager");
-    private final String password = FunctionLibray.readFromConfig("password");
+    private final String url_backend = FunctionLibrary.readFromConfig("BackEnd_url");
+    private final String username_customer_manager = FunctionLibrary.readFromConfig("username_customermanager");
+    private final String username_catalog_manager = FunctionLibrary.readFromConfig("username_catalogmanager");
+    private final String username_marketing_manager = FunctionLibrary.readFromConfig("username_marketingmanager");
+    private final String username_sales_manager = FunctionLibrary.readFromConfig("username_salesmanager");
+    private final String username_store_manager = FunctionLibrary.readFromConfig("username_storemanager");
+    private final String username_reporting_manager = FunctionLibrary.readFromConfig("username_reportingmanager");
+    private final String password = FunctionLibrary.readFromConfig("password");
 
 
 

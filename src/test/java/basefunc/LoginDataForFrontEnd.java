@@ -7,11 +7,11 @@ package basefunc;
  **/
 public class LoginDataForFrontEnd {
 
-    private final String url_frontend = FunctionLibray.readFromConfig("FrontEnd_url");
-    private final String username_frontend_create = FunctionLibray.readFromConfig("username_frontend1");
-    private final String username_frontend_register = FunctionLibray.readFromConfig("username_frontend2");
-    private final String password_frontend_create = FunctionLibray.readFromConfig("password_frontend1");
-    private final String password_frontend_registered = FunctionLibray.readFromConfig("password_frontend2");
+    private final String url_frontend = FunctionLibrary.readFromConfig("FrontEnd_url");
+    private final String username_frontend_create = FunctionLibrary.readFromConfig("username_frontend1");
+    private final String username_frontend_register = FunctionLibrary.readFromConfig("username_frontend2");
+    private final String password_frontend_create = FunctionLibrary.readFromConfig("password_frontend1");
+    private final String password_frontend_registered = FunctionLibrary.readFromConfig("password_frontend2");
 
 
 

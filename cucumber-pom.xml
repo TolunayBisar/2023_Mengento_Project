@@ -116,13 +116,7 @@
         </dependency>
 
 
-        <!-- https://mvnrepository.com/artifact/org.testng/testng -->
-        <dependency>
-            <groupId>org.testng</groupId>
-            <artifactId>testng</artifactId>
-            <version>7.8.0</version>
-            <scope>test</scope>
-        </dependency>
+
 
         <dependency>
             <groupId>org.junit.vintage</groupId>
@@ -260,20 +254,16 @@
                 </executions>
                 <configuration>
                     <suiteXmlFiles>
-                       <suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
+                        <suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
                 <dependencies>
-                    <!--<dependency>
+                    <dependency>
                         <groupId>org.apache.maven.surefire</groupId>
                         <artifactId>surefire-junit47</artifactId>
                         <version>3.0.0-M6</version>
-                    </dependency>-->
-                    <dependency>
-                        <groupId>org.apache.maven.surefire</groupId>
-                        <artifactId>surefire-testng</artifactId>
-                        <version>3.0.0-M6</version>
                     </dependency>
+
                 </dependencies>
             </plugin>
 
