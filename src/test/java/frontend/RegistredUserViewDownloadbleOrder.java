@@ -1,6 +1,6 @@
 package frontend;
 
-import basefunc.FunctionLibray;
+import basefunc.FunctionLibrary;
 import dashboard.DashBoardPageForBackEnd;
 import dashboard.DashBoardPageForFrontEnd;
 import groovy.xml.StreamingDOMBuilder;
@@ -16,14 +16,14 @@ import org.openqa.selenium.support.PageFactory;
  **/
 public class RegistredUserViewDownloadbleOrder {
     WebDriver driver;
-    FunctionLibray functionLibray;
+    FunctionLibrary functionLibrary;
     @FindBy (xpath = "//tr[@class=\"first odd\"]")
     WebElement viewOrderInformation;
 
     public RegistredUserViewDownloadbleOrder(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver,this);
-        functionLibray = new FunctionLibray(driver);
+        functionLibrary = new FunctionLibrary(driver);
     }
 
     DashBoardPageForFrontEnd boardPageForFrontEnd;
