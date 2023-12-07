@@ -1,7 +1,7 @@
 package frontend;
 
 import basefunc.ApplicationConfig;
-import basefunc.FunctionLibray;
+import basefunc.FunctionLibrary;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -9,12 +9,12 @@ import org.openqa.selenium.support.PageFactory;
 
 public class EditAccountInfoPage {
     WebDriver driver;
-    FunctionLibray functionLibray;
+    FunctionLibrary functionLibray;
 
     public EditAccountInfoPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver,this);
-        functionLibray = new FunctionLibray(driver);
+        functionLibray = new FunctionLibrary(driver);
     }
     @FindBy(id = "firstname")
     WebElement firstName;

@@ -1,6 +1,6 @@
 package frontend;
 
-import basefunc.FunctionLibray;
+import basefunc.FunctionLibrary;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -9,9 +9,7 @@ import org.openqa.selenium.support.ui.Select;
 
 public class UpdateAndViewAddress {
     WebDriver driver;
-    FunctionLibray functionLibray;
-    @FindBy(xpath = "//div[@class=\"dashboard\"]/div[5]/div[2]/div[1]/div/div/a")
-    WebElement editBillingAddressLink;
+    FunctionLibrary functionLibray;
     @FindBy(id = "street_1")
     WebElement streetAddressField;
     @FindBy(id = "city")
@@ -26,8 +24,6 @@ public class UpdateAndViewAddress {
     WebElement changedBillingAddressText;
     @FindBy(xpath = "//div[@class=\"col-1 addresses-primary\"]/ol/li[2]/address")
     WebElement changedShippingAddressText;
-    @FindBy(xpath = "//*[text()=\"The address has been saved.\"]")
-    WebElement successMassageBillingAddress;
     @FindBy(xpath = "//*[text()=\"Change Shipping Address\"]")
     WebElement changeShippingAddressLink;
     @FindBy(xpath = "//*[text()=\"Change Billing Address\"]")
@@ -38,7 +34,7 @@ public class UpdateAndViewAddress {
     public UpdateAndViewAddress(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
-        functionLibray = new FunctionLibray(driver);
+        functionLibray = new FunctionLibrary(driver);
     }
 
     public boolean viewAddressBookMethod(){
@@ -54,18 +50,18 @@ public class UpdateAndViewAddress {
 
     }
 
-    public void editBillingAddressMethod(String street, String city, String zipCode) {
+    public void editBillingAddressMethod() {
         functionLibray.waitElemantPresent(changeBillingAddressLink);
         changeBillingAddressLink.click();
         functionLibray.waitElemantPresent(streetAddressField);
         streetAddressField.clear();
-        streetAddressField.sendKeys(street);
+        streetAddressField.sendKeys(functionLibray.generateFakerStreet());
         functionLibray.waitElemantPresent(cityField);
         cityField.clear();
-        cityField.sendKeys(city);
+        cityField.sendKeys(functionLibray.generateFakerCity());
         functionLibray.waitElemantPresent(zipCodeField);
         zipCodeField.clear();
-        zipCodeField.sendKeys(zipCode);
+        zipCodeField.sendKeys(functionLibray.generateFakerZipcode());
         functionLibray.waitElemantPresent(countrySelectField);
         Select selectCountry = new Select(countrySelectField);
         selectCountry.selectByValue("AU");
@@ -82,23 +78,24 @@ public class UpdateAndViewAddress {
         } else {
             System.out.println("Update is failed");
             return false;
+
         }
 
 
     }
 
-    public void editShippingAddressMethod(String street, String city, String zipCode) {
+    public void editShippingAddressMethod() {
         functionLibray.waitElemantPresent(changeShippingAddressLink);
         changeShippingAddressLink.click();
         functionLibray.waitElemantPresent(streetAddressField);
         streetAddressField.clear();
-        streetAddressField.sendKeys(street);
+        streetAddressField.sendKeys(functionLibray.generateFakerStreet());
         functionLibray.waitElemantPresent(cityField);
         cityField.clear();
-        cityField.sendKeys(city);
+        cityField.sendKeys(functionLibray.generateFakerCity());
         functionLibray.waitElemantPresent(zipCodeField);
         zipCodeField.clear();
-        zipCodeField.sendKeys(zipCode);
+        zipCodeField.sendKeys(functionLibray.generateFakerZipcode());
         functionLibray.waitElemantPresent(countrySelectField);
         Select selectCountry = new Select(countrySelectField);
         selectCountry.selectByValue("NL");

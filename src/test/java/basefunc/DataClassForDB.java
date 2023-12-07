@@ -8,11 +8,11 @@ package basefunc;
 public class DataClassForDB {
 
 
-    private final String url = FunctionLibray.readFromConfig("dburl");
-    private final String port = FunctionLibray.readFromConfig("dbport");
-    private final String username = FunctionLibray.readFromConfig("dbusername");
-    private final String password = FunctionLibray.readFromConfig("dbpassword");
-    private final String defaultDB = FunctionLibray.readFromConfig("dbname");
+    private final String url = FunctionLibrary.readFromConfig("dburl");
+    private final String port = FunctionLibrary.readFromConfig("dbport");
+    private final String username = FunctionLibrary.readFromConfig("dbusername");
+    private final String password = FunctionLibrary.readFromConfig("dbpassword");
+    private final String defaultDB = FunctionLibrary.readFromConfig("dbname");
 
 
 
