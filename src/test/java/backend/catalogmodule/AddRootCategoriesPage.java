@@ -30,8 +30,8 @@ public class AddRootCategoriesPage {
     }
     public void addRootCategoryMethod( ){
         functionLibrary.waitElemantPresent(nameField);
-        nameField.sendKeys(functionLibrary.generateFakerDepartment());
-        System.out.println(functionLibrary.generateFakerDepartment());
+        nameField.sendKeys(functionLibrary.department);
+        System.out.println(functionLibrary.department);
         functionLibrary.waitElemantPresent(isActiveField);
         select=new Select(isActiveField);
         select.selectByVisibleText("Yes");
