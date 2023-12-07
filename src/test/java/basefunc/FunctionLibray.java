@@ -93,6 +93,11 @@ public class FunctionLibray {
         jst.executeScript("arguments[0].scrollIntoView(true);",webElement);
 
     }
+public void waitForPresent(WebElement element){
+        WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(180));
+        wait.until(ExpectedConditions.visibilityOf(element));
+
+}
 
 
 

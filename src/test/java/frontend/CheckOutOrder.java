@@ -174,7 +174,7 @@ public class CheckOutOrder extends BaseClass {
 
 
     public void addProductToCartAsGuest() {
-        functionLibray.waitElemantPresent(lafayetteDressLink);
+        functionLibray.waitForPresent(lafayetteDressLink);
         lafayetteDressLink.click();
         Select selectColor = new Select(colorDropDown);
         selectColor.selectByValue("27");
@@ -186,8 +186,9 @@ public class CheckOutOrder extends BaseClass {
 
     }
 
+
     public void addProductAsRegisteredToCart() {
-        functionLibray.waitElemantPresent(tabListInDashboard.get(0));
+        functionLibray.waitForPresent(tabListInDashboard.get(0));
         tabListInDashboard.get(0).click();
         functionLibray.javaScripClick(productForAdding);
         functionLibray.javaScriptScroll(addToCartButtonForRegistered);
@@ -197,7 +198,7 @@ public class CheckOutOrder extends BaseClass {
     }
 
     public void proceedCheckOutProduct() {
-        functionLibray.waitElemantPresent(countryDropdown);
+        functionLibray.waitForPresent(countryDropdown);
         Select selectCountry = new Select(countryDropdown);
         functionLibray.sleep(5);
 
@@ -219,23 +220,23 @@ public class CheckOutOrder extends BaseClass {
     public void checkOutAsGuest() {
 
 
-        functionLibray.waitElemantPresent(checkOutAsGuestCheckBox);
+        functionLibray.waitForPresent(checkOutAsGuestCheckBox);
         checkOutAsGuestCheckBox.click();
-        functionLibray.waitElemantPresent(continueButtonCheckOut);
+        functionLibray.waitForPresent(continueButtonCheckOut);
         continueButtonCheckOut.click();}
 
     public void fillBillInfo(){
 
-        functionLibray.waitElemantPresent(guestFirstNameInBill);
+        functionLibray.waitForPresent(guestFirstNameInBill);
         guestFirstNameInBill.sendKeys(FunctionLibray.generateFakeName());
-        functionLibray.waitElemantPresent(guestLastNameInBill);
+        functionLibray.waitForPresent(guestLastNameInBill);
         guestLastNameInBill.sendKeys(FunctionLibray.generateFakeName());
-        functionLibray.waitElemantPresent(guestEmailInBill);
+        functionLibray.waitForPresent(guestEmailInBill);
         guestEmailInBill.sendKeys("Guest" + functionLibray.timeStamp() + "@gmail.com");
-        functionLibray.waitElemantPresent(guestAddressInBill);
+        functionLibray.waitForPresent(guestAddressInBill);
         guestAddressInBill.sendKeys(Faker.instance().address().fullAddress());
 
-        functionLibray.waitElemantPresent(guestCountryInBill);
+        functionLibray.waitForPresent(guestCountryInBill);
         Select select = new Select(guestCountryInBill);
         guestCountryInBill.click();
         select.selectByIndex(random.nextInt(guestCountryInBillList.size()));
@@ -248,58 +249,58 @@ public class CheckOutOrder extends BaseClass {
 
         }
 
-        functionLibray.waitElemantPresent(guestCityInBill);
+        functionLibray.waitForPresent(guestCityInBill);
         guestCityInBill.sendKeys(Faker.instance().address().cityName());
-        functionLibray.waitElemantPresent(guestZipInBill);
+        functionLibray.waitForPresent(guestZipInBill);
         guestZipInBill.sendKeys(random.nextInt(100000)+"");
 
-        functionLibray.waitElemantPresent(guestTelNoInBill);
+        functionLibray.waitForPresent(guestTelNoInBill);
         guestTelNoInBill.sendKeys(Faker.instance().phoneNumber() + functionLibray.timeStamp());
-        functionLibray.waitElemantPresent(shipToThisAdd);
+        functionLibray.waitForPresent(shipToThisAdd);
         functionLibray.javaScripClick(shipToThisAdd);
-        functionLibray.waitElemantPresent(continueButtonInBill);
+        functionLibray.waitForPresent(continueButtonInBill);
         functionLibray.javaScripClick(continueButtonInBill); }
 
     public void continueCheckoutAsGuest(){
 
-        functionLibray.waitElemantPresent(shipMethodCheckbox1);
+        functionLibray.waitForPresent(shipMethodCheckbox1);
         shipMethodCheckbox1.click();
-        functionLibray.waitElemantPresent(continueShipMethod);
+        functionLibray.waitForPresent(continueShipMethod);
         continueShipMethod.click();
-        functionLibray.waitElemantPresent(cashOnDeliveryCheckbox);
+        functionLibray.waitForPresent(cashOnDeliveryCheckbox);
         cashOnDeliveryCheckbox.click();
-        functionLibray.waitElemantPresent(continueInPaymentMethod);
+        functionLibray.waitForPresent(continueInPaymentMethod);
         continueInPaymentMethod.click();
-        functionLibray.waitElemantPresent(placeOrderButton);
+        functionLibray.waitForPresent(placeOrderButton);
         placeOrderButton.click();
 
     }
 
 
     public void checkOutAsRegister() {
-        functionLibray.waitElemantPresent(cartButton);
+        functionLibray.waitForPresent(cartButton);
         functionLibray.javaScripClick(cartButton);
-        functionLibray.waitElemantPresent(checkOutLink);
+        functionLibray.waitForPresent(checkOutLink);
         checkOutLink.click();
-        functionLibray.waitElemantPresent(shipToThisAdd1);
+        functionLibray.waitForPresent(shipToThisAdd1);
         functionLibray.javaScripClick(shipToThisAdd1);
-        functionLibray.waitElemantPresent(continueButtonInBill);
+        functionLibray.waitForPresent(continueButtonInBill);
         continueButtonInBill.click();
 
-        functionLibray.waitElemantPresent(shipMethodCheckboxWithID);
+        functionLibray.waitForPresent(shipMethodCheckboxWithID);
         functionLibray.javaScripClick(shipMethodCheckboxWithID);
         functionLibray.javaScripClick(continueShipMethod);
-        functionLibray.waitElemantPresent(cashOnDeliveryCheckbox);
+        functionLibray.waitForPresent(cashOnDeliveryCheckbox);
         cashOnDeliveryCheckbox.click();
-        functionLibray.waitElemantPresent(continueInPaymentMethod);
+        functionLibray.waitForPresent(continueInPaymentMethod);
         continueInPaymentMethod.click();
-        functionLibray.waitElemantPresent(placeOrderButton);
+        functionLibray.waitForPresent(placeOrderButton);
         placeOrderButton.click();
 
     }
 
     public boolean verifyCheckOut() {
-        functionLibray.waitElemantPresent(checkoutSuccessfulMsgList);
+        functionLibray.waitForPresent(checkoutSuccessfulMsgList);
 
         if (checkoutSuccessfulMsgList.isDisplayed()){
             System.out.println("Checkout Successful");
