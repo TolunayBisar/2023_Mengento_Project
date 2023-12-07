@@ -1,13 +1,16 @@
 package backend.customersmodule;
 
 import basefunc.FunctionLibray;
+import dashboard.DashBoardPageForBackEnd;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class CustomerManagerAddNewCustomerGroup {
     public WebDriver driver;
     FunctionLibray functionLibray;
+    DashBoardPageForBackEnd dashBoardPageForBackEnd;
     @FindBy(xpath = " //input[@id=\"username\"]")
     WebElement userNameField;
     @FindBy(xpath = "//input[@name=\"login[password]\"]")
@@ -27,6 +30,32 @@ public class CustomerManagerAddNewCustomerGroup {
     @FindBy(xpath = " //span[text()=\"The customer group has been saved.\"]")
     WebElement successMessage;
 
+    public CustomerManagerAddNewCustomerGroup(WebDriver driver) {
+        this.driver = driver;
+        PageFactory.initElements(driver,this);
+        functionLibray=new FunctionLibray(driver);
 
+    }
+
+    public void addNewCustomerGroup(){
+        functionLibray.waitElemantPresent(customerTab);
+        customerTab.click();
+        functionLibray.waitElemantPresent(customerGroupLink);
+        customerGroupLink.click();
+        functionLibray.waitElemantPresent(addNewCustomerGroupButton);
+        addNewCustomerGroupButton.click();
+        String groupName = "sdeat";
+        functionLibray.waitElemantPresent(groupNameField);
+        groupNameField.sendKeys(groupName);
+        functionLibray.waitElemantPresent(saveCustomerGroupButton);
+        saveCustomerGroupButton.click();
+    }
+    public boolean verifyAddedNewCustomerGroup(){
+        functionLibray.waitElemantPresent(successMessage);
+        if (successMessage.isDisplayed()){
+            System.out.println("Customer group successfully added");
+        }
+        return true;
+    }
 
 }
