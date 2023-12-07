@@ -1,6 +1,6 @@
 package backend.customersmodule;
 
-import basefunc.FunctionLibray;
+import basefunc.FunctionLibrary;
 import dashboard.DashBoardPageForBackEnd;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,17 +15,17 @@ import org.openqa.selenium.support.PageFactory;
  **/
 public class CustomerFilterByEmail {
     WebDriver driver;
-    FunctionLibray functionLibray;
+    FunctionLibrary functionLibray;
     DashBoardPageForBackEnd dashBoardPageForBackEnd;
     @FindBy(xpath = "//span[text()=\"Customers\"]")
     WebElement customerTab;
     @FindBy(xpath = "//span[text()=\"Manage Customers\"]")
     WebElement ManageCustomers;
-    @FindBy(id ="customerGrid_filter_email")
+    @FindBy(id = "customerGrid_filter_email")
     WebElement EmailOFCustomer;
-@FindBy(xpath = "//td[@class=\" last\"]/a")
+    @FindBy(xpath = "//td[@class=\" last\"]/a")
     WebElement ViewEditButton;
-    @FindAll(@FindBy(xpath="//tbody/tr"))
+    @FindAll(@FindBy(xpath = "//tbody/tr"))
     WebElement EmailList;
     @FindBy(xpath = "//span[text()=\"Search\"]")
     WebElement SearchButton;
@@ -35,30 +35,31 @@ public class CustomerFilterByEmail {
     public CustomerFilterByEmail(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
-        functionLibray = new FunctionLibray(driver);
+        functionLibray = new FunctionLibrary(driver);
     }
 
-    public void filterCustomerByEmail(){
+    public void filterCustomerByEmail() {
         functionLibray.waitElemantPresent(customerTab);
         customerTab.click();
         functionLibray.waitElemantPresent(ManageCustomers);
         ManageCustomers.click();
-    functionLibray.waitElemantPresent(EmailList);
-    EmailList.getSize();
-    String mailNameToFilter = "Simruh";
-    EmailOFCustomer.sendKeys(mailNameToFilter);
-    functionLibray.waitElemantPresent(SearchButton);
-    SearchButton.click();
-}
+        functionLibray.waitElemantPresent(EmailList);
+        EmailList.getSize();
+        String mailNameToFilter = "Simruh";
+        EmailOFCustomer.sendKeys(mailNameToFilter);
+        functionLibray.waitElemantPresent(SearchButton);
+        SearchButton.click();
+    }
+
     public boolean verifyNoFoundEmail() {
         Boolean filterEmail = false;
         functionLibray.waitElemantPresent(ViewEditButton);
         if (ViewEditButton.isDisplayed()) {
             System.out.println("Admin view customers email ");
             return true;
-        }else if  (!ViewEditButton.isDisplayed()){
+        } else if (!ViewEditButton.isDisplayed()) {
             System.out.println("filter customer is failed");
-    }
+        }
         return filterEmail;
     }
 }
