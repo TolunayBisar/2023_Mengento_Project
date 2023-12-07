@@ -1,6 +1,7 @@
 package backend.customersmodule;
 
-import basefunc.FunctionLibray;
+
+import basefunc.FunctionLibrary;
 import dashboard.DashBoardPageForBackEnd;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,7 +16,7 @@ import org.openqa.selenium.support.PageFactory;
  **/
 public class CustomerFilterByEmail {
     WebDriver driver;
-    FunctionLibray functionLibray;
+    FunctionLibrary functionLibrary;
     DashBoardPageForBackEnd dashBoardPageForBackEnd;
     @FindBy(xpath = "//span[text()=\"Customers\"]")
     WebElement customerTab;
@@ -35,24 +36,24 @@ public class CustomerFilterByEmail {
     public CustomerFilterByEmail(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
-        functionLibray = new FunctionLibray(driver);
+        functionLibrary = new FunctionLibrary(driver);
     }
 
     public void filterCustomerByEmail(){
-        functionLibray.waitElemantPresent(customerTab);
+        functionLibrary.waitElemantPresent(customerTab);
         customerTab.click();
-        functionLibray.waitElemantPresent(ManageCustomers);
+        functionLibrary.waitElemantPresent(ManageCustomers);
         ManageCustomers.click();
-    functionLibray.waitElemantPresent(EmailList);
+    functionLibrary.waitElemantPresent(EmailList);
     EmailList.getSize();
     String mailNameToFilter = "Simruh";
     EmailOFCustomer.sendKeys(mailNameToFilter);
-    functionLibray.waitElemantPresent(SearchButton);
+    functionLibrary.waitElemantPresent(SearchButton);
     SearchButton.click();
 }
     public boolean verifyNoFoundEmail() {
         Boolean filterEmail = false;
-        functionLibray.waitElemantPresent(ViewEditButton);
+        functionLibrary.waitElemantPresent(ViewEditButton);
         if (ViewEditButton.isDisplayed()) {
             System.out.println("Admin view customers email ");
             return true;
