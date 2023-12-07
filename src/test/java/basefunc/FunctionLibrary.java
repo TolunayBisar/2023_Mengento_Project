@@ -2,6 +2,7 @@ package basefunc;
 
 import com.github.javafaker.Faker;
 import org.apache.commons.lang3.RandomStringUtils;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -18,14 +19,17 @@ import java.util.Properties;
  * @created : 27.11.2023,17:53
  * @Email :tolunay.bisar@gmail.com
  **/
-public class
-FunctionLibrary {
+public class FunctionLibrary {
 
     WebDriver driver;
+    int timeOut = Integer.parseInt(ApplicationConfig.readFromConfig("config.properties","timeout"));
 
     public FunctionLibrary(WebDriver driver) {
         this.driver = driver;
 
+    }
+
+    public FunctionLibrary() {
     }
 
     public void sleep(int seconds){
@@ -54,7 +58,7 @@ FunctionLibrary {
     }
 
     public void waitElemantPresent(WebElement element){
-        int timeOut = Integer.parseInt(ApplicationConfig.readFromConfig("config.properties","timeout"));
+
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeOut));
         wait.until(ExpectedConditions.visibilityOf(element));
     }
@@ -124,6 +128,23 @@ FunctionLibrary {
         long timeStamp = System.currentTimeMillis();
         return (Long.toString(timeStamp).toString().substring(8));
     }
+
+    public void javaScripClick(WebElement element){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click()",element);
+
+    }
+
+    public void javaScriptScroll(WebElement webElement){
+        JavascriptExecutor jst = (JavascriptExecutor) driver;
+        jst.executeScript("arguments[0].scrollIntoView(true);",webElement);
+
+    }
+public void waitForPresent(WebElement element){
+        WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(180));
+        wait.until(ExpectedConditions.visibilityOf(element));
+
+}
 
 
 
