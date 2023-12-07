@@ -13,32 +13,31 @@ import org.openqa.selenium.support.PageFactory;
  **/
 public class LoginPageForFrontEnd {
 
-<<<<<<< HEAD
-    WebDriver driver;
-    FunctionLibray functionLibrary;
-Actions actions;
-=======
-    public WebDriver driver;
-    FunctionLibrary functionLibrary;
 
->>>>>>> master
+    WebDriver driver;
+    FunctionLibrary functionLibrary;
+Actions actions;
+
+
+
+
 
     @FindBy(linkText = "Welcome ")
     WebElement welcomeText;
     @FindBy(xpath = "//div[@class=\"block-title\"]/following-sibling::ul//a[@title=\"My Account\"]")
     WebElement myAccountLink;
 
-<<<<<<< HEAD
+
     @FindBy(xpath = "//*[@id=\"top\"]/body/div/div[2]/div[3]/div/div[5]/ul/li[1]/a")
     WebElement getMyAccountLink;
-=======
+
 
 
     @FindBy(xpath = "//span[text()='Account' and @class='label']")
     WebElement accountLink;
     @FindBy(css = "a[title='Log In']")
     WebElement loginLink;
->>>>>>> master
+
     @FindBy(xpath = "//input[@id=\"email\"]")
     WebElement emailField;
     @FindBy(id = "pass")
@@ -46,7 +45,7 @@ Actions actions;
     @FindBy(id = "send2")
     WebElement loginButton;
     @FindBy(xpath = "//a[@class=\"skip-link skip-account\"]/span")
-    WebElement accountLink;
+    WebElement accountLink1;
     @FindBy(linkText = "Log Out")
     WebElement logOutLink;
 
@@ -57,13 +56,11 @@ Actions actions;
     public LoginPageForFrontEnd(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
-<<<<<<< HEAD
-        functionLibrary = new FunctionLibray(driver);
+
+        functionLibrary = new FunctionLibrary(driver);
         actions =  new Actions(driver);
 
-=======
-        functionLibrary = new FunctionLibrary(driver);
->>>>>>> master
+
     }
 
     public boolean verifyMengentoFrontEndOpen() {
@@ -94,34 +91,20 @@ Actions actions;
     }
 
     public void logIn(String userName, String password) {
-//
-//
+
       functionLibrary.waitElemantPresent(myAccountLink);
-      //functionLibrary.waitElemantPresent(getMyAccountLink);
-      //functionLibrary.javaScripClick(myAccountLink);
-       // actions.moveToElement(myAccountLink).click().build().perform();
+
  myAccountLink.click();
-//         driver.findElement(By.xpath("//a/span[text()=\"Account\"]")).click();
-       // driver.findElement(By.xpath("//div[@class=\"c\"]//li/a[text()=\"My Account\"]")).click();
-//getMyAccountLink.click();
+
         enterUserName(userName);
         enterPassword(password);
         clickLoginButton();
 
     }
-<<<<<<< HEAD
-    public void logOut(){
-        functionLibrary.waitElemantPresent(accountLink);
-        functionLibrary.javaScripClick(accountLink);
-       // accountLink.click();
-        functionLibrary.waitElemantPresent(logOutLink);
-        functionLibrary.javaScripClick(logOutLink);
-        //logOutLink.click();
-    }
-=======
+
     public void userLogin(String userEmail,String password){
-        functionLibrary.waitElemantPresent(accountLink);
-        accountLink.click();
+        functionLibrary.waitElemantPresent(accountLink1);
+        accountLink1.click();
         functionLibrary.waitElemantPresent(loginLink);
         loginLink.click();
         functionLibrary.waitElemantPresent(emailField);
@@ -134,5 +117,5 @@ Actions actions;
 
 
 
->>>>>>> master
+
 }

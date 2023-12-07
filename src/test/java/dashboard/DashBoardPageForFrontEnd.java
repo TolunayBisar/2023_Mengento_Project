@@ -12,14 +12,14 @@ import org.openqa.selenium.support.PageFactory;
  **/
 public class DashBoardPageForFrontEnd {
     public WebDriver driver;
-<<<<<<< HEAD
-    FunctionLibray functionLibrary;
 
-=======
+
+
+
     FunctionLibrary functionLibrary;
     @FindBy(xpath = "//span[text()='Account' and @class='label']")
     WebElement accountLink;
->>>>>>> master
+
     @FindBy(xpath = "//*[text()= \"My Dashboard\"]")
     WebElement myDashboardText;
     @FindBy(xpath = "//*[text()=\"My Dashboard\"]")
@@ -59,10 +59,7 @@ public class DashBoardPageForFrontEnd {
 
 
 
-    @FindBy(xpath ="//*[text()= \"Edit Account Information\"]")
-    WebElement editAccountInformationText;
-    @FindBy(xpath = "//a[text()=\"Address Book\"]")
-    WebElement addressBookLink;
+
 
    
 
@@ -94,11 +91,9 @@ public class DashBoardPageForFrontEnd {
         }
     }
     public void clickAddressBookLink(){
-<<<<<<< HEAD
-        functionLibrary.waitElemantPresent(addressBookLink);
-        addressBookLink.click();
-    }
-=======
+
+
+
         functionLibrary.waitElemantPresent(accountLink);
         accountLink.click();
         functionLibrary.waitElemantPresent(myAccountLink1);
@@ -113,7 +108,7 @@ public class DashBoardPageForFrontEnd {
         logoutLink.click();
 
     }
->>>>>>> master
+
 
     public void clickOnMyAccountLink(){
         myAccountLink.click();

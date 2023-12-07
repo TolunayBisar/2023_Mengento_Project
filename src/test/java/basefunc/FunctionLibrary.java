@@ -19,8 +19,7 @@ import java.util.Properties;
  * @created : 27.11.2023,17:53
  * @Email :tolunay.bisar@gmail.com
  **/
-public class
-FunctionLibrary {
+public class FunctionLibrary {
 
     WebDriver driver;
     int timeOut = Integer.parseInt(ApplicationConfig.readFromConfig("config.properties","timeout"));
@@ -30,7 +29,7 @@ FunctionLibrary {
 
     }
 
-    public FunctionLibray() {
+    public FunctionLibrary() {
     }
 
     public void sleep(int seconds){
