@@ -2,7 +2,6 @@ package frontend;
 
 import basefunc.ApplicationConfig;
 import basefunc.BaseClass;
-
 import basefunc.LoginDataForFrontEnd;
 import dashboard.DashBoardPageForFrontEnd;
 import dashboard.LoginPageForFrontEnd;

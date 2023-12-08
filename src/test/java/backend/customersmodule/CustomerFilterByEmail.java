@@ -14,7 +14,6 @@ import org.openqa.selenium.support.PageFactory;
  **/
 public class CustomerFilterByEmail {
     WebDriver driver;
-    FunctionLibrary functionLibray;
     FunctionLibrary functionLibrary;
     DashBoardPageForBackEnd dashBoardPageForBackEnd;
     @FindBy(xpath = "//span[text()=\"Customers\"]")
@@ -27,51 +26,48 @@ public class CustomerFilterByEmail {
     WebElement ViewEditButton;
     @FindAll(@FindBy(xpath = "//tbody/tr"))
     WebElement EmailList;
+    @FindBy(xpath = "//td[contains(text(),\"Simruh2021@gmail.com\")]")
+    WebElement customersEmailAddress;
     @FindBy(xpath = "//span[text()=\"Search\"]")
     WebElement SearchButton;
-    @FindBy(xpath = "//input[@type=\"checkbox\"]")
-    WebElement checkBox;
-
     public CustomerFilterByEmail(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
-        functionLibray = new FunctionLibrary(driver);
-    }
-
-    public void filterCustomerByEmail() {
-        functionLibray.waitElemantPresent(customerTab)
         functionLibrary = new FunctionLibrary(driver);
     }
-
-    public void filterCustomerByEmail(){
+    public Boolean filterCustomerByEmail(){
         functionLibrary.waitElemantPresent(customerTab);
         customerTab.click();
         functionLibrary.waitElemantPresent(ManageCustomers);
         ManageCustomers.click();
-        functionLibray.waitElemantPresent(EmailList);
+        functionLibrary.waitElemantPresent(EmailList);
         EmailList.getSize();
-        String mailNameToFilter = "Simruh";
-        EmailOFCustomer.sendKeys(mailNameToFilter);
-        functionLibray.waitElemantPresent(SearchButton);
+        String mailAdressToFilter = "Simruh2021@gmail.com";
+        EmailOFCustomer.sendKeys(mailAdressToFilter);
+        functionLibrary.waitElemantPresent(SearchButton);
         SearchButton.click();
-    }
 
-    functionLibrary.waitElemantPresent(EmailList);
-    EmailList.getSize();
-    String mailNameToFilter = "Simruh";
-    EmailOFCustomer.sendKeys(mailNameToFilter);
-    functionLibrary.waitElemantPresent(SearchButton);
-    SearchButton.click();
-}
-    public boolean verifyNoFoundEmail() {
         Boolean filterEmail = false;
-        functionLibrary.waitElemantPresent(ViewEditButton);
-        if (ViewEditButton.isDisplayed()) {
+        functionLibrary.waitElemantPresent(customersEmailAddress);
+        if (customersEmailAddress.getText().
+                equalsIgnoreCase(mailAdressToFilter)) {
             System.out.println("Admin view customers email ");
             return true;
-        } else if (!ViewEditButton.isDisplayed()) {
+        } else {
             System.out.println("filter customer is failed");
         }
         return filterEmail;
     }
-}
+    }
+//    public boolean verifyNoFoundEmail() {
+//        CustomerFilterByEmail filter = new CustomerFilterByEmail(driver);
+//        Boolean filterEmail = false;
+//        if (customersEmailAddress.getText().
+//                equalsIgnoreCase(filter.filterCustomerByEmail())) {
+//            System.out.println("Admin view customers email ");
+//            return true;
+//        } else if (!ViewEditButton.isDisplayed()) {
+//            System.out.println("filter customer is failed");
+//        }
+//        return filterEmail;
+//   }
