@@ -1,6 +1,5 @@
 package backend.catalogmodule;
 import basefunc.BaseClass;
-import basefunc.BaseClassForBackend;
 import dashboard.LoginPageForBackEnd;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
