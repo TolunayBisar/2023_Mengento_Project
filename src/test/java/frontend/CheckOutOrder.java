@@ -1,7 +1,6 @@
 package frontend;
 
 import basefunc.BaseClass;
-
 import basefunc.FunctionLibrary;
 import basefunc.LoginDataForFrontEnd;
 import com.github.javafaker.Faker;

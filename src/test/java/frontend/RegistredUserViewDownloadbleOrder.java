@@ -1,6 +1,8 @@
 package frontend;
 
 import basefunc.FunctionLibrary;
+
+import dashboard.DashBoardPageForBackEnd;
 import dashboard.DashBoardPageForFrontEnd;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,7 +16,9 @@ import org.openqa.selenium.support.PageFactory;
  **/
 public class RegistredUserViewDownloadbleOrder {
     WebDriver driver;
+
     FunctionLibrary functionLibray;
+
     @FindBy (xpath = "//tr[@class=\"first odd\"]")
     WebElement viewOrderInformation;
 
@@ -22,6 +26,7 @@ public class RegistredUserViewDownloadbleOrder {
         this.driver = driver;
         PageFactory.initElements(driver,this);
         functionLibray = new FunctionLibrary(driver);
+
     }
     DashBoardPageForFrontEnd boardPageForFrontEnd;
     public void viewDownladbleOrder() {
