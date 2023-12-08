@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.Select;
 
 public class FilterCustomerGroupPage {
     WebDriver driver;
-   FunctionLibrary functionLibrary;
+    FunctionLibrary functionLibrary;
     Actions actions;
     @FindBy(css="#customerGrid_filter_group")
     WebElement groupDropDown;
