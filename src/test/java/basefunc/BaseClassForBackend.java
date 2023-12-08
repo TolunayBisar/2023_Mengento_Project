@@ -7,7 +7,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 
 
-public class BaseClassForBackend {
+public class BaseClassForBackend  {
     public static WebDriver driver;
 
     public static void setUpBrowser() {
