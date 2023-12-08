@@ -14,6 +14,7 @@ public class CustomersModuleStepdefs extends BaseClassForBackend{
     DashBoardPageForBackEnd dashBoardPageForBackEnd = new DashBoardPageForBackEnd(driver);
     FilterCustomerGroupPage filterCustomerGroupPage = new FilterCustomerGroupPage(driver);
     AssignCustomerToGroup assignCustomerToGroup = new AssignCustomerToGroup(driver);
+    FilterCustomersByState filterCustomersByState = new FilterCustomersByState(driver);
 
     @Given("Customer manager on the dashboard page")
     public void customerManagerOnTheDashboardPage() {
@@ -52,5 +53,16 @@ public class CustomersModuleStepdefs extends BaseClassForBackend{
     @Then("the operation should be successful")
     public void theOperationShouldBeSuccessful() {
         assignCustomerToGroup.verifyCustomerAssignToCustomerGroup();
+    }
+
+    @When("customer manager filter customer by state {}")
+    public void customerManagerFilterCustomerByStateBreda(String stateName) {
+        filterCustomersByState.filterCustomersByStateMethod(stateName);
+
+    }
+
+    @Then("filtered customers should be displayed o")
+    public void filteredCustomersShouldBeDisplayedO() {
+        filterCustomersByState.verifyCustomersFilteredByState();
     }
 }
