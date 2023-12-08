@@ -19,8 +19,8 @@ public class CustomerManagerAddNewCustomerGroup {
     WebElement loginButton;
     @FindBy(xpath = "//a[@onClick=\"return false\"]/span[text()=\"Customers\"]")
     WebElement customerTab;
-    @FindBy(xpath = "\n" +"//span[text()= \"Customer Groups\"]")
-    WebElement customerGroupLink;
+//    @FindBy(xpath = "\n" +"//span[text()= \"Customer Groups\"]")
+//    WebElement customerGroupLink;
     @FindBy(xpath = "//button[@title=\"Add New Customer Group\"]")
     WebElement addNewCustomerGroupButton;
     @FindBy(xpath = "//tr//input[@id=\"customer_group_code\"]")
@@ -38,13 +38,13 @@ public class CustomerManagerAddNewCustomerGroup {
     }
 
     public void addNewCustomerGroup(){
-        functionLibray.waitElemantPresent(customerTab);
-        customerTab.click();
-        functionLibray.waitElemantPresent(customerGroupLink);
-        customerGroupLink.click();
+//        functionLibray.waitElemantPresent(customerTab);
+//        customerTab.click();
+//        functionLibray.waitElemantPresent(customerGroupLink);
+//        customerGroupLink.click();
         functionLibray.waitElemantPresent(addNewCustomerGroupButton);
         addNewCustomerGroupButton.click();
-        String groupName = "sdeat";
+        String groupName = "sdeat"+functionLibray.timeStamp();
         functionLibray.waitElemantPresent(groupNameField);
         groupNameField.sendKeys(groupName);
         functionLibray.waitElemantPresent(saveCustomerGroupButton);

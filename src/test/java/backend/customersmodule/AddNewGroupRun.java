@@ -21,20 +21,24 @@ public class AddNewGroupRun extends BaseClass {
         dashBoardPageForBackEnd = new DashBoardPageForBackEnd(driver);
         customerManagerAddNewCustomerGroup = new CustomerManagerAddNewCustomerGroup(driver);
     }
+    @Test(priority = 2)
+    public void goToCustomerManage(){
+        dashBoardPageForBackEnd.goToManageCustomersPage2();
+    }
 
     @Test(priority = 1)
     public void loginToCustomerPageBackend(){
         loginPageForBackEnd.logIn(loginDataForBackEnd.getUsernameCustomerManager(),
                 loginDataForBackEnd.getPassword());
     }
-    @Test(priority = 2)
+    @Test(priority = 3)
     public void addCustomerGroup(){
         customerManagerAddNewCustomerGroup = new CustomerManagerAddNewCustomerGroup(driver);
         customerManagerAddNewCustomerGroup.addNewCustomerGroup();
         Assert.assertTrue(customerManagerAddNewCustomerGroup.verifyAddedNewCustomerGroup());
 
     }
-    @Test(priority = 3)
+    @Test(priority = 4)
     public void tearDown(){
         closeBrowser();
     }

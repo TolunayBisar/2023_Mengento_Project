@@ -16,3 +16,8 @@ Feature: Customer manager can manage customers
     When the Customer Manager assigns a customer to a Customer Group
     Then the operation should be successful
 
+  @AddNewCustomerGroup
+  Scenario: Customer manager should be able to add new customer group.
+    Given Customer manager go to the manage customer page
+    When Customer manager add new customer group.
+    Then Added new customer group should be displayed.
