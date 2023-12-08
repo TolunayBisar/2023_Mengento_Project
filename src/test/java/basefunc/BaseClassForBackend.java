@@ -10,7 +10,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 public class BaseClassForBackend  {
     public static WebDriver driver;
 
-    public static void setUpBrowser() {
+    public static void setUpBrowser(String url) {
         ChromeOptions options = new ChromeOptions();
         if (SystemUtils.IS_OS_LINUX){
             options.addArguments("headless");
@@ -22,7 +22,7 @@ public class BaseClassForBackend  {
         if (SystemUtils.IS_OS_MAC_OSX||SystemUtils.IS_OS_WINDOWS) {
             driver.manage().window().maximize();
         }
-        driver.get("https://ecommerce.unitedcoderapp.com/index.php/admin");
+        driver.get(url);
     }
 
     public  static void closeBrowser(){
