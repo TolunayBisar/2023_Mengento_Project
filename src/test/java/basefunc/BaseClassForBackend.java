@@ -8,7 +8,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import java.util.HashMap;
 import java.util.Map;
 
-public class BaseClassForBackend {
+public class BaseClassForBackend  {
     public static WebDriver driver;
 
     public static void setUpBrowser() {
