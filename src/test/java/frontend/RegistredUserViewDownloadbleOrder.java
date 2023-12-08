@@ -1,9 +1,9 @@
 package frontend;
 
 import basefunc.FunctionLibrary;
+
 import dashboard.DashBoardPageForBackEnd;
 import dashboard.DashBoardPageForFrontEnd;
-import groovy.xml.StreamingDOMBuilder;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -16,16 +16,18 @@ import org.openqa.selenium.support.PageFactory;
  **/
 public class RegistredUserViewDownloadbleOrder {
     WebDriver driver;
-    FunctionLibrary functionLibrary;
+
+    FunctionLibrary functionLibray;
+
     @FindBy (xpath = "//tr[@class=\"first odd\"]")
     WebElement viewOrderInformation;
 
     public RegistredUserViewDownloadbleOrder(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver,this);
-        functionLibrary = new FunctionLibrary(driver);
-    }
+        functionLibray = new FunctionLibrary(driver);
 
+    }
     DashBoardPageForFrontEnd boardPageForFrontEnd;
     public void viewDownladbleOrder() {
         boardPageForFrontEnd.clickOnMyDownloadableProductLink();
