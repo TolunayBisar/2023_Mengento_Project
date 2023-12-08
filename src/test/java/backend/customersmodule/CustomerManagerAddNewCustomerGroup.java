@@ -1,6 +1,6 @@
 package backend.customersmodule;
 
-import basefunc.FunctionLibray;
+import basefunc.FunctionLibrary;
 import dashboard.DashBoardPageForBackEnd;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,7 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class CustomerManagerAddNewCustomerGroup {
     public WebDriver driver;
-    FunctionLibray functionLibray;
+    FunctionLibrary functionLibray;
     DashBoardPageForBackEnd dashBoardPageForBackEnd;
     @FindBy(xpath = " //input[@id=\"username\"]")
     WebElement userNameField;
@@ -33,7 +33,7 @@ public class CustomerManagerAddNewCustomerGroup {
     public CustomerManagerAddNewCustomerGroup(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver,this);
-        functionLibray=new FunctionLibray(driver);
+        functionLibray=new FunctionLibrary(driver);
 
     }
 
