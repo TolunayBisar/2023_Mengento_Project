@@ -20,7 +20,6 @@ public class RunForCustomerModule extends BaseClass {
 
     @BeforeClass
     public void setUp(){
-
         setUpBrowser("https://ecommerce.unitedcoderapp.com/index.php/admin");
     }
     @Test(priority = 1)
@@ -33,7 +32,7 @@ public class RunForCustomerModule extends BaseClass {
     @Test(priority = 2)
     public void FilterCustomerEmail(){
         customerFilterByEmail = new CustomerFilterByEmail(driver);
-        customerFilterByEmail.filterCustomerByEmail();
-        Assert.assertTrue(customerFilterByEmail.verifyNoFoundEmail());
+       // customerFilterByEmail.filterCustomerByEmail();
+        Assert.assertTrue(customerFilterByEmail.filterCustomerByEmail());
     }
 }
