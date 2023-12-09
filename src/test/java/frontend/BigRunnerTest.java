@@ -2,6 +2,7 @@ package frontend;
 
 import basefunc.ApplicationConfig;
 import basefunc.BaseClass;
+import basefunc.FunctionLibrary;
 import basefunc.LoginDataForFrontEnd;
 import com.github.javafaker.Faker;
 import dashboard.DashBoardPageForFrontEnd;
@@ -17,6 +18,7 @@ import org.testng.annotations.Test;
 @Listeners(ApplicationConfig.TestResultListener.class)
 
 public class BigRunnerTest extends BaseClass {
+    FunctionLibrary functionLibrary;
     LoginPageForFrontEnd loginPageForFrontEnd;
     LoginDataForFrontEnd loginDataForFrontEnd=new LoginDataForFrontEnd();
     CreateAccount createAccount;
@@ -29,6 +31,7 @@ public class BigRunnerTest extends BaseClass {
     @BeforeClass
     public void setUp(){
         setUpBrowser(loginDataForFrontEnd.getUrlFrontEnd());
+        functionLibrary = new FunctionLibrary(driver);
         createAccount = new CreateAccount(driver);
         loginPageForFrontEnd=new LoginPageForFrontEnd(driver);
         dashBoardPageForFrontEnd=new DashBoardPageForFrontEnd(driver);
