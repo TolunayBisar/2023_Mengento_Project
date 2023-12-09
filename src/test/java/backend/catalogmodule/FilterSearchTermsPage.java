@@ -12,6 +12,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class FilterSearchTermsPage  {
@@ -53,6 +54,10 @@ public class FilterSearchTermsPage  {
 //            @FindBy(xpath = "td[@class='a-center ']/following-sibling::td")
 //    )
 //    List<WebElement> searchQueryList;
+@FindAll(
+        @FindBy(xpath = "//tr[@class='pointer']")
+)
+List<WebElement> storeList;
     @FindBy(xpath = "//tr[@class='even pointer']/td[2]")
     WebElement queryName;
     public void filterBySearchQuery(String SearchQuery){
@@ -78,6 +83,50 @@ public class FilterSearchTermsPage  {
         functionLibrary.waitElemantPresent(searchButton);
         searchButton.click();
 
+
+    }
+    public void filterByResult(String numberFrom,String numberTo){
+        Actions actions = new Actions(driver);
+        functionLibrary.waitElemantPresent(catalog);
+        actions.moveToElement(catalog).click().build().perform();
+        functionLibrary.waitElemantPresent(searchTerms);
+        searchTerms.click();
+        functionLibrary.waitElemantPresent(resultFrom);
+        resultFrom.sendKeys(numberFrom);
+        functionLibrary.waitElemantPresent(resultTo);
+        resultTo.sendKeys(numberTo);
+        functionLibrary.waitElemantPresent(searchButton);
+        searchButton.click();
+
+    }
+    public boolean verifyFilterByStore(String storeName){
+
+        for (WebElement storename :storeList){
+
+            String name = storename.findElement(By.xpath("//tr[@class='pointer']/td[3]")).getText();
+
+            System.out.println(name);
+            if (storeName.contains(name)){
+                return true;
+            }
+
+        }
+        return false;
+    }
+    public boolean verifyFilterByResult(){
+        ArrayList listOfFilter = new ArrayList<>();
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        listOfFilter.addAll(storeList);
+        System.out.println("There are: " +listOfFilter.size() + " of filter result" );
+        if (listOfFilter.isEmpty()){
+            return false;
+        }
+        return true;
+
     }
     public boolean verifyFilterBySearch(String SearchQuery){
 
@@ -85,9 +134,6 @@ public class FilterSearchTermsPage  {
             if (name.equals(SearchQuery)){
                 return true;
             }
-
-
-
 
         return false;
 
