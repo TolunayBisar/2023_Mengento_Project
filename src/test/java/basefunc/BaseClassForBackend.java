@@ -11,6 +11,7 @@ public class BaseClassForBackend  {
     public static WebDriver driver;
 
     public static void setUpBrowser(String url) {
+
         ChromeOptions options = new ChromeOptions();
         if (SystemUtils.IS_OS_LINUX){
             options.addArguments("headless");
@@ -25,7 +26,7 @@ public class BaseClassForBackend  {
         driver.get(url);
     }
 
-    public  static void closeBrowser(){
+    public  void closeBrowser(){ //static
         driver.close();
         driver.quit();
 

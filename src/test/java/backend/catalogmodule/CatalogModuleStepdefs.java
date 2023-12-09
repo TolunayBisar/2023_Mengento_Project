@@ -14,6 +14,7 @@ public class CatalogModuleStepdefs extends BaseClassForBackend {
     DashBoardPageForBackEnd dashBoardPageForBackEnd = new DashBoardPageForBackEnd(driver);
     SearchTermsPage searchTermsPage = new SearchTermsPage(driver);
     EditRootCategory editRootCategory = new EditRootCategory(driver);
+    EditSearchTerms editSearchTerms = new EditSearchTerms(driver);
     @Given("Catalog manager on the dashboard page")
     public void catalogManagerOnTheDashboardPage() {
         loginPageForBackEnd.logIn(loginDataForBackEnd.getUsernameCatalogManager()
@@ -44,5 +45,15 @@ public class CatalogModuleStepdefs extends BaseClassForBackend {
     @Then("root category should be edited successfully")
     public void rootCategoryShouldBeEditedSuccessfully() {
         editRootCategory.verifyMessageRootCategoryEdited();
+    }
+
+    @When("catalog Manager edit existing search terms")
+    public void catalogManagerEditExistingSearchTerms() {
+      editSearchTerms.setEditSearchTerms();
+    }
+
+    @Then("existing search terms should be successfully edited")
+    public void existingSearchTermsShouldBeSuccessfullyEdited() {
+        editSearchTerms.editSearchTermsSuccess();
     }
 }
