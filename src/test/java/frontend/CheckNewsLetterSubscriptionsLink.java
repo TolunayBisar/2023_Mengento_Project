@@ -25,8 +25,6 @@ import org.testng.annotations.Test;
          loginDataForFrontEnd = new LoginDataForFrontEnd();
          setUpBrowser(loginDataForFrontEnd.getUrlFrontEnd());
          loginPageForFrontEnd=new LoginPageForFrontEnd(driver);
-
-
          dashBoardPageForFrontEnd=new DashBoardPageForFrontEnd(driver);
          newsLink=new NewsLetterSubLink(driver);
 
@@ -46,10 +44,7 @@ import org.testng.annotations.Test;
          dashBoardPageForFrontEnd.clickOnNewsletterLink();
          Assert.assertTrue(newsLink.verifyGeneralSubscription());
      }
-     @AfterClass
-    public void tearDown(){
-         closeBrowser();
-     }
+
 
 
 

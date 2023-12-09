@@ -28,9 +28,4 @@ Feature: Customer manager can manage customers
     When customer manager filter customer by state Breda
     Then filtered customers should be displayed o
 
-  @FilterCustomersState
-  Scenario: Customer manager can filter customers by state
-    Given customer manager go to the manage customer page
-    When customer manager filter customer by state Breda
-    Then filtered customers should be displayed o
 
