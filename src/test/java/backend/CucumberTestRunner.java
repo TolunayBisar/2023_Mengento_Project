@@ -1,5 +1,6 @@
 package backend;
 
+import basefunc.ApplicationConfig;
 import basefunc.BaseClassForBackend;
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
@@ -9,19 +10,19 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "classpath:features",
+        features = "classpath:features/catalog-module.feature",
         plugin ={
                 "pretty",
                 "html:target/cucumber-html-report.html",
                 "json:target/cucumber-json-report.json",
                 "junit:target/cucumber-xml-report.xml "
         },
-        tags = "@EditRootCategory")
+        tags = "@filterSearchTerms")
 
 public class CucumberTestRunner extends BaseClassForBackend {
    @Before
         public static void setup(){
-                setUpBrowser();
+                setUpBrowser(ApplicationConfig.readFromConfig("config.properties","BackEnd_url"));
         }
        @After
        public static void teardown(){
