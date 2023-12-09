@@ -2,7 +2,6 @@ package frontend;
 
 import basefunc.BaseClass;
 import basefunc.FunctionLibrary;
-import basefunc.FunctionLibrary;
 import basefunc.LoginDataForFrontEnd;
 import com.github.javafaker.Faker;
 import dashboard.LoginPageForFrontEnd;
@@ -173,7 +172,6 @@ public class CheckOutOrder extends BaseClass {
     }
 
 
-
     public void addProductToCartAsGuest() {
         functionLibray.waitForPresent(lafayetteDressLink);
         lafayetteDressLink.click();
@@ -195,7 +193,6 @@ public class CheckOutOrder extends BaseClass {
         functionLibray.javaScriptScroll(addToCartButtonForRegistered);
 
 
-
     }
 
     public void proceedCheckOutProduct() {
@@ -205,14 +202,13 @@ public class CheckOutOrder extends BaseClass {
 
         selectCountry.selectByIndex(random.nextInt(countriesList.size()));
         Select selectState = new Select(stateSelectDropdown);
-        if (stateInput.isDisplayed()){
-        stateInput.sendKeys(Faker.instance().address().cityName());}
-
-        else if(stateSelectDropdown.isDisplayed()){
+        if (stateInput.isDisplayed()) {
+            stateInput.sendKeys(Faker.instance().address().cityName());
+        } else if (stateSelectDropdown.isDisplayed()) {
             selectState.selectByIndex(random.nextInt(statesListInBill.size()));
 
         }
-        zipInput.sendKeys(random.nextInt()+"");
+        zipInput.sendKeys(random.nextInt() + "");
         proceedToCheckOutButton.click();
 
 
@@ -224,9 +220,10 @@ public class CheckOutOrder extends BaseClass {
         functionLibray.waitForPresent(checkOutAsGuestCheckBox);
         checkOutAsGuestCheckBox.click();
         functionLibray.waitForPresent(continueButtonCheckOut);
-        continueButtonCheckOut.click();}
+        continueButtonCheckOut.click();
+    }
 
-    public void fillBillInfo(){
+    public void fillBillInfo() {
 
         functionLibray.waitForPresent(guestFirstNameInBill);
         guestFirstNameInBill.sendKeys(FunctionLibrary.generateFakeName());
@@ -242,10 +239,9 @@ public class CheckOutOrder extends BaseClass {
         guestCountryInBill.click();
         select.selectByIndex(random.nextInt(guestCountryInBillList.size()));
         Select select1 = new Select(guestStateDropdown);
-        if (guestStateInputInBill.isDisplayed()){
+        if (guestStateInputInBill.isDisplayed()) {
             guestStateInputInBill.sendKeys(Faker.instance().address().cityName());
-        }
-        else if (guestStateDropdown.isDisplayed()) {
+        } else if (guestStateDropdown.isDisplayed()) {
             select1.selectByIndex(random.nextInt(guestStateList.size()));
 
         }
@@ -253,16 +249,17 @@ public class CheckOutOrder extends BaseClass {
         functionLibray.waitForPresent(guestCityInBill);
         guestCityInBill.sendKeys(Faker.instance().address().cityName());
         functionLibray.waitForPresent(guestZipInBill);
-        guestZipInBill.sendKeys(random.nextInt(100000)+"");
+        guestZipInBill.sendKeys(random.nextInt(100000) + "");
 
         functionLibray.waitForPresent(guestTelNoInBill);
         guestTelNoInBill.sendKeys(Faker.instance().phoneNumber() + functionLibray.timeStamp());
         functionLibray.waitForPresent(shipToThisAdd);
         functionLibray.javaScripClick(shipToThisAdd);
         functionLibray.waitForPresent(continueButtonInBill);
-        functionLibray.javaScripClick(continueButtonInBill); }
+        functionLibray.javaScripClick(continueButtonInBill);
+    }
 
-    public void continueCheckoutAsGuest(){
+    public void continueCheckoutAsGuest() {
 
         functionLibray.waitForPresent(shipMethodCheckbox1);
         shipMethodCheckbox1.click();
@@ -303,11 +300,10 @@ public class CheckOutOrder extends BaseClass {
     public boolean verifyCheckOut() {
         functionLibray.waitForPresent(checkoutSuccessfulMsgList);
 
-        if (checkoutSuccessfulMsgList.isDisplayed()){
+        if (checkoutSuccessfulMsgList.isDisplayed()) {
             System.out.println("Checkout Successful");
             return true;
-        }
-        else return false;
+        } else return false;
     }
 
 }
