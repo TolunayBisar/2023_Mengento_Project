@@ -27,14 +27,20 @@ public class TestForFilterTerms extends BaseClass {
         filterSearchTermsPage.filterBySearchQuery("shirt");
         Assert.assertTrue(filterSearchTermsPage.verifyFilterBySearch("shirt"));
     }
-    @Test(priority = 2,enabled = false)
+    @Test(priority = 2,enabled = true)
     public void filterByStoreDropdown(){
         filterSearchTermsPage.filterByStore();
-        Assert.assertTrue(filterSearchTermsPage.verifyFilterByStore("English1"));
+        Assert.assertTrue(filterSearchTermsPage.verifyFilter());
     }
-    @Test(priority = 3)
+    @Test(priority = 3,enabled = false)
     public void filterByResult(){
         filterSearchTermsPage.filterByResult("0","9");
         Assert.assertTrue(filterSearchTermsPage.verifyFilterByResult());
+    }
+    @Test(priority = 4,enabled = false)
+    public void filterByDisplay(){
+        filterSearchTermsPage.filterByUse("0","9");
+        Assert.assertTrue(filterSearchTermsPage.verifyFilter());
+
     }
 }

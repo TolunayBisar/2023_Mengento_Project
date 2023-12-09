@@ -48,6 +48,8 @@ public class FilterSearchTermsPage  {
     WebElement filterDisplay;
     @FindBy(xpath = "//span[text()='Search']")
     WebElement searchButton;
+    @FindBy(xpath = "//span[@id='catalog_search_grid-total-count']")
+    WebElement totalCount;
     @FindBy(xpath = "//span[text()='Reset Filter']")
     WebElement resetFilter;
 //    @FindAll(
@@ -99,7 +101,65 @@ List<WebElement> storeList;
         searchButton.click();
 
     }
+    public void filterByUse(String numberFrom,String numberTo){
+        Actions actions = new Actions(driver);
+        functionLibrary.waitElemantPresent(catalog);
+        actions.moveToElement(catalog).click().build().perform();
+        functionLibrary.waitElemantPresent(searchTerms);
+        searchTerms.click();
+        functionLibrary.waitElemantPresent(numberOfUseFrom);
+        numberOfUseFrom.sendKeys(numberFrom);
+        functionLibrary.waitElemantPresent(numberOfUseTo);
+        numberOfUseTo.sendKeys(numberTo);
+        functionLibrary.waitElemantPresent(searchButton);
+        searchButton.click();
+
+    }
+    public void filterBySynonym(String herf){
+        Actions actions = new Actions(driver);
+        functionLibrary.waitElemantPresent(catalog);
+        actions.moveToElement(catalog).click().build().perform();
+        functionLibrary.waitElemantPresent(searchTerms);
+        searchTerms.click();
+        functionLibrary.waitElemantPresent(synonymFor);
+        synonymFor.sendKeys(herf);
+        functionLibrary.waitElemantPresent(searchButton);
+        searchButton.click();
+
+    }
+    public void filterBySuggestedTerms(){
+        Actions actions = new Actions(driver);
+        functionLibrary.waitElemantPresent(catalog);
+        actions.moveToElement(catalog).click().build().perform();
+        functionLibrary.waitElemantPresent(searchTerms);
+        searchTerms.click();
+        functionLibrary.waitElemantPresent(filterDisplay);
+        Select displaySelect = new Select(filterDisplay);
+        displaySelect.selectByIndex(0);
+        functionLibrary.waitElemantPresent(searchButton);
+        searchButton.click();
+    }
+    public boolean verifyFilter(){
+        boolean flag;
+        if (totalCount.isDisplayed()){
+
+            System.out.println(totalCount.getText());
+            flag = true;
+        }
+        else {
+            System.out.println("no any filter result");
+            flag = false;
+        }
+     return flag;
+    }
+
+
     public boolean verifyFilterByStore(String storeName){
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
 
         for (WebElement storename :storeList){
 
@@ -136,7 +196,6 @@ List<WebElement> storeList;
             }
 
         return false;
-
 
 
     }
