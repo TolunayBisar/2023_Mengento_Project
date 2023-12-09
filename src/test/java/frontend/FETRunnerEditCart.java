@@ -37,6 +37,7 @@ public class FETRunnerEditCart extends BaseClass {
     }
     @Test(priority = 2)
     public void updateShoppingCart(){
+        customerInfoPage.addProductToCard();
 
         customerInfoPage.setViewShoppingCart();
         customerInfoPage.verifyUpdate();
