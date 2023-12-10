@@ -1,5 +1,6 @@
 package backend;
 
+import basefunc.BaseClass;
 import basefunc.BaseClassForBackend;
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
@@ -17,11 +18,11 @@ import org.junit.runner.RunWith;
                 "junit:target/cucumber-xml-report.xml "
         },
 
-        tags = "@ViewInvoicesAndComments")
+        tags = "")
 
 
 
-public class CucumberTestRunner extends BaseClassForBackend {
+public class CucumberTestRunner extends BaseClass {
 
 
 //   @Before
