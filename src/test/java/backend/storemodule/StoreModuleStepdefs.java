@@ -34,4 +34,7 @@ public class StoreModuleStepdefs extends BaseClassForBackend {
     public void storeManagerShouldBeAbleToClickOnAnyOrder() {
         storeManagerCancelOrder.verifyCancelled();
     }
+
+
 }
+
