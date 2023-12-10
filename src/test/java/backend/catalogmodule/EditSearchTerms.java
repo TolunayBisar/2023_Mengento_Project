@@ -2,7 +2,6 @@ package backend.catalogmodule;
 
 import basefunc.FunctionLibrary;
 import com.github.javafaker.Faker;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -12,13 +11,10 @@ import org.openqa.selenium.support.ui.Select;
 
 public class EditSearchTerms {
     WebDriver driver;
-    Faker faker= new Faker();
+    Faker faker;
     Actions actions;
     FunctionLibrary functionLibrary;
-    @FindBy(className = "active")
-    WebElement catalogDrop;
-    @FindBy(xpath ="//*[@id=\"nav\"]/li[1]/ul/li[5]/a/span")
-    WebElement searchTermsButton;
+
     @FindBy(id = "catalog_search_grid_filter_search_query")
     WebElement searchQuery;
     @FindBy(xpath = "//tbody/tr/td[last()]/a")
@@ -43,6 +39,7 @@ public class EditSearchTerms {
         PageFactory.initElements(driver,this);
         functionLibrary = new FunctionLibrary(driver);
         actions = new Actions(driver);
+        faker = new Faker();
     }
 
     public void setEditSearchTerms(){
@@ -60,19 +57,16 @@ public class EditSearchTerms {
         Select select = new Select(storeIDDropDown);
         select.selectByValue("16");
         functionLibrary.waitElemantPresent(numberOfResults);
-
         numberOfResults.sendKeys(faker.number().digits(7));
         functionLibrary.waitElemantPresent(numberOfUses);
-
         numberOfUses.sendKeys(faker.number().digits(5));
         functionLibrary.waitElemantPresent(synonymFor);
         synonymFor.sendKeys(faker.esports().game());
-
         functionLibrary.waitElemantPresent(saveSearchButton);
         saveSearchButton.click();
 
-
     }
+
     public boolean editSearchTermsSuccess(){
         functionLibrary.waitElemantPresent(successMassage);
         if (successMassage.isDisplayed())
