@@ -91,7 +91,7 @@ public class CustomersModuleStepdefs extends BaseClassForBackend{
 
     @When("the user tries to delete an existing customer")
     public void theUserTriesToDeleteAnExistingCustomer() {
-        pageForDeleteCustomer.setDeleteCustomer();
+        pageForDeleteCustomer.setDeleteCustomer("shane.muller@yahoo.com");
     }
 
     @Then("the customer should be deleted")

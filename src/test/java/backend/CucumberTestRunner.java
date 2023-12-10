@@ -1,11 +1,9 @@
 package backend;
 
+
 import basefunc.BaseClass;
-import basefunc.BaseClassForBackend;
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
-import org.junit.After;
-import org.junit.Before;
 import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
@@ -19,12 +17,15 @@ import org.junit.runner.RunWith;
         },
 
 
+
         tags = "")
 
 
 
 
 public class CucumberTestRunner extends BaseClass {
+
+
 
 
 
