@@ -36,4 +36,4 @@ Feature: Customer manager can manage customers
     Then filtered customers should be displayed o
 
 
->>>>>>> master
+
