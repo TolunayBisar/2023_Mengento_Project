@@ -36,7 +36,7 @@ public class EditSearchTerms {
     WebElement storeID;
     @FindBy(xpath = "//*[@id=\"store_id\"]/optgroup[10]")
     WebElement londonStore;
-    @FindBy(className = "scalable save")
+    @FindBy (css = ".scalable save")
     WebElement saveSearchButton;
     @FindBy(xpath = "//*[@id=\"messages\"]/ul/li/ul/li/span")
     WebElement successMassage;

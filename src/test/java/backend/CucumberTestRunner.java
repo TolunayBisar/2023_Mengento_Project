@@ -17,9 +17,9 @@ import org.junit.runner.RunWith;
                 "junit:target/cucumber-xml-report.xml "
         },
 
-        tags = "@EditSearchTerms")
+        tags = "@EditRootCategory")
 
-public class CucumberTestRunner extends BaseClassForBackend {
+public class CucumberTestRunner {
 //   @Before
 //        public static void setup(){
 //                setUpBrowser();
