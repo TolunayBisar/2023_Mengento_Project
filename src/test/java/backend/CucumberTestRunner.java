@@ -16,15 +16,15 @@ import org.junit.runner.RunWith;
                 "json:target/cucumber-json-report.json",
                 "junit:target/cucumber-xml-report.xml "
         },
-        tags = "@AddNewCustomerGroup")
+
+
+        tags = "")
+
+
+
 
 public class CucumberTestRunner extends BaseClassForBackend {
-   @Before
-        public static void setup(){
-                setUpBrowser();
-        }
-       @After
-       public static void teardown(){
-              closeBrowser();
-        }
+
+
+
 }

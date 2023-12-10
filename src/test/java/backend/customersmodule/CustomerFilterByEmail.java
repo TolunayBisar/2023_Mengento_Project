@@ -1,6 +1,4 @@
 package backend.customersmodule;
-
-
 import basefunc.FunctionLibrary;
 import dashboard.DashBoardPageForBackEnd;
 import org.openqa.selenium.WebDriver;
@@ -22,44 +20,54 @@ public class CustomerFilterByEmail {
     WebElement customerTab;
     @FindBy(xpath = "//span[text()=\"Manage Customers\"]")
     WebElement ManageCustomers;
-    @FindBy(id ="customerGrid_filter_email")
+    @FindBy(id = "customerGrid_filter_email")
     WebElement EmailOFCustomer;
-@FindBy(xpath = "//td[@class=\" last\"]/a")
+    @FindBy(xpath = "//td[@class=\" last\"]/a")
     WebElement ViewEditButton;
-    @FindAll(@FindBy(xpath="//tbody/tr"))
+    @FindAll(@FindBy(xpath = "//tbody/tr"))
     WebElement EmailList;
+    @FindBy(xpath = "//td[contains(text(),\"Simruh2021@gmail.com\")]")
+    WebElement customersEmailAddress;
     @FindBy(xpath = "//span[text()=\"Search\"]")
     WebElement SearchButton;
-    @FindBy(xpath = "//input[@type=\"checkbox\"]")
-    WebElement checkBox;
-
     public CustomerFilterByEmail(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
         functionLibrary = new FunctionLibrary(driver);
     }
-
-    public void filterCustomerByEmail(){
+    public Boolean filterCustomerByEmail(){
         functionLibrary.waitElemantPresent(customerTab);
         customerTab.click();
         functionLibrary.waitElemantPresent(ManageCustomers);
         ManageCustomers.click();
-    functionLibrary.waitElemantPresent(EmailList);
-    EmailList.getSize();
-    String mailNameToFilter = "Simruh";
-    EmailOFCustomer.sendKeys(mailNameToFilter);
-    functionLibrary.waitElemantPresent(SearchButton);
-    SearchButton.click();
-}
-    public boolean verifyNoFoundEmail() {
+        functionLibrary.waitElemantPresent(EmailList);
+        EmailList.getSize();
+        String mailAdressToFilter = "Simruh2021@gmail.com";
+        EmailOFCustomer.sendKeys(mailAdressToFilter);
+        functionLibrary.waitElemantPresent(SearchButton);
+        SearchButton.click();
+
         Boolean filterEmail = false;
-        functionLibrary.waitElemantPresent(ViewEditButton);
-        if (ViewEditButton.isDisplayed()) {
+        functionLibrary.waitElemantPresent(customersEmailAddress);
+        if (customersEmailAddress.getText().
+                equalsIgnoreCase(mailAdressToFilter)) {
             System.out.println("Admin view customers email ");
             return true;
-        }else if  (!ViewEditButton.isDisplayed()){
+        } else {
             System.out.println("filter customer is failed");
-    }
+        }
         return filterEmail;
     }
-}
+    }
+//    public boolean verifyNoFoundEmail() {
+//        CustomerFilterByEmail filter = new CustomerFilterByEmail(driver);
+//        Boolean filterEmail = false;
+//        if (customersEmailAddress.getText().
+//                equalsIgnoreCase(filter.filterCustomerByEmail())) {
+//            System.out.println("Admin view customers email ");
+//            return true;
+//        } else if (!ViewEditButton.isDisplayed()) {
+//            System.out.println("filter customer is failed");
+//        }
+//        return filterEmail;
+//   }

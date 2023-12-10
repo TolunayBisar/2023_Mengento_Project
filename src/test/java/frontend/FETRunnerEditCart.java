@@ -46,10 +46,6 @@ public class FETRunnerEditCart extends BaseClass {
         customerInfoPage.logUit();
 
     }
-    @AfterClass
-    public void closeBrowser(){
-        tearDown();
     }
-}
 
 
