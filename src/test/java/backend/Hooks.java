@@ -1,5 +1,6 @@
 package backend;
 
+import basefunc.BaseClass;
 import basefunc.BaseClassForBackend;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -10,7 +11,7 @@ public class Hooks extends BaseClassForBackend {
     public void setup(Scenario scenario) {
         if(scenario.getSourceTagNames().contains("@UiTest")) {
             scenario.log("Begin with UI Automation Test");
-            setUpBrowser();
+           setUpBrowser();
         }else if(scenario.getSourceTagNames().contains("@DatabaseTest")){
             scenario.log("Begin with Database Automation Test");
         }else {
