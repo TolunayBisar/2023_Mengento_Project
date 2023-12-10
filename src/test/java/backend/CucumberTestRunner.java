@@ -1,5 +1,6 @@
 package backend;
 
+import basefunc.BaseClass;
 import basefunc.BaseClassForBackend;
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
@@ -23,7 +24,7 @@ import org.junit.runner.RunWith;
 
 
 
-public class CucumberTestRunner extends BaseClassForBackend {
+public class CucumberTestRunner extends BaseClass {
 
 
 
