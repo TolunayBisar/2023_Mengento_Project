@@ -14,6 +14,7 @@ public class CatalogModuleStepdefs extends BaseClassForBackend {
     DashBoardPageForBackEnd dashBoardPageForBackEnd = new DashBoardPageForBackEnd(driver);
     SearchTermsPage searchTermsPage = new SearchTermsPage(driver);
     EditRootCategory editRootCategory = new EditRootCategory(driver);
+    FilterSearchTermsPage filterSearchTermsPage = new FilterSearchTermsPage(driver);
     @Given("Catalog manager on the dashboard page")
     public void catalogManagerOnTheDashboardPage() {
         loginPageForBackEnd.logIn(loginDataForBackEnd.getUsernameCatalogManager()
@@ -44,5 +45,43 @@ public class CatalogModuleStepdefs extends BaseClassForBackend {
     @Then("root category should be edited successfully")
     public void rootCategoryShouldBeEditedSuccessfully() {
         editRootCategory.verifyMessageRootCategoryEdited();
+    }
+
+
+    /**@author sherzat
+     *
+     */
+    @When("catalog manager filter search terms by SearchQuery")
+    public void catalogManagerFilterSearchTermsBySearchQuery() {
+        filterSearchTermsPage.filterBySearchQuery("shirt");
+    }
+
+    @When("catalog manager filter search terms by Store")
+    public void catalogManagerFilterSearchTermsByStore() {
+        filterSearchTermsPage.filterByStore();
+    }
+
+    @When("catalog manager filter search terms by Result")
+    public void catalogManagerFilterSearchTermsByResult() {
+        filterSearchTermsPage.filterByResult("0","9");
+    }
+
+    @When("catalog manager filter search terms by Use")
+    public void catalogManagerFilterSearchTermsByUse() {
+        filterSearchTermsPage.filterByUse("0","9");
+    }
+
+    @When("catalog manager filter search terms by Synonym")
+    public void catalogManagerFilterSearchTermsBySynonym() {
+        filterSearchTermsPage.filterBySynonym("a");
+    }
+
+    @When("catalog manager filter search terms by Suggested Terms")
+    public void catalogManagerFilterSearchTermsBySuggestedTerms() {
+        filterSearchTermsPage.filterBySuggestedTerms();
+    }
+    @Then("filter result should be display on the page")
+    public void filterResultShouldBeDisplayOnThePage() {
+        filterSearchTermsPage.verifyFilter();
     }
 }

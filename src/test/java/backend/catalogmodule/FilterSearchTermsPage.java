@@ -57,7 +57,7 @@ public class FilterSearchTermsPage  {
 //    )
 //    List<WebElement> searchQueryList;
 @FindAll(
-        @FindBy(xpath = "//tr[@class='pointer']")
+        @FindBy(xpath = "//td[@class='a-center ']")
 )
 List<WebElement> storeList;
     @FindBy(xpath = "//tr[@class='even pointer']/td[2]")
@@ -140,64 +140,23 @@ List<WebElement> storeList;
         searchButton.click();
     }
     public boolean verifyFilter(){
-        boolean flag;
-        if (totalCount.isDisplayed()){
 
-            System.out.println(totalCount.getText());
-            flag = true;
+        boolean flag;
+        if (storeList.isEmpty()){
+            System.out.println("no any filter result");
+
+            flag = false;
         }
         else {
-            System.out.println("no any filter result");
-            flag = false;
+            int listNumber = storeList.size();
+
+            System.out.println("there are " + listNumber + " records found");
+
+            flag = true;
         }
      return flag;
     }
 
 
-    public boolean verifyFilterByStore(String storeName){
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-
-        for (WebElement storename :storeList){
-
-            String name = storename.findElement(By.xpath("//tr[@class='pointer']/td[3]")).getText();
-
-            System.out.println(name);
-            if (storeName.contains(name)){
-                return true;
-            }
-
-        }
-        return false;
-    }
-    public boolean verifyFilterByResult(){
-        ArrayList listOfFilter = new ArrayList<>();
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-        listOfFilter.addAll(storeList);
-        System.out.println("There are: " +listOfFilter.size() + " of filter result" );
-        if (listOfFilter.isEmpty()){
-            return false;
-        }
-        return true;
-
-    }
-    public boolean verifyFilterBySearch(String SearchQuery){
-
-            String name = queryName.getText();
-            if (name.equals(SearchQuery)){
-                return true;
-            }
-
-        return false;
-
-
-    }
 
 }
