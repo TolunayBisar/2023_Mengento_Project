@@ -1,6 +1,7 @@
 package backend.customersmodule;
 import basefunc.FunctionLibrary;
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -10,8 +11,7 @@ public class PageForDeleteCustomer {
     WebDriver driver;
     FunctionLibrary functionalLibrary;
     Actions actions;
-    @FindBy(xpath ="//*[@id=\"customerGrid_table\"]/tbody/tr[18]/td[12]/a")  // if u want start change element!
-    WebElement customerEdit;
+
     @FindBy(xpath = "//*[@class='scalable delete']")
     WebElement deleteCustomer;
     @FindBy(xpath = "//*[@id=\"messages\"]/ul/li/ul/li")
@@ -23,9 +23,10 @@ public class PageForDeleteCustomer {
         functionalLibrary=new FunctionLibrary(driver);
         actions = new Actions(driver);
     }
-    public void setDeleteCustomer(){
-        functionalLibrary.waitElemantPresent(customerEdit);
-        customerEdit.click();
+    public void setDeleteCustomer(String email){
+        WebElement editIcon = driver.findElement(By.xpath(String.format("//td[contains(text(),'%s')]//following-sibling::td/a[text()='Edit']",email)));
+        functionalLibrary.waitElemantPresent(editIcon);
+        editIcon.click();
         functionalLibrary.waitElemantPresent(deleteCustomer);
         deleteCustomer.click();
         Alert alert=driver.switchTo().alert();
@@ -38,6 +39,4 @@ public class PageForDeleteCustomer {
             return true;
         else return false;
     }
-
-
 }

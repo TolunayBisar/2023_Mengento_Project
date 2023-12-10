@@ -49,11 +49,11 @@ public class CatalogModuleStepdefs extends BaseClassForBackend {
 
     @When("catalog Manager edit existing search terms")
     public void catalogManagerEditExistingSearchTerms() {
-      editSearchTerms.setEditSearchTerms();
+   editSearchTerms.setEditSearchTerms();
     }
 
     @Then("existing search terms should be successfully edited")
     public void existingSearchTermsShouldBeSuccessfullyEdited() {
-        editSearchTerms.editSearchTermsSuccess();
+    editSearchTerms.editSearchTermsSuccess();
     }
 }
