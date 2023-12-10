@@ -11,32 +11,34 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
 public class EditSearchTerms {
-   WebDriver driver;
-   Select select;
+    WebDriver driver;
+    Select select;
     Faker faker= new Faker();
     Actions actions;
-   FunctionLibrary functionLibrary;
-   @FindBy(className = "active")
-   WebElement catalogDrop;
-   @FindBy(xpath ="//*[@id=\"nav\"]/li[1]/ul/li[5]/a/span")
+    FunctionLibrary functionLibrary;
+    @FindBy(className = "active")
+    WebElement catalogDrop;
+    @FindBy(xpath ="//*[@id=\"nav\"]/li[1]/ul/li[5]/a/span")
     WebElement searchTermsButton;
-   @FindBy(name = "search_query")
+    @FindBy(name = "search_query")
     WebElement searchQuery;
-   @FindBy(xpath = "//*[@id=\"catalog_search_grid_table\"]/tbody/tr/td[9]/a")
+    @FindBy(xpath = "//*[@id=\"catalog_search_grid_table\"]/tbody/tr/td[9]/a")
     WebElement gameEdit;
-   @FindBy(id = "num_results")
+    @FindBy(id = "query_text")
+    WebElement getSearchQuery;
+    @FindBy(id = "num_results")
     WebElement numberOfResults;
-   @FindBy(id = "popularity")
+    @FindBy(id = "popularity")
     WebElement numberOfUses;
-   @FindBy(id = "synonym_for")
-   WebElement synonymFor;
-   @FindBy(id = "store_id")
-   WebElement storeID;
-   @FindBy(xpath = "//*[@id=\"store_id\"]/optgroup[10]")
+    @FindBy(id = "synonym_for")
+    WebElement synonymFor;
+    @FindBy(id = "store_id")
+    WebElement storeID;
+    @FindBy(xpath = "//*[@id=\"store_id\"]/optgroup[10]")
     WebElement londonStore;
-   @FindBy(className = "scalable save")
+    @FindBy(className = "scalable save")
     WebElement saveSearchButton;
-   @FindBy(xpath = "//*[@id=\"messages\"]/ul/li/ul/li/span")
+    @FindBy(xpath = "//*[@id=\"messages\"]/ul/li/ul/li/span")
     WebElement successMassage;
 
     public EditSearchTerms(WebDriver driver) {
@@ -54,6 +56,9 @@ public class EditSearchTerms {
         functionLibrary.waitElemantPresent(searchQuery);
         searchQuery.click();
         searchQuery.sendKeys("game");
+        functionLibrary.waitElemantPresent(getSearchQuery);
+        getSearchQuery.clear();
+        getSearchQuery.sendKeys(faker.esports().league());
         functionLibrary.waitElemantPresent(gameEdit);
         gameEdit.click();
         functionLibrary.waitElemantPresent(storeID);
@@ -84,10 +89,5 @@ public class EditSearchTerms {
             return true ;
         else return false;
     }
-
-
-
-
-
 
 }

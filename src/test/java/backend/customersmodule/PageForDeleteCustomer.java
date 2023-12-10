@@ -10,7 +10,7 @@ public class PageForDeleteCustomer {
     WebDriver driver;
     FunctionLibrary functionalLibrary;
     Actions actions;
-    @FindBy(xpath ="//*[@id=\"customerGrid_table\"]/tbody/tr[18]/td[12]/a")  // if u want start change element!
+    @FindBy(xpath ="//*[@id=\"customerGrid_table\"]/tbody/tr[9]/td[12]/a")  // if u want start change element!
     WebElement customerEdit;
     @FindBy(xpath = "//*[@class='scalable delete']")
     WebElement deleteCustomer;
@@ -38,6 +38,4 @@ public class PageForDeleteCustomer {
             return true;
         else return false;
     }
-
-
 }

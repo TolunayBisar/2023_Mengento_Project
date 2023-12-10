@@ -17,7 +17,7 @@ import org.junit.runner.RunWith;
                 "junit:target/cucumber-xml-report.xml "
         },
 
-        tags = "@DeleteCustomer")
+        tags = "@EditSearchTerms")
 
 public class CucumberTestRunner extends BaseClassForBackend {
 //   @Before
@@ -27,4 +27,4 @@ public class CucumberTestRunner extends BaseClassForBackend {
 //       @After
 //       public static void teardown(){
 //              closeBrowser();
-//        }
+        }
