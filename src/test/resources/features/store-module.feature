@@ -7,3 +7,4 @@ Feature: Store manager can manage Store
      Given Store manager must be on the dashboard page
      When Store manager click on the Orders link for cancel order
      Then Store manager should be able to click on any order
+
