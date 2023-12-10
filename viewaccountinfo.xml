@@ -3,7 +3,7 @@
 <suite name="All Test Suite" parallel="tests" thread-count="2">
     <test name="test1">
         <classes>
-            <class name="frontend.viewAccountInfo">
+            <class name="backend.customersmodule.CustomerManagerAddNewCustomerGroup">
             </class>
         </classes>
     </test>
