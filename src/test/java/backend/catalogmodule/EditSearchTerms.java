@@ -12,7 +12,6 @@ import org.openqa.selenium.support.ui.Select;
 
 public class EditSearchTerms {
     WebDriver driver;
-    Select select;
     Faker faker= new Faker();
     Actions actions;
     FunctionLibrary functionLibrary;
@@ -20,9 +19,9 @@ public class EditSearchTerms {
     WebElement catalogDrop;
     @FindBy(xpath ="//*[@id=\"nav\"]/li[1]/ul/li[5]/a/span")
     WebElement searchTermsButton;
-    @FindBy(name = "search_query")
+    @FindBy(id = "catalog_search_grid_filter_search_query")
     WebElement searchQuery;
-    @FindBy(xpath = "//*[@id=\"catalog_search_grid_table\"]/tbody/tr/td[9]/a")
+    @FindBy(xpath = "//tbody/tr/td[last()]/a")
     WebElement gameEdit;
     @FindBy(id = "query_text")
     WebElement getSearchQuery;
@@ -33,10 +32,8 @@ public class EditSearchTerms {
     @FindBy(id = "synonym_for")
     WebElement synonymFor;
     @FindBy(id = "store_id")
-    WebElement storeID;
-    @FindBy(xpath = "//*[@id=\"store_id\"]/optgroup[10]")
-    WebElement londonStore;
-    @FindBy (css = ".scalable save")
+    WebElement storeIDDropDown;
+    @FindBy (xpath = "/html/body/div[1]/div[3]/div/div[2]/p/button[4]")
     WebElement saveSearchButton;
     @FindBy(xpath = "//*[@id=\"messages\"]/ul/li/ul/li/span")
     WebElement successMassage;
@@ -49,27 +46,20 @@ public class EditSearchTerms {
     }
 
     public void setEditSearchTerms(){
-//        functionLibrary.waitElemantPresent(catalogDrop);
-//        catalogDrop.click();
-//        functionLibrary.waitElemantPresent(searchTermsButton);
-//        searchTermsButton.click();
+
         functionLibrary.waitElemantPresent(searchQuery);
-        searchQuery.click();
         searchQuery.sendKeys("game");
-        functionLibrary.waitElemantPresent(getSearchQuery);
-        getSearchQuery.clear();
-        getSearchQuery.sendKeys(faker.esports().league());
+        searchQuery.click();
         functionLibrary.waitElemantPresent(gameEdit);
         gameEdit.click();
-        functionLibrary.waitElemantPresent(storeID);
-        storeID.click();
-        functionLibrary.waitElemantPresent(londonStore);
-        //londonStore.click();
-        WebElement dateInput=driver.findElement(By.xpath(londonStore.getText()));
-        Actions actions=new Actions(driver);
-        actions.click(dateInput).build().perform();
+        functionLibrary.waitElemantPresent(getSearchQuery);
+        getSearchQuery.clear();
+        functionLibrary.waitElemantPresent(getSearchQuery);
+        getSearchQuery.sendKeys(faker.esports().league());
+        functionLibrary.waitElemantPresent(storeIDDropDown);
+        Select select = new Select(storeIDDropDown);
+        select.selectByValue("16");
         functionLibrary.waitElemantPresent(numberOfResults);
-        numberOfResults.clear();
 
         numberOfResults.sendKeys(faker.number().digits(7));
         functionLibrary.waitElemantPresent(numberOfUses);

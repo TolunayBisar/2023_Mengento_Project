@@ -13,6 +13,6 @@ import org.junit.runner.RunWith;
                 "json:target/cucumber-json-report.json",
                 "junit:target/cucumber-xml-report.xml "
         },
-        tags = "@EditRootCategory")
+        tags = "@EditSearchTerms")
 public class CucumberTestRunner  {
 }
