@@ -126,6 +126,7 @@ public class DashBoardPageForFrontEnd {
     }
 
     public void clickOnAccountInformationLink(){
+        functionLibrary.waitElemantPresent(accountInformationLink);
         accountInformationLink.click();
     }
     public void clickOnAddressBookLink(){
