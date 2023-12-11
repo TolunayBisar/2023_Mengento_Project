@@ -12,7 +12,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
  * @Email :tolunay.bisar@gmail.com
  **/
 public class BaseClass {
-    public WebDriver driver;
+    public static WebDriver driver;
     public void setUpBrowser(String url) {
         ChromeOptions options = new ChromeOptions();
 
@@ -30,12 +30,11 @@ public class BaseClass {
         driver.get(url);
     }
 
-    public void closeBrowser(){
+    public static void closeBrowser(){
         driver.close();
         driver.quit();
 
     }
-
     public void tearDown() {
         if (driver != null) {
             driver.quit();

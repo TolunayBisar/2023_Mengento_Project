@@ -66,6 +66,8 @@ public class DashBoardPageForBackEnd {
     WebElement customersLink;
     @FindBy(xpath = "//*[text()=\"Manage Customers\"]")
     WebElement manageCustomersLink;
+    @FindBy(xpath = "\n" +"//span[text()= \"Customer Groups\"]")
+    WebElement customerGroupLink;
 
     public DashBoardPageForBackEnd(WebDriver driver) {
         this.driver = driver;
@@ -96,6 +98,12 @@ public class DashBoardPageForBackEnd {
         actions.clickAndHold(customersLink).build().perform();
         functionLibrary.waitElemantPresent(manageCustomersLink);
         manageCustomersLink.click();
+    }
+    public void goToManageCustomersPage2(){
+        functionLibrary.waitElemantPresent(customersLink);
+        actions.clickAndHold(customersLink).build().perform();
+        functionLibrary.waitElemantPresent(customerGroupLink);
+        customerGroupLink.click();
     }
 
 
