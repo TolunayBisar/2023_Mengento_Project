@@ -16,7 +16,11 @@ public class CustomersModuleStepdefs extends BaseClassForBackend{
     DashBoardPageForBackEnd dashBoardPageForBackEnd = new DashBoardPageForBackEnd(driver);
     FilterCustomerGroupPage filterCustomerGroupPage = new FilterCustomerGroupPage(driver);
     AssignCustomerToGroup assignCustomerToGroup = new AssignCustomerToGroup(driver);
+
+    CustomerManagerAddNewCustomerGroup customerManagerAddNewCustomerGroup = new CustomerManagerAddNewCustomerGroup(driver);
+
     PageForDeleteCustomer pageForDeleteCustomer = new PageForDeleteCustomer(driver);
+
 
 
     @Given("Customer manager on the dashboard page")
@@ -59,6 +63,27 @@ public class CustomersModuleStepdefs extends BaseClassForBackend{
     }
 
 
+    @Given("Customer manager go to the manage customer page")
+    public void CustomerManagerGoToTheManageCustomerPage() {
+        dashBoardPageForBackEnd.goToManageCustomersPage2();
+
+    }
+
+    @When("Customer manager add new customer group.")
+    public void customerManagerAddNewCustomerGroup() {
+        customerManagerAddNewCustomerGroup.addNewCustomerGroup();
+
+    }
+
+    @Then("Added new customer group should be displayed.")
+    public void addedNewCustomerGroupShouldBeDisplayed() {
+        customerManagerAddNewCustomerGroup.verifyAddedNewCustomerGroup();
+    }
+
+
+
+
+
     @Given("admin user is on the dashboard page")
     public void adminUserIsOnTheDashboardPage() {
         dashBoardPageForBackEnd.goToManageCustomersPage();
@@ -74,6 +99,7 @@ public class CustomersModuleStepdefs extends BaseClassForBackend{
         pageForDeleteCustomer.verifyCustomerDeleted();
         Assert.assertTrue(pageForDeleteCustomer.verifyCustomerDeleted());
     }
+
 }
 
 
