@@ -8,9 +8,12 @@ import org.joda.time.format.DateTimeFormatter;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
+
+import java.util.List;
 
 public class SearchTermsPage {
     WebDriver driver;
@@ -33,6 +36,7 @@ public class SearchTermsPage {
     WebElement saveSearchButton;
     @FindBy(xpath = "//li/span[text()='You saved the search term.']")
     WebElement successMessageForAddNewSearchTerm;
+
 
     public SearchTermsPage(WebDriver driver) {
         this.driver = driver;
