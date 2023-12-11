@@ -1,5 +1,7 @@
 package backend;
 
+
+import basefunc.ApplicationConfig;
 import basefunc.BaseClass;
 import basefunc.BaseClassForBackend;
 import io.cucumber.junit.Cucumber;
@@ -10,7 +12,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "classpath:features",
+        features = "classpath:features/catalog-module.feature",
         plugin ={
                 "pretty",
                 "html:target/cucumber-html-report.html",
@@ -18,19 +20,7 @@ import org.junit.runner.RunWith;
                 "junit:target/cucumber-xml-report.xml "
         },
 
-        tags = "")
+        tags = "@FilterSearchTerms")
 
+public class CucumberTestRunner extends BaseClass {}
 
-
-public class CucumberTestRunner extends BaseClass {
-
-
-//   @Before
-//        public static void setup(){
-//                setUpBrowser();
-//        }
-//       @After
-//       public static void teardown(){
-//              closeBrowser();
-//        }
-}
