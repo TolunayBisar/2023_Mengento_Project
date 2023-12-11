@@ -14,6 +14,7 @@ Feature: Catalog manager can manage catalog
         When catalog manager edit root category
         Then root category should be edited successfully
 
+<<<<<<< HEAD
   @FilterSearchTerms
   Scenario: catalog manager can filter search terms SearchQuery
     Given catalog manager go to the manage catalog page
@@ -56,3 +57,10 @@ Feature: Catalog manager can manage catalog
 
 
 
+=======
+     @EditSearchTerms
+     Scenario: catalog Manager can edit existing search terms
+       Given catalog manager go to the manage catalog page
+       When catalog Manager edit existing search terms
+       Then existing search terms should be successfully edited
+>>>>>>> 38d0951a495fd070249e39c6abd19933ac159749
