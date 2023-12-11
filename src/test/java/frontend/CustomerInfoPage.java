@@ -64,15 +64,17 @@ public class CustomerInfoPage extends BaseClass {
 
 
 
-    public void setViewShoppingCart(){
-        Random random=new Random();
-        int randomQty=random.nextInt(3)+1;
+    public void addProductToCard(){
+
         functionPage.waitElemantPresent(accessoriesLink);
         accessoriesLink.click();
         functionPage.waitElemantPresent(islaHandbagLink);
         islaHandbagLink.click();
         functionPage.waitElemantPresent(addToCartLink);
-        addToCartLink.click();
+        addToCartLink.click();}
+    public void setViewShoppingCart(){
+        Random random=new Random();
+        int randomQty=random.nextInt(3)+1;
         functionPage.waitElemantPresent(cartLink);
         cartLink.click();
         functionPage.waitElemantPresent(viewShoppingCart);
