@@ -1,7 +1,5 @@
 package backend.customersmodule;
-
 import basefunc.FunctionLibrary;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -11,7 +9,7 @@ import org.openqa.selenium.support.ui.Select;
 
 public class FilterCustomerGroupPage {
     WebDriver driver;
-   FunctionLibrary functionLibrary;
+    FunctionLibrary functionLibrary;
     Actions actions;
     @FindBy(css="#customerGrid_filter_group")
     WebElement groupDropDown;

@@ -5,17 +5,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-import java.util.HashMap;
-import java.util.Map;
 
-public class BaseClassForBackend {
+
+public class BaseClassForBackend  {
     public static WebDriver driver;
 
-    public static void setUpBrowser() {
+    public static void setUpBrowser(String url) {
+
         ChromeOptions options = new ChromeOptions();
-        Map<String,Object> prefs = new HashMap<>();
-        prefs.put("download.default_directory","C:\\Users\\updete\\IdeaProjects\\SDET2023Magento_Team3\\DownloadableFile");
-        options.setExperimentalOption("prefs",prefs);
         if (SystemUtils.IS_OS_LINUX){
             options.addArguments("headless");
             options.addArguments("window-size=1200,1080");
@@ -26,10 +23,10 @@ public class BaseClassForBackend {
         if (SystemUtils.IS_OS_MAC_OSX||SystemUtils.IS_OS_WINDOWS) {
             driver.manage().window().maximize();
         }
-        driver.get("https://ecommerce.unitedcoderapp.com/index.php/admin");
+        driver.get(url);
     }
 
-    public  static void closeBrowser(){
+    public  void closeBrowser(){ //static
         driver.close();
         driver.quit();
 

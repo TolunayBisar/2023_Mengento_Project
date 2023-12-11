@@ -2,7 +2,6 @@ package frontend;
 
 import basefunc.ApplicationConfig;
 import basefunc.BaseClass;
-
 import basefunc.LoginDataForFrontEnd;
 import dashboard.DashBoardPageForFrontEnd;
 import dashboard.LoginPageForFrontEnd;
@@ -27,6 +26,7 @@ public class RunnerForFrontEnd extends BaseClass {
     DashBoardPageForFrontEnd dashBoardPageForFrontEnd;
     ViewOrderAsRegistredUser viewOrderAsRegistredUser;
     ViewOrderAsGuest viewOrderAsGuest;
+    RegistredUserViewDownloadbleOrder registredUserViewDownloadbleOrder;
 
     @BeforeClass
     public void setUp() {
@@ -45,12 +45,19 @@ public class RunnerForFrontEnd extends BaseClass {
 
     @Test(priority = 2)
     public void RegisterUserViewOrder() {
+
         viewOrderAsRegistredUser = new ViewOrderAsRegistredUser(driver);
         Assert.assertTrue(viewOrderAsRegistredUser.registredUserViewOrder());
-        closeBrowser();
+
+    }
+    @Test(priority = 3)
+    public void RegisterUserViewDownloadOrder(){
+        registredUserViewDownloadbleOrder = new RegistredUserViewDownloadbleOrder(driver);
+        Assert.assertTrue(registredUserViewDownloadbleOrder.veriFayeDownloadOrder());
+         closeBrowser();
     }
 
-    @Test(priority = 3)
+    @Test(priority = 4)
     public void AddProduct() {
         setUpBrowser(loginDataForFrontEnd.getUrlFrontEnd());
         viewOrderAsGuest = new ViewOrderAsGuest(driver);
@@ -61,7 +68,7 @@ public class RunnerForFrontEnd extends BaseClass {
         viewOrderAsGuest.clickOnAddToCart();
     }
 
-    @Test(priority = 4)
+    @Test(priority = 5)
     public void GuestViewOrder() {
         viewOrderAsGuest = new ViewOrderAsGuest(driver);
         viewOrderAsGuest.userViewOrder();
