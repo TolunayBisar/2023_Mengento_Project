@@ -1,6 +1,7 @@
-package backend.salesmodule;
+package regressiontest.cucumber;
 
-import basefunc.BaseClassForBackend;
+import backend.salesmodule.SalesManagerViewInvoices;
+import basefunc.BaseClass;
 import basefunc.LoginDataForBackEnd;
 import dashboard.DashBoardPageForBackEnd;
 import dashboard.LoginPageForBackEnd;
@@ -8,7 +9,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class SalesModuleStepdefs extends BaseClassForBackend {
+public class SalesModuleStepdefs extends BaseClass {
     LoginDataForBackEnd loginDataForBackEnd = new LoginDataForBackEnd();
     LoginPageForBackEnd loginPageForBackEnd = new LoginPageForBackEnd(driver);
     DashBoardPageForBackEnd dashBoardPageForBackEnd = new DashBoardPageForBackEnd(driver);

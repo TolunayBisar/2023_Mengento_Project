@@ -1,16 +1,20 @@
-package backend.customersmodule;
+package regressiontest.cucumber;
 
+import backend.customersmodule.AssignCustomerToGroup;
+import backend.customersmodule.CustomerManagerAddNewCustomerGroup;
+import backend.customersmodule.FilterCustomerGroupPage;
+import backend.customersmodule.PageForDeleteCustomer;
+import basefunc.BaseClass;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import basefunc.BaseClassForBackend;
 import basefunc.LoginDataForBackEnd;
 import dashboard.DashBoardPageForBackEnd;
 import dashboard.LoginPageForBackEnd;
 import org.junit.Assert;
-import org.testng.annotations.AfterClass;
 
-public class CustomersModuleStepdefs extends BaseClassForBackend{
+
+public class CustomersModuleStepdefs extends BaseClass {
     LoginDataForBackEnd loginDataForBackEnd = new LoginDataForBackEnd();
     LoginPageForBackEnd loginPageForBackEnd = new LoginPageForBackEnd(driver);
     DashBoardPageForBackEnd dashBoardPageForBackEnd = new DashBoardPageForBackEnd(driver);

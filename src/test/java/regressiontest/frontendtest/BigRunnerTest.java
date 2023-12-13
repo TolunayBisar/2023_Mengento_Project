@@ -1,4 +1,4 @@
-package frontend;
+package regressiontest.frontendtest;
 
 import basefunc.ApplicationConfig;
 import basefunc.BaseClass;
@@ -7,6 +7,7 @@ import basefunc.LoginDataForFrontEnd;
 import com.github.javafaker.Faker;
 import dashboard.DashBoardPageForFrontEnd;
 import dashboard.LoginPageForFrontEnd;
+import frontend.*;
 import org.apache.commons.lang3.SystemUtils;
 import org.junit.jupiter.api.TestInstance;
 import org.testng.Assert;

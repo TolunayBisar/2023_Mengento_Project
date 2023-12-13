@@ -1,7 +1,14 @@
-package backend.catalogmodule;
+package regressiontest.cucumber;
+
+
+import backend.catalogmodule.EditRootCategory;
+import backend.catalogmodule.EditSearchTerms;
+import backend.catalogmodule.FilterSearchTermsPage;
+import backend.catalogmodule.SearchTermsPage;
 
 import basefunc.BaseClass;
-import basefunc.BaseClassForBackend;
+
+
 import basefunc.LoginDataForBackEnd;
 import dashboard.DashBoardPageForBackEnd;
 import dashboard.LoginPageForBackEnd;

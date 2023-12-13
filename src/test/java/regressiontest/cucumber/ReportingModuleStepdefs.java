@@ -1,6 +1,7 @@
-package backend.reportingmodule;
+package regressiontest.cucumber;
 
-import basefunc.BaseClassForBackend;
+import backend.reportingmodule.ReportingManagerSeeTotalOrder;
+import basefunc.BaseClass;
 import basefunc.LoginDataForBackEnd;
 import dashboard.DashBoardPageForBackEnd;
 import dashboard.LoginPageForBackEnd;
@@ -8,7 +9,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class ReportingModuleStepdefs extends BaseClassForBackend {
+public class ReportingModuleStepdefs extends BaseClass {
     LoginDataForBackEnd loginDataForBackEnd = new LoginDataForBackEnd();
     LoginPageForBackEnd loginPageForBackEnd = new LoginPageForBackEnd(driver);
     DashBoardPageForBackEnd dashBoardPageForBackEnd = new DashBoardPageForBackEnd(driver);
