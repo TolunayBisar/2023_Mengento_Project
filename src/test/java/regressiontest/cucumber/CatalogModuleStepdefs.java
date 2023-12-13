@@ -1,9 +1,14 @@
 package regressiontest.cucumber;
 
+
 import backend.catalogmodule.EditRootCategory;
 import backend.catalogmodule.EditSearchTerms;
+import backend.catalogmodule.FilterSearchTermsPage;
 import backend.catalogmodule.SearchTermsPage;
-import basefunc.BaseClassForBackend;
+
+import basefunc.BaseClass;
+
+
 import basefunc.LoginDataForBackEnd;
 import dashboard.DashBoardPageForBackEnd;
 import dashboard.LoginPageForBackEnd;
@@ -11,17 +16,21 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class CatalogModuleStepdefs extends BaseClassForBackend {
+public class CatalogModuleStepdefs extends BaseClass {
     LoginDataForBackEnd loginDataForBackEnd = new LoginDataForBackEnd();
     LoginPageForBackEnd loginPageForBackEnd = new LoginPageForBackEnd(driver);
     DashBoardPageForBackEnd dashBoardPageForBackEnd = new DashBoardPageForBackEnd(driver);
     SearchTermsPage searchTermsPage = new SearchTermsPage(driver);
     EditRootCategory editRootCategory = new EditRootCategory(driver);
+
+    FilterSearchTermsPage filterSearchTermsPage = new FilterSearchTermsPage(driver);
+
     EditSearchTerms editSearchTerms = new EditSearchTerms(driver);
+
     @Given("Catalog manager on the dashboard page")
     public void catalogManagerOnTheDashboardPage() {
         loginPageForBackEnd.logIn(loginDataForBackEnd.getUsernameCatalogManager()
-                ,loginDataForBackEnd.getPassword());
+                , loginDataForBackEnd.getPassword());
         dashBoardPageForBackEnd.verifyCatologModuleDashboardPage();
     }
 
@@ -50,13 +59,44 @@ public class CatalogModuleStepdefs extends BaseClassForBackend {
         editRootCategory.verifyMessageRootCategoryEdited();
     }
 
-    @When("catalog Manager edit existing search terms")
-    public void catalogManagerEditExistingSearchTerms() {
-   editSearchTerms.setEditSearchTerms();
+
+    /**
+     * @author sherzat
+     */
+    @When("catalog manager filter search terms by SearchQuery")
+    public void catalogManagerFilterSearchTermsBySearchQuery() {
+        filterSearchTermsPage.filterBySearchQuery("shirt");
     }
 
-    @Then("existing search terms should be successfully edited")
-    public void existingSearchTermsShouldBeSuccessfullyEdited() {
-    editSearchTerms.editSearchTermsSuccess();
+    @When("catalog manager filter search terms by Store")
+    public void catalogManagerFilterSearchTermsByStore() {
+        filterSearchTermsPage.filterByStore();
+    }
+
+    @When("catalog manager filter search terms by Result")
+    public void catalogManagerFilterSearchTermsByResult() {
+        filterSearchTermsPage.filterByResult("0", "9");
+    }
+
+    @When("catalog manager filter search terms by Use")
+    public void catalogManagerFilterSearchTermsByUse() {
+        filterSearchTermsPage.filterByUse("0", "9");
+    }
+
+    @When("catalog manager filter search terms by Synonym")
+    public void catalogManagerFilterSearchTermsBySynonym() {
+        filterSearchTermsPage.filterBySynonym("a");
+    }
+
+    @When("catalog manager filter search terms by Suggested Terms")
+    public void catalogManagerFilterSearchTermsBySuggestedTerms() {
+        filterSearchTermsPage.filterBySuggestedTerms();
+    }
+
+    @Then("filter result should be display on the page")
+    public void filterResultShouldBeDisplayOnThePage() {
+        filterSearchTermsPage.verifyFilter();
+
+
     }
 }

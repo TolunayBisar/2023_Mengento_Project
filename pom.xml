@@ -259,6 +259,7 @@
                     </execution>
                 </executions>
                 <configuration>
+
                     <suiteXmlFiles>
                        <suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
                     </suiteXmlFiles>

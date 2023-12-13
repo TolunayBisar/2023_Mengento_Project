@@ -1,5 +1,7 @@
 package regressiontest.cucumber;
 
+
+import basefunc.ApplicationConfig;
 import basefunc.BaseClass;
 import basefunc.BaseClassForBackend;
 import io.cucumber.junit.Cucumber;
@@ -10,7 +12,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "classpath:features",
+        features = "classpath:features/catalog-module.feature",
         plugin ={
                 "pretty",
                 "html:target/cucumber-html-report.html",
@@ -18,12 +20,16 @@ import org.junit.runner.RunWith;
                 "junit:target/cucumber-xml-report.xml "
         },
 
-        tags = "")
+        tags = "@FilterSearchTerms")
 
+public class CucumberTestRunner extends BaseClass {}
 
+<<<<<<< HEAD:src/test/java/regressiontest/cucumber/CucumberTestRunner.java
 
 public class CucumberTestRunner extends BaseClass {
 
 
 
 }
+=======
+>>>>>>> master:src/test/java/backend/CucumberTestRunner.java
