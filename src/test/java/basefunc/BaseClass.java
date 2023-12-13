@@ -1,4 +1,5 @@
 package basefunc;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.lang3.SystemUtils;
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
@@ -22,6 +23,7 @@ public class BaseClass {
             options.addArguments("disable-gpu");
         }
         options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
+        WebDriverManager.chromedriver().setup();
         driver= new ChromeDriver(options);
         if (SystemUtils.IS_OS_MAC_OSX||SystemUtils.IS_OS_WINDOWS) {
             driver.manage().window().maximize();

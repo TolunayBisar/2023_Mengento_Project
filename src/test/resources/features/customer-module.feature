@@ -29,7 +29,11 @@ Feature: Customer manager can manage customers
     When the user tries to delete an existing customer
     Then the customer should be deleted
 
-
+  @AddNewCustomer
+  Scenario: Customer manager can add a new customer
+    Given customer manager go to the manage customer page
+    When Customer manager can add new customer
+    Then The new customer is added in the system
 
 
 

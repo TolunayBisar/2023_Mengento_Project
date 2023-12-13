@@ -1,9 +1,6 @@
 package regressiontest.cucumber;
 
-import backend.customersmodule.AssignCustomerToGroup;
-import backend.customersmodule.CustomerManagerAddNewCustomerGroup;
-import backend.customersmodule.FilterCustomerGroupPage;
-import backend.customersmodule.PageForDeleteCustomer;
+import backend.customersmodule.*;
 import basefunc.BaseClass;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -24,6 +21,7 @@ public class CustomersModuleStepdefs extends BaseClass {
     CustomerManagerAddNewCustomerGroup customerManagerAddNewCustomerGroup = new CustomerManagerAddNewCustomerGroup(driver);
 
     PageForDeleteCustomer pageForDeleteCustomer = new PageForDeleteCustomer(driver);
+    AddCustomer addCustomer=new AddCustomer(driver);
 
 
 
@@ -103,8 +101,20 @@ public class CustomersModuleStepdefs extends BaseClass {
         pageForDeleteCustomer.verifyCustomerDeleted();
         Assert.assertTrue(pageForDeleteCustomer.verifyCustomerDeleted());
     }
+    @When("Customer manager can add new customer")
+    public void customerManagerCanAddNewCustomer() {
+        addCustomer.addNewCustomer();
+    }
+
+    @Then("The new customer is added in the system")
+    public void theNewCustomerIsAddedInTheSystem() {
+        addCustomer.verifyForAddingNewCustomer();
+    }
+
 
 }
+
+
 
 
 
