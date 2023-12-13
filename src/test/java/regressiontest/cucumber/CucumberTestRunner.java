@@ -25,12 +25,5 @@ import org.junit.runner.RunWith;
 public class CucumberTestRunner extends BaseClass {
 
 
-//   @Before
-//        public static void setup(){
-//                setUpBrowser();
-//        }
-//       @After
-//       public static void teardown(){
-//              closeBrowser();
-//        }
+
 }
