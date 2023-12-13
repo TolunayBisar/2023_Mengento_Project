@@ -1,5 +1,6 @@
-package backend.marketingmodule;
+package regressiontest.cucumber;
 
+import backend.marketingmodule.MarketingManagerAllView;
 import basefunc.BaseClassForBackend;
 import basefunc.LoginDataForBackEnd;
 import dashboard.DashBoardPageForBackEnd;

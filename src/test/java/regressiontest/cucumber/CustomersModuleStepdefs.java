@@ -1,5 +1,9 @@
-package backend.customersmodule;
+package regressiontest.cucumber;
 
+import backend.customersmodule.AssignCustomerToGroup;
+import backend.customersmodule.CustomerManagerAddNewCustomerGroup;
+import backend.customersmodule.FilterCustomerGroupPage;
+import backend.customersmodule.PageForDeleteCustomer;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;

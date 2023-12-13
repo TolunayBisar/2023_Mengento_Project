@@ -1,5 +1,6 @@
-package backend.reportingmodule;
+package regressiontest.cucumber;
 
+import backend.reportingmodule.ReportingManagerSeeTotalOrder;
 import basefunc.BaseClassForBackend;
 import basefunc.LoginDataForBackEnd;
 import dashboard.DashBoardPageForBackEnd;

@@ -1,5 +1,6 @@
-package backend.salesmodule;
+package regressiontest.cucumber;
 
+import backend.salesmodule.SalesManagerViewInvoices;
 import basefunc.BaseClassForBackend;
 import basefunc.LoginDataForBackEnd;
 import dashboard.DashBoardPageForBackEnd;
