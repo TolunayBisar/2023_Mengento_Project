@@ -1,9 +1,8 @@
 package regressiontest.cucumber;
 
 
-import basefunc.ApplicationConfig;
+
 import basefunc.BaseClass;
-import basefunc.BaseClassForBackend;
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 import org.junit.After;

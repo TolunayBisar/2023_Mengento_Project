@@ -1,16 +1,15 @@
 package regressiontest.cucumber;
 
 import backend.marketingmodule.MarketingManagerAllView;
-import basefunc.BaseClassForBackend;
+import basefunc.BaseClass;
 import basefunc.LoginDataForBackEnd;
 import dashboard.DashBoardPageForBackEnd;
 import dashboard.LoginPageForBackEnd;
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class MarketingModuleStepdefs extends BaseClassForBackend {
+public class MarketingModuleStepdefs extends BaseClass {
     LoginDataForBackEnd loginDataForBackEnd = new LoginDataForBackEnd();
     LoginPageForBackEnd loginPageForBackEnd = new LoginPageForBackEnd(driver);
     DashBoardPageForBackEnd dashBoardPageForBackEnd = new DashBoardPageForBackEnd(driver);

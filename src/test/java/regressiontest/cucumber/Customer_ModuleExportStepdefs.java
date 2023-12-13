@@ -1,13 +1,14 @@
-package backend.customersmodule;
+package regressiontest.cucumber;
 
-import basefunc.BaseClassForBackend;
+import backend.customersmodule.ExportCustomersPage;
+import basefunc.BaseClass;
 import basefunc.LoginDataForBackEnd;
 import dashboard.LoginPageForBackEnd;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class Customer_ModuleExportStepdefs extends BaseClassForBackend {
+public class Customer_ModuleExportStepdefs extends BaseClass {
 
 
    LoginPageForBackEnd loginPageForBackEnd = new LoginPageForBackEnd(driver);

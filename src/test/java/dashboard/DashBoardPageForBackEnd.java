@@ -1,5 +1,6 @@
 package dashboard;
 
+
 import basefunc.FunctionLibrary;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -13,7 +14,7 @@ import org.openqa.selenium.support.PageFactory;
  * @Email :tolunay.bisar@gmail.com
  **/
 public class DashBoardPageForBackEnd {
-    public WebDriver driver;
+   public WebDriver driver;
     FunctionLibrary functionLibrary;
     Actions actions;
 
@@ -70,7 +71,7 @@ public class DashBoardPageForBackEnd {
     WebElement customerGroupLink;
 
     public DashBoardPageForBackEnd(WebDriver driver) {
-        this.driver = driver;
+       this.driver = driver;
         PageFactory.initElements(driver, this);
         functionLibrary = new FunctionLibrary(driver);
         actions = new Actions(driver);
