@@ -12,7 +12,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "classpath:features/catalog-module.feature",
+        features = "classpath:features",
         plugin ={
                 "pretty",
                 "html:target/cucumber-html-report.html",
@@ -22,14 +22,11 @@ import org.junit.runner.RunWith;
 
         tags = "@FilterSearchTerms")
 
-public class CucumberTestRunner extends BaseClass {}
-
-<<<<<<< HEAD:src/test/java/regressiontest/cucumber/CucumberTestRunner.java
-
 public class CucumberTestRunner extends BaseClass {
 
-
-
 }
-=======
->>>>>>> master:src/test/java/backend/CucumberTestRunner.java
+
+
+
+
+
