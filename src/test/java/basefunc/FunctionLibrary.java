@@ -147,6 +147,23 @@ public void waitForPresent(WebElement element){
 
 }
 
+    public String generateFakerDescription(){
+        String fakerDescription=Faker.instance().random().toString();
+        return fakerDescription;
+    }
+    public String generateFakerSKU(){
+        String sku= String.valueOf(Faker.instance().idNumber());
+        return sku;
+    }
+    public String generateFakerWeight(){
+        String weight=Faker.instance().number().digit();
+        return weight;
+    }
+    public String generateFakerPrice() {
+        double price = Faker.instance().random().nextDouble();
+        return String.format("%.2f", price);
+    }
+
 
 
 }
