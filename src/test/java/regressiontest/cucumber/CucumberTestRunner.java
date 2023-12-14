@@ -19,7 +19,7 @@ import org.junit.runner.RunWith;
                 "junit:target/cucumber-xml-report.xml "
         },
 
-        tags = "@AddNewCustomerGroup")
+        tags = "@FilterCustomersGroup")
 
 public class CucumberTestRunner  {
 
