@@ -1,10 +1,8 @@
 package backend.catalogmodule;
 
 import basefunc.FunctionLibrary;
-import basefunc.LoginDataForBackEnd;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
@@ -12,15 +10,11 @@ import org.openqa.selenium.support.ui.Select;
 public class AddProductsCatalog {
         public WebDriver driver;
         FunctionLibrary functionLibrary;
-        LoginDataForBackEnd loginDataForBackEnd;
         Select select;
         @FindBy(xpath = "//tr//button[@title=\"Add Product\"]")
         WebElement addProductButton;
         @FindBy(xpath = "//select[@id=\"attribute_set_id\"]")
         WebElement attributeSetField;
-        @FindBy(xpath = "//select//option[text()=\"Books & Music\"]")
-        WebElement bookAndMusic;
-
         @FindBy(xpath = "//span[text()=\"Continue\"]")
         WebElement continueButton;
         @FindBy(id = "name")
@@ -39,18 +33,12 @@ public class AddProductsCatalog {
         WebElement listEnabled;
         @FindBy(xpath = "//select[@id=\"visibility\"]")
         WebElement visibilityField;
-        @FindBy(xpath = "//select//option[text()=\"Catalog, Search\"]")
-        WebElement listCatalogSearch;
-        @FindBy(xpath = "//select[@id=\"country_of_manufacture\"]")
-        WebElement countryOfManufacture;
         @FindBy(xpath = "//span[text()=\"Save\"]")
         WebElement saveButton;
         @FindBy(xpath = "//input[@id=\"price\"]")
         WebElement priceField;
         @FindBy(xpath = "//select[@id=\"tax_class_id\"]")
         WebElement taxClassField;
-        @FindBy(xpath = "//select//option[text()=\"Shipping\"]")
-        WebElement listShipping;
         @FindBy(xpath = "//span[text()=\"The product has been saved.\"]")
         WebElement successMessage;
 
