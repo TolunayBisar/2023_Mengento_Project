@@ -21,7 +21,7 @@ import org.junit.runner.RunWith;
 
         tags = "@AddNewCustomerGroup")
 
-public class CucumberTestRunner extends BaseClass {
+public class CucumberTestRunner  {
 
 }
 
