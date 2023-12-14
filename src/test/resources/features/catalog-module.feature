@@ -64,3 +64,9 @@ Feature: Catalog manager can manage catalog
        When catalog Manager edit existing search terms
        Then existing search terms should be successfully edited
 
+
+    @AddProduct
+    Scenario: Catalog manager can add products
+#      Given Catalog manager go to the manage catalog page
+      When Catalog manager added product
+      Then product should be successfully added and success message should be displayed

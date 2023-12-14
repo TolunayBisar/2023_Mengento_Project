@@ -1,10 +1,7 @@
 package regressiontest.cucumber;
 
 
-import backend.catalogmodule.EditRootCategory;
-import backend.catalogmodule.EditSearchTerms;
-import backend.catalogmodule.FilterSearchTermsPage;
-import backend.catalogmodule.SearchTermsPage;
+import backend.catalogmodule.*;
 
 import basefunc.BaseClass;
 
@@ -26,6 +23,7 @@ public class CatalogModuleStepdefs extends BaseClass {
     FilterSearchTermsPage filterSearchTermsPage = new FilterSearchTermsPage(driver);
 
     EditSearchTerms editSearchTerms = new EditSearchTerms(driver);
+    AddProductsCatalog addProductsCatalog = new AddProductsCatalog(driver);
 
     @Given("Catalog manager on the dashboard page")
     public void catalogManagerOnTheDashboardPage() {
@@ -34,10 +32,10 @@ public class CatalogModuleStepdefs extends BaseClass {
         dashBoardPageForBackEnd.verifyCatologModuleDashboardPage();
     }
 
-    @Given("catalog manager go to the manage catalog page")
-    public void catalogManagerGoToTheManageCatalogPage() {
-        dashBoardPageForBackEnd.goToSearchTermsPage();
-    }
+//    @Given("catalog manager go to the manage catalog page")
+//    public void catalogManagerGoToTheManageCatalogPage() {
+//        dashBoardPageForBackEnd.goToSearchTermsPage();
+//    }
 
     @When("catalog manager add new search term")
     public void catalogManagerAddNewSearchTerm() {
@@ -98,5 +96,28 @@ public class CatalogModuleStepdefs extends BaseClass {
         filterSearchTermsPage.verifyFilter();
 
 
+    }
+
+    @When("catalog Manager edit existing search terms")
+    public void catalogManagerEditExistingSearchTerms() {
+    }
+
+    @Then("existing search terms should be successfully edited")
+    public void existingSearchTermsShouldBeSuccessfullyEdited() {
+    }
+
+//    @Given("Catalog manager go to the manage catalog page")
+//    public void catalogManagerGoToTheManageCatalogPage() {
+//        dashBoardPageForBackEnd.g
+//    }
+
+    @When("Catalog manager added product")
+    public void catalogManagerAddedProduct() {
+        addProductsCatalog.addProduct();
+    }
+
+    @Then("product should be successfully added and success message should be displayed")
+    public void productShouldBeSuccessfullyAddedAndSuccessMessageShouldBeDisplayed() {
+        addProductsCatalog.verifyAddedProductOnCatalogPage();
     }
 }
