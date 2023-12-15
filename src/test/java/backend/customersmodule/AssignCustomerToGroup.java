@@ -1,5 +1,4 @@
 package backend.customersmodule;
-import basefunc.BaseClassForBackend;
 import basefunc.FunctionLibrary;
 import com.github.javafaker.Faker;
 import org.openqa.selenium.WebDriver;

@@ -32,10 +32,10 @@ public class CatalogModuleStepdefs extends BaseClass {
         dashBoardPageForBackEnd.verifyCatologModuleDashboardPage();
     }
 
-//    @Given("catalog manager go to the manage catalog page")
-//    public void catalogManagerGoToTheManageCatalogPage() {
-//        dashBoardPageForBackEnd.goToSearchTermsPage();
-//    }
+    @Given("catalog manager go to the manage catalog page")
+    public void catalogManagerGoToTheManageCatalogPage() {
+        dashBoardPageForBackEnd.goToSearchTermsPage();
+    }
 
     @When("catalog manager add new search term")
     public void catalogManagerAddNewSearchTerm() {
@@ -106,10 +106,6 @@ public class CatalogModuleStepdefs extends BaseClass {
     public void existingSearchTermsShouldBeSuccessfullyEdited() {
     }
 
-//    @Given("Catalog manager go to the manage catalog page")
-//    public void catalogManagerGoToTheManageCatalogPage() {
-//        dashBoardPageForBackEnd.g
-//    }
 
     @When("Catalog manager added product")
     public void catalogManagerAddedProduct() {
