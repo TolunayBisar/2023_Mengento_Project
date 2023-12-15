@@ -22,6 +22,7 @@ public class CatalogTestRunner extends BaseClass {
     DashBoardPageForBackEnd dashBoardPageForBackEnd;
     AddProductsCatalog addProductsCatalog;
 
+
     @BeforeClass
     public void setUpBrowser(){
         loginDataForBackEnd = new LoginDataForBackEnd();
