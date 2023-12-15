@@ -63,7 +63,7 @@ public class AddProductsCatalog {
             functionLibrary.waitElemantPresent(shortDescriptionField);
             shortDescriptionField.sendKeys(functionLibrary.generateFakerDescription());
             functionLibrary.waitElemantPresent(skuField);
-            skuField.sendKeys(functionLibrary.generateFakerSKU());
+            skuField.sendKeys(functionLibrary.generateFakerSKU()+functionLibrary.timeStamp());
             functionLibrary.waitElemantPresent(weightField);
             weightField.sendKeys(functionLibrary.generateFakerWeight());
             select=new Select(statusField);

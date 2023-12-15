@@ -1,4 +1,5 @@
 package backend.customersmodule;
+import basefunc.BaseClass;
 import basefunc.FunctionLibrary;
 import com.github.javafaker.Faker;
 import org.openqa.selenium.WebDriver;
@@ -8,7 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
-public class AssignCustomerToGroup extends BaseClassForBackend {
+public class AssignCustomerToGroup extends BaseClass {
     WebDriver driver;
     FunctionLibrary functionalLibrary;
     Faker faker= new Faker();
