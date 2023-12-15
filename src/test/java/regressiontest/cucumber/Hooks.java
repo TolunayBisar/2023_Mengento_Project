@@ -1,4 +1,4 @@
-package backend;
+package regressiontest.cucumber;
 
 
 import basefunc.ApplicationConfig;
