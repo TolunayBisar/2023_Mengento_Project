@@ -5,7 +5,6 @@ import backend.customersmodule.AddCustomer;
 import backend.customersmodule.AssignCustomerToGroup;
 import basefunc.ApplicationConfig;
 import basefunc.BaseClass;
-import basefunc.BaseClassForBackend;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;

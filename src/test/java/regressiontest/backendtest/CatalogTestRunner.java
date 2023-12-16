@@ -1,10 +1,12 @@
 package regressiontest.backendtest;
 
 
+import backend.catalogmodule.AddProductsCatalog;
 import basefunc.BaseClass;
 import basefunc.LoginDataForBackEnd;
 import dashboard.DashBoardPageForBackEnd;
 import dashboard.LoginPageForBackEnd;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -18,6 +20,8 @@ public class CatalogTestRunner extends BaseClass {
     LoginPageForBackEnd loginPageForBackEnd;
     LoginDataForBackEnd loginDataForBackEnd;
     DashBoardPageForBackEnd dashBoardPageForBackEnd;
+    AddProductsCatalog addProductsCatalog;
+
 
     @BeforeClass
     public void setUpBrowser(){
@@ -31,6 +35,17 @@ public class CatalogTestRunner extends BaseClass {
     public void loginToCatalogPageBackend(){
         loginPageForBackEnd.logIn(loginDataForBackEnd.getUsernameCatalogManager(),
                 loginDataForBackEnd.getPassword());
+    }
+    @Test(priority = 2)
+    public void addProductOnCatalogPage(){
+        addProductsCatalog=new AddProductsCatalog(driver);
+        addProductsCatalog.addProduct();
+    }
+    @Test(priority = 3)
+    public void verifyAddProduct(){
+        boolean isAddProductSuccessfully=addProductsCatalog.verifyAddedProductOnCatalogPage();
+        Assert.assertTrue(isAddProductSuccessfully,"product added successfully");
+
     }
 
 

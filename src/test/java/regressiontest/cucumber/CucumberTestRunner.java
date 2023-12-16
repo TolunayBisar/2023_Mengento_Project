@@ -11,7 +11,10 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "classpath:features/customer-module.feature",
+
+        features = "classpath:features/catalog-module.feature",
+
+
         plugin ={
                 "pretty",
                 "html:target/cucumber-html-report.html",
@@ -19,7 +22,12 @@ import org.junit.runner.RunWith;
                 "junit:target/cucumber-xml-report.xml "
         },
 
-        tags = "@FilterCustomersGroup")
+
+
+        tags = "@AddProduct")
+
+
+
 
 public class CucumberTestRunner  {
 
