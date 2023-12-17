@@ -1,6 +1,8 @@
 package regressiontest.cucumber;
 
 
+import backend.customersmodule.AddCustomer;
+import backend.customersmodule.AssignCustomerToGroup;
 import basefunc.ApplicationConfig;
 import basefunc.BaseClass;
 import io.cucumber.java.After;
@@ -20,6 +22,9 @@ public class Hooks extends BaseClass {
             scenario.log("Begin with API Test Automation");
         }
     }
+
+
+
     @After
     public void teardown(Scenario scenario){
         if(scenario.getSourceTagNames().contains("@UiTest")) {
