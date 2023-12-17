@@ -30,7 +30,7 @@ public class ApiStepDef {
                 post("/product").then().extract().response();
         response.prettyPrint();
     }
-    @Then("Response must be with a {int} status code")
+    @Then("Response must be with a {} status code")
     public void response_must_be_with_a_status_code(int code) {
         Assert.assertEquals(String.format("Expected status code %d, but got %d",code,
                 response.getStatusCode()),code,response.getStatusCode());
@@ -41,16 +41,17 @@ public class ApiStepDef {
         response.prettyPrint();
     }
 
-//
 
 
 
 
-    @When("the user sends a PUT request to update customer group {} info")
+    @When("the user sends a PUT request to update Customer Group {} info")
     public void theUserSendsAPUTRequestToUpdateCustomerGroupInfo(int customerGroupId) {
         response=RestAssured.given().contentType(ContentType.JSON).and().
                 body(Payloads.customerGroupPayload("team3Group"+FunctionLibrary.randomText())).when().
                 put("/customergroup/"+customerGroupId).then().extract().response();
+
+
     }
 
     @When("the user sends a PUT request to update customer {} info")

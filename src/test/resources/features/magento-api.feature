@@ -9,7 +9,7 @@ Feature: Managing All Module in Application via API
       Then Response must be with a 200 status code
 
   Scenario: Authorized user should be able to update customer group info via API
-    When the user sends a PUT request to update customer group 0 info
+    When the user sends a PUT request to update Customer Group 0 info
     Then Response must be with a 204 status code
 
   Scenario: Authorized user should be able to update customer info via API

@@ -48,7 +48,7 @@ public class APTest {
         response.getBody().prettyPrint();
         assert response.getStatusCode() == 200 : "Expected status code 200,but got :" + response.getStatusCode();
         String categoryValue = response.jsonPath().getString("value");
-
+        System.out.println(categoryValue); // why it is null?
         assert response.headers().getValue("X-Frame-Options").equals("DENY") : "Header doesn't have the right ley or value";
     }
 
