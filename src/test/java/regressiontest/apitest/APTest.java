@@ -5,6 +5,7 @@ import basefunc.FunctionLibrary;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+import io.restassured.response.ResponseBody;
 import magentoapi.Payloads;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
@@ -42,13 +43,15 @@ public class APTest {
 
     @Test(description = "as a Admin user should be able to get category  By ID ", priority = 1)
     public void getCategoryById() {
-        categoryID =1;
-        categoryValue1= "cbus";
+        categoryID =145;
+        categoryValue1= "value:Team3";
         Response response = RestAssured.given().pathParams("id", categoryID).when().get("/category/{id}");
         response.getBody().prettyPrint();
         assert response.getStatusCode() == 200 : "Expected status code 200,but got :" + response.getStatusCode();
-        String categoryValue = response.jsonPath().getString("value");
-        System.out.println(categoryValue); // why it is null?
+
+        String categoryValue = response.jsonPath().getString("'content'[0]");
+       assert categoryValue.contains(categoryValue1);
+        System.out.println(categoryValue); // response body is Array here so output index 0 then use contains to assert.
         assert response.headers().getValue("X-Frame-Options").equals("DENY") : "Header doesn't have the right ley or value";
     }
 

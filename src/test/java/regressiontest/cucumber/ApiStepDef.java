@@ -35,7 +35,7 @@ public class ApiStepDef {
         Assert.assertEquals(String.format("Expected status code %d, but got %d",code,
                 response.getStatusCode()),code,response.getStatusCode());
     }
-    @When("the user sends a GET request to retrieve category {int} info")
+    @When("the user sends a GET request to retrieve category {} info")
     public void the_user_sends_a_get_request_to_retrieve_category_info(int categoryId) {
         response= RestAssured.given().when().get("/category/"+categoryId);
         response.prettyPrint();
@@ -65,5 +65,12 @@ public class ApiStepDef {
                 body(Payloads.customerPayload(id,attributeId,
                         entityId,value)).when().
                 put("/customer").then().extract().response();
+    }
+
+    @And("the response must return correct with category name {}")
+    public void theResponseMustReturnCorrectWithCategoryNameCategoryValue( String categoryValue) {
+        String cateName= response.jsonPath().getString("content[0]");
+        Assert.assertTrue(cateName.contains(categoryValue));
+
     }
 }
