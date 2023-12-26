@@ -6,8 +6,7 @@ import basefunc.DataClassForDB;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import magentodatabase.VerifySQLNewlyAddedCreditMemo;
-import magentodatabase.VerifySQLScriptsNewPriceRule;
+import magentodatabase.*;
 import org.junit.Assert;
 
 import java.sql.Connection;
@@ -19,7 +18,11 @@ public class DatabaseStepDef {
     DataClassForDB dataClassForDB;
     VerifySQLScriptsNewPriceRule verifySQLScriptsNewPriceRule;
     VerifySQLNewlyAddedCreditMemo verifySQLNewlyAddedCreditMemo;
-
+    VerifySQLNewAddedCustomerGroup verifySQLNewAddedCustomerGroup;
+    VerifySQLNewlyAddedProductRootCategory verifyNewlyAddedProductRootCategory;
+   VerifySQLNewlyAddedOrder verifySQLNewlyAddedOrder;
+   VerifySQLNewlyAddedStore verifySQLNewlyAddedStore;
+   VerifySQLNewlyAddedTaxRule verifySQLNewlyAddedTaxRule;
 
 
 
@@ -35,6 +38,12 @@ public class DatabaseStepDef {
         dataClassForDB = new DataClassForDB();
         verifySQLScriptsNewPriceRule = new VerifySQLScriptsNewPriceRule();
 verifySQLNewlyAddedCreditMemo = new VerifySQLNewlyAddedCreditMemo();
+verifySQLNewAddedCustomerGroup = new VerifySQLNewAddedCustomerGroup();
+verifyNewlyAddedProductRootCategory = new VerifySQLNewlyAddedProductRootCategory();
+verifySQLNewlyAddedOrder = new VerifySQLNewlyAddedOrder();
+verifySQLNewlyAddedStore = new VerifySQLNewlyAddedStore();
+verifySQLNewlyAddedTaxRule = new VerifySQLNewlyAddedTaxRule();
+
 
 
     }
@@ -62,5 +71,55 @@ verifySQLNewlyAddedCreditMemo = new VerifySQLNewlyAddedCreditMemo();
     @Then("the database should contain the newly added Credit Memo")
     public void theDatabaseShouldContainTheNewlyAddedCreditMemo() {
         Assert.assertTrue(verifySQLNewlyAddedCreditMemo.verifySQLNewlyAddedCreditMemo(connection,"400000065-1"));
+    }
+
+    @When("execute SQl query to get the new Customer Group  information from the database")
+    public void executeSQlQueryToGetTheNewCustomerGroupInformationFromTheDatabase() {
+        verifySQLNewAddedCustomerGroup.verifySQLNewlyAddedCreditMemo(connection,"LondonTeam");
+    }
+
+    @Then("the database should contain the newly added Customer Group")
+    public void theDatabaseShouldContainTheNewlyAddedCustomerGroup() {
+        Assert.assertTrue(verifySQLNewAddedCustomerGroup.verifySQLNewlyAddedCreditMemo(connection,"LondonTeam"));
+    }
+
+    @When("execute SQl query to get the new Root Category  information from the database")
+    public void executeSQlQueryToGetTheNewRootCategoryInformationFromTheDatabase() {
+        verifyNewlyAddedProductRootCategory.verifyNewlyAddedProductRootCategory(connection,"Team3-Root");
+    }
+
+    @Then("the database should contain the newly added Root Category")
+    public void theDatabaseShouldContainTheNewlyAddedRootCategory() {
+        Assert.assertTrue(verifyNewlyAddedProductRootCategory.verifyNewlyAddedProductRootCategory(connection,"Team3-Root"));
+    }
+
+    @When("execute SQl query to get the new Order  information from the database")
+    public void executeSQlQueryToGetTheNewOrderInformationFromTheDatabase() {
+        verifySQLNewlyAddedOrder.verifySQLNewlyAddedOrder(connection,"400000066");
+    }
+
+    @Then("the database should contain the newly added Order")
+    public void theDatabaseShouldContainTheNewlyAddedOrder() {
+        Assert.assertTrue(verifySQLNewlyAddedOrder.verifySQLNewlyAddedOrder(connection,"400000066"));
+    }
+
+    @When("execute SQl query to get the new Store  information from the database")
+    public void executeSQlQueryToGetTheNewStoreInformationFromTheDatabase() {
+        verifySQLNewlyAddedStore.verifySQLNewlyAddedStore(connection,"London");
+    }
+
+    @Then("the database should contain the newly added Store")
+    public void theDatabaseShouldContainTheNewlyAddedStore() {
+        Assert.assertTrue(verifySQLNewlyAddedStore.verifySQLNewlyAddedStore(connection,"London"));
+    }
+
+    @When("execute SQl query to get the new Tax Rule  information from the database")
+    public void executeSQlQueryToGetTheNewTaxRuleInformationFromTheDatabase() {
+        verifySQLNewlyAddedTaxRule.verifySQLNewlyAddedTaxRule(connection,"Tax Free For Team3");
+    }
+
+    @Then("the database should contain the newly added Tax Rule")
+    public void theDatabaseShouldContainTheNewlyAddedTaxRule() {
+        Assert.assertTrue(verifySQLNewlyAddedTaxRule.verifySQLNewlyAddedTaxRule(connection,"Tax Free For Team3"));
     }
 }

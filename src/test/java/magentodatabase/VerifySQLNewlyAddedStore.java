@@ -9,44 +9,43 @@ import java.sql.Statement;
 
 /**
  * @author : tolunaybisar
- * @created : 26.12.2023,10:17
+ * @created : 26.12.2023,19:40
  * @Email :tolunay.bisar@gmail.com
  **/
-public class VerifySQLNewlyAddedCreditMemo {
-    public boolean verifySQLNewlyAddedCreditMemo(Connection connection, String orderID)  {
+public class VerifySQLNewlyAddedStore {
+    public boolean verifySQLNewlyAddedStore(Connection connection, String storeName) {
         boolean isAdded = false;
         Statement statement = null;
         ResultSet resultSet = null;
         CachedRowSet cachedRowSet = null;
         try {
-            cachedRowSet= RowSetProvider.newFactory().createCachedRowSet();
+            cachedRowSet = RowSetProvider.newFactory().createCachedRowSet();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
         try {
-            statement=connection.createStatement();
+            statement = connection.createStatement();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        String sqlScriptForNewlyAddedCreditMemos = String.format("select * from mg_sales_flat_creditmemo_grid where order_increment_id='%s'",orderID);
+        String sqlScriptForNewStoreAdded = String.format("select store_id , name, is_active  from mg_core_store where name='%s'", storeName);
         try {
-            resultSet=statement.executeQuery(sqlScriptForNewlyAddedCreditMemos);
+            resultSet = statement.executeQuery(sqlScriptForNewStoreAdded);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        if (resultSet==null){
+        if (resultSet == null) {
             System.out.println("No records found");
             return isAdded;
 
-        }
-        else{
+        } else {
             try {
                 cachedRowSet.populate(resultSet);
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
             int rowCount = 0;
-            while (true){
+            while (true) {
 
                 try {
                     if (!cachedRowSet.next()) {
@@ -55,27 +54,24 @@ public class VerifySQLNewlyAddedCreditMemo {
                 } catch (SQLException e) {
                     throw new RuntimeException(e);
                 }
-                try{
-                    int invoiceId = cachedRowSet.getInt("invoice_id");
-                    String billingName = cachedRowSet.getString("billing_name");
-                    System.out.println("invoice_id: " + invoiceId + " billing_name: " + billingName);
-                    rowCount=cachedRowSet.getRow();
+                try {
+                    String store_id = cachedRowSet.getString("store_id");
+                    int is_active = cachedRowSet.getInt("is_active");
+                    String storeName1 = cachedRowSet.getString("name");
+                    System.out.println(" is_active: " + is_active +"\n" + "store_id: " + store_id +"\n"+ "name: "
+                            +storeName1+"\n");
+                    rowCount = cachedRowSet.getRow();
 
-                }catch (SQLException e){
+                } catch (SQLException e) {
                     throw new RuntimeException(e);
                 }
-                if (rowCount>=1) {
-                    isAdded= true;
-                    System.out.println("New Credit Memo Rule is added");
+                if (rowCount >= 1) {
+                    isAdded = true;
+                    System.out.println("New Store is added");
                 }
             }
 
         }
         return isAdded;
     }
-
-
-
 }
-
-

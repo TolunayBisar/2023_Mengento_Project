@@ -46,4 +46,6 @@ public class SalesModuleStepdefs extends BaseClass {
     public void salesManagerShouldBeAbleToCommentOnTheInvoice() {
         salesManagerViewInvoices.verifyInvoicesComment();
     }
+
+
 }

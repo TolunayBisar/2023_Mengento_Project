@@ -9,11 +9,11 @@ import java.sql.Statement;
 
 /**
  * @author : tolunaybisar
- * @created : 26.12.2023,10:17
+ * @created : 26.12.2023,18:03
  * @Email :tolunay.bisar@gmail.com
  **/
-public class VerifySQLNewlyAddedCreditMemo {
-    public boolean verifySQLNewlyAddedCreditMemo(Connection connection, String orderID)  {
+public class VerifySQLNewAddedCustomerGroup {
+    public boolean verifySQLNewlyAddedCreditMemo(Connection connection, String customerGroupName)  {
         boolean isAdded = false;
         Statement statement = null;
         ResultSet resultSet = null;
@@ -28,9 +28,9 @@ public class VerifySQLNewlyAddedCreditMemo {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        String sqlScriptForNewlyAddedCreditMemos = String.format("select * from mg_sales_flat_creditmemo_grid where order_increment_id='%s'",orderID);
+        String sqlScriptForNewCustomerGroupAdded = String.format("select customer_group_id, customer_group_code from mg_customer_group where customer_group_code='%s'",customerGroupName);
         try {
-            resultSet=statement.executeQuery(sqlScriptForNewlyAddedCreditMemos);
+            resultSet=statement.executeQuery(sqlScriptForNewCustomerGroupAdded);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -56,9 +56,9 @@ public class VerifySQLNewlyAddedCreditMemo {
                     throw new RuntimeException(e);
                 }
                 try{
-                    int invoiceId = cachedRowSet.getInt("invoice_id");
-                    String billingName = cachedRowSet.getString("billing_name");
-                    System.out.println("invoice_id: " + invoiceId + " billing_name: " + billingName);
+                    int customerGroupId = cachedRowSet.getInt("customer_group_id");
+                    String customerGroupName1 = cachedRowSet.getString("customer_group_code");
+                    System.out.println("customer_group_id: " + customerGroupId + " customer_group_code: " + customerGroupName1);
                     rowCount=cachedRowSet.getRow();
 
                 }catch (SQLException e){
@@ -66,7 +66,7 @@ public class VerifySQLNewlyAddedCreditMemo {
                 }
                 if (rowCount>=1) {
                     isAdded= true;
-                    System.out.println("New Credit Memo Rule is added");
+                    System.out.println("New Customer Group Rule is added");
                 }
             }
 
@@ -74,8 +74,4 @@ public class VerifySQLNewlyAddedCreditMemo {
         return isAdded;
     }
 
-
-
 }
-
-
