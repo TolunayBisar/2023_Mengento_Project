@@ -53,11 +53,6 @@ Feature: Catalog manager can manage catalog
 
 
 
-
-
-
-
-
      @EditSearchTerms
      Scenario: catalog Manager can edit existing search terms
        Given catalog manager go to the manage catalog page

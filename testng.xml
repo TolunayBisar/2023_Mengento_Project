@@ -11,7 +11,7 @@
     </listeners>
     <test name="ui-tests">
         <classes>
-            <class name="frontend.RunnerForFrontEnd"></class>
+            <class name="frontend.com.seleniummaster.ecommercetest.RunnerForFrontEnd"></class>
         </classes>
     </test>
 <!--    <test name="api-tests">-->

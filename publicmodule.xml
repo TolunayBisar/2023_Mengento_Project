@@ -3,7 +3,7 @@
 <suite name="All Test Suite" parallel="tests" thread-count="2">
     <test name="Public_Module_Test">
         <classes>
-            <class name="regressiontest.frontendtest.BigRunnerTest">
+            <class name="com.seleniummaster.ecommercetest.regressiontest.frontendtest.FrontEndRunnerTest">
             </class>
         </classes>
     </test>
