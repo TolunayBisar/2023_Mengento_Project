@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
  * @created : 27.12.2023,00:44
  * @Email :tolunay.bisar@gmail.com
  **/
-public class CucumberMarketingModuleRunnerTest {
+
     @RunWith(Cucumber.class)
     @CucumberOptions(
 
@@ -35,4 +35,4 @@ public class CucumberMarketingModuleRunnerTest {
     }
 
 
-}
+

@@ -6,14 +6,14 @@ import org.junit.runner.RunWith;
 
 /**
  * @author : tolunaybisar
- * @created : 27.12.2023,00:44
+ * @created : 27.12.2023,00:45
  * @Email :tolunay.bisar@gmail.com
  **/
-public class CucumberReportingModuleRunnerTest {
+
     @RunWith(Cucumber.class)
     @CucumberOptions(
 
-            features = "classpath:features/reporting-module.feature  ",
+            features = "classpath:features/store-module.feature  ",
 
 
             plugin ={
@@ -30,9 +30,9 @@ public class CucumberReportingModuleRunnerTest {
 
 
 
-    public class CucumberReportingModuleTestRunner {
+    public class CucumberStoreModuleTestRunner {
 
     }
 
 
-}
+

@@ -9,11 +9,11 @@ import org.junit.runner.RunWith;
  * @created : 27.12.2023,00:44
  * @Email :tolunay.bisar@gmail.com
  **/
-public class CucumberCustomerModuleRunnerTest {
+
     @RunWith(Cucumber.class)
     @CucumberOptions(
 
-            features = "classpath:features/customer-module.feature  ",
+            features = "classpath:features/reporting-module.feature  ",
 
 
             plugin ={
@@ -30,9 +30,9 @@ public class CucumberCustomerModuleRunnerTest {
 
 
 
-    public class CucumberCustomerModuleTestRunner {
+    public class CucumberReportingModuleTestRunner {
 
     }
 
 
-}
+
