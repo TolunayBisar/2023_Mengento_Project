@@ -6,6 +6,7 @@ import basefunc.DataClassForDB;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import magentodatabase.VerifySQLNewlyAddedCreditMemo;
 import magentodatabase.VerifySQLScriptsNewPriceRule;
 import org.junit.Assert;
 
@@ -17,6 +18,7 @@ public class DatabaseStepDef {
     Connection connection;
     DataClassForDB dataClassForDB;
     VerifySQLScriptsNewPriceRule verifySQLScriptsNewPriceRule;
+    VerifySQLNewlyAddedCreditMemo verifySQLNewlyAddedCreditMemo;
 
 
 
@@ -32,7 +34,7 @@ public class DatabaseStepDef {
         connection = dbConnection.connectToDataBaseServer(dbUrl, dbPort, userName, password, dbName, ConnectionType.MYSQL);
         dataClassForDB = new DataClassForDB();
         verifySQLScriptsNewPriceRule = new VerifySQLScriptsNewPriceRule();
-
+verifySQLNewlyAddedCreditMemo = new VerifySQLNewlyAddedCreditMemo();
 
 
     }
@@ -52,4 +54,13 @@ public class DatabaseStepDef {
     }
 
 
+    @When("execute SQl query to get the new Credit Memo  information from the database")
+    public void executeSQlQueryToGetTheNewCreditMemoInformationFromTheDatabase() {
+        verifySQLNewlyAddedCreditMemo.verifySQLNewlyAddedCreditMemo(connection,"400000065-1");
+    }
+
+    @Then("the database should contain the newly added Credit Memo")
+    public void theDatabaseShouldContainTheNewlyAddedCreditMemo() {
+        Assert.assertTrue(verifySQLNewlyAddedCreditMemo.verifySQLNewlyAddedCreditMemo(connection,"400000065-1"));
+    }
 }

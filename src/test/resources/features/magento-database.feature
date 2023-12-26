@@ -11,3 +11,7 @@ Feature: Verify Magento Application By Database
     Given the manager has valid data base connection
     When  execute SQl query to get the new Cart Price Rule information from the database
     Then  the database should contain the newly added Cart Price Rule
+
+    Scenario: Verify newly added Credit Memo in database
+      When execute SQl query to get the new Credit Memo  information from the database
+      Then  the database should contain the newly added Credit Memo
