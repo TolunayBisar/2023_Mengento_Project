@@ -49,3 +49,5 @@ build/
 
 
 /DownloadableFile/
+/logs/main.log
+/test-output/

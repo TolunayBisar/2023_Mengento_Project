@@ -38,7 +38,7 @@ public class ApplicationConfig {
      * @Email : abdanna369@gmail.com
      **/
     public static class TestResultListener implements ITestListener {
-        Logger logger = new Logger();
+        Log4j log4j = new Log4j();
 
         @Override
         public void onTestStart(ITestResult result) {
@@ -49,7 +49,7 @@ public class ApplicationConfig {
         public void onTestSuccess(ITestResult result) {
             ITestListener.super.onTestSuccess(result);
             String testName = result.getTestName();
-            logger.info("PASSED");
+            log4j.info("PASSED");
 
         }
 
@@ -57,7 +57,7 @@ public class ApplicationConfig {
         public void onTestFailure(ITestResult result) {
             ITestListener.super.onTestFailure(result);
             String testFailCause = result.getTestName();
-            logger.error( "FAILD whith caous ");
+            log4j.error( "FAILD whith caous ");
         }
 
         @Override
