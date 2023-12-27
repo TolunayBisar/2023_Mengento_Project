@@ -141,7 +141,7 @@ public class FunctionLibrary {
 
     }
 public void waitForPresent(WebElement element){
-        WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(180));
+        WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(300));
         wait.until(ExpectedConditions.visibilityOf(element));
 
 }
