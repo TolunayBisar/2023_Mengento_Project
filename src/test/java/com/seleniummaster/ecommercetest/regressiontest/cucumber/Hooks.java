@@ -3,13 +3,11 @@ package com.seleniummaster.ecommercetest.regressiontest.cucumber;
 
 import com.seleniummaster.ecommercetest.basefunction_page.ApplicationConfig;
 import com.seleniummaster.ecommercetest.basefunction_page.BaseClass;
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
-import io.cucumber.java.Scenario;
+import io.cucumber.java.*;
 
 public class Hooks extends BaseClass {
     @Before
-    public void setup(Scenario scenario) {
+    public  void setup(Scenario scenario) {
         if(scenario.getSourceTagNames().contains("@UiTest")) {
             scenario.log("Begin with UI Automation Test");
 
@@ -24,7 +22,7 @@ public class Hooks extends BaseClass {
 
 
     @After
-    public void teardown(Scenario scenario){
+    public  void teardown(Scenario scenario){
         if(scenario.getSourceTagNames().contains("@UiTest")) {
             scenario.log("End with UI Automation Test");
             closeBrowser();

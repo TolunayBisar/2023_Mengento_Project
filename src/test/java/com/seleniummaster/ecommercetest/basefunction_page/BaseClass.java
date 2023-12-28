@@ -13,7 +13,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
  **/
 public class BaseClass {
     public static WebDriver driver;
-    public void setUpBrowser(String url) {
+    public  void setUpBrowser(String url) {
         ChromeOptions options = new ChromeOptions();
 
         if (SystemUtils.IS_OS_LINUX){
@@ -31,7 +31,7 @@ public class BaseClass {
         driver.get(url);
     }
 
-    public static void closeBrowser(){
+    public  void closeBrowser(){
         driver.close();
         driver.quit();
 

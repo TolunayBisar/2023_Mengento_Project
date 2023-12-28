@@ -1,5 +1,10 @@
 package com.seleniummaster.ecommercetest.regressiontest.cucumber;
 
+import com.seleniummaster.ecommercetest.basefunction_page.ApplicationConfig;
+import com.seleniummaster.ecommercetest.basefunction_page.BaseClass;
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
+import io.cucumber.java.Scenario;
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 import org.junit.runner.RunWith;
@@ -13,7 +18,7 @@ import org.junit.runner.RunWith;
     @RunWith(Cucumber.class)
     @CucumberOptions(
 
-            features = "classpath:features/customer-module.feature  ",
+            features = "classpath:features/customer-module.feature",
 
 
             plugin ={
@@ -31,6 +36,9 @@ import org.junit.runner.RunWith;
 
 
     public class CucumberCustomerModuleTestRunner {
+
+
+
 
     }
 
