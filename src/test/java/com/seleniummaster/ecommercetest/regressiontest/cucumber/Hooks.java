@@ -6,8 +6,8 @@ import com.seleniummaster.ecommercetest.basefunction_page.BaseClass;
 import io.cucumber.java.*;
 
 public class Hooks extends BaseClass {
-    @BeforeAll
-    public static void setup(Scenario scenario) {
+    @Before
+    public  void setup(Scenario scenario) {
         if(scenario.getSourceTagNames().contains("@UiTest")) {
             scenario.log("Begin with UI Automation Test");
 
@@ -21,8 +21,8 @@ public class Hooks extends BaseClass {
 
 
 
-    @AfterAll
-    public static void teardown(Scenario scenario){
+    @After
+    public  void teardown(Scenario scenario){
         if(scenario.getSourceTagNames().contains("@UiTest")) {
             scenario.log("End with UI Automation Test");
             closeBrowser();
