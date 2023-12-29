@@ -72,7 +72,7 @@ public class APTest {
         RestAssured.given().contentType(ContentType.JSON).
                 and().body(Payloads.customerPayload(customerID,attributeId,entityId,
                         customerName)).when().put("/customer").
-                then().assertThat().statusCode(200).extract().response();
+                then().assertThat().statusCode(200).extract().response().prettyPrint();
     }
 
     @Test(description = "as a Admin user should be able to add product ", priority = 4)
