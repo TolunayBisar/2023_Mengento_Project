@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
 
-        features = "classpath:features/catalog-module.feature  ",
+        features = "classpath:features/catalog-module.feature",
 
 
         plugin ={
