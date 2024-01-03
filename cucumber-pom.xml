@@ -252,12 +252,12 @@
                         </goals>
                     </execution>
                 </executions>
-                <configuration>
+<!--                <configuration>-->
 
-                    <suiteXmlFiles>
-                        <suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
-                    </suiteXmlFiles>
-                </configuration>
+<!--                    <suiteXmlFiles>-->
+<!--                        <suiteXmlFile>${suiteXmlFile}</suiteXmlFile>-->
+<!--                    </suiteXmlFiles>-->
+<!--                </configuration>-->
                 <dependencies>
                     <dependency>
                         <groupId>org.apache.maven.surefire</groupId>
@@ -272,6 +272,39 @@
 
 
     </build>
+
+    <profiles>
+        <profile>
+            <id>acceptance-tests</id>
+            <build>
+                <plugins>
+                    <!-- Cucumber Maven Plugin -->
+                    <plugin>
+                        <groupId>io.cucumber</groupId>
+                        <artifactId>cucumber-maven-plugin</artifactId>
+                        <version>7.14.0</version>
+                        <executions>
+                            <execution>
+                                <id>execute-cucumber</id>
+                                <phase>test</phase>
+                                <goals>
+                                    <goal>test</goal>
+                                </goals>
+                                <configuration>
+                                    <tags>--tags @ApiTest</tags>
+                                    <tags>--tags @DatabaseTest</tags>
+                                    <tags>--tags @UiTest</tags>
+                                    <featuresDirectory>src/test/resources/features</featuresDirectory>
+                                    <glue>src/test/java/com/seleniummaster/ecommercetest/regressiontest/cucumber/stepdefinations</glue>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
 
 
 </project>

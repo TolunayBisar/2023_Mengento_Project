@@ -1,4 +1,4 @@
-package com.seleniummaster.ecommercetest.regressiontest.cucumber;
+package com.seleniummaster.ecommercetest.regressiontest.cucumber.stepdefinations;
 
 import com.seleniummaster.ecommercetest.backend_page.customersmodule.ExportCustomersPage;
 import com.seleniummaster.ecommercetest.basefunction_page.BaseClass;
