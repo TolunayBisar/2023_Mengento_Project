@@ -294,8 +294,8 @@
                                     <tags>--tags @ApiTest</tags>
                                     <tags>--tags @DatabaseTest</tags>
                                     <tags>--tags @UiTest</tags>
-                                    <featuresDirectory>src/test/resources/features</featuresDirectory>
-                                    <glue>src/test/java/com/seleniummaster/ecommercetest/regressiontest/cucumber/stepdefinations</glue>
+                                    <featuresDirectory>src.test.resources.features</featuresDirectory>
+                                    <glue>src.test.java.com.seleniummaster.ecommercetest.regressiontest.cucumber.stepdefinations</glue>
                                 </configuration>
                             </execution>
                         </executions>
